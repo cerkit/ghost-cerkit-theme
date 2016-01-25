@@ -1,6 +1,3 @@
-var linkToBootstrapCDN = "//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/";
-var themeStyleCss = "/bootstrap.min.css";
-
 $(document).ready(function() {
 	
 	var selectedTheme = $.cookie('user-theme');
