@@ -50,7 +50,7 @@ To change the default theme for your site without modifying the source code, sim
 
 ```defaultTheme = 'cosmo';```
 
-*Note: when you change the theme via JavaScript code, a theme is loaded twice: once for the default site theme, and once for the theme chosen by the theme picker or the defaultTheme override. If you wish to permanently change your default theme, it is recommended that you alter the default.hbs source and change it there.*
+*Note: when you change the theme via JavaScript code, a theme is loaded twice: once for the default site theme, and once for the theme chosen by the theme picker or the `defaultTheme` override. If you wish to permanently change your default theme, it is recommended that you alter the default.hbs source and change it there.*
 
 ## Notes about custom JavaScript for the theme
 Custom features and JavaScript features all use variables defined in the [assets/js/bootstrap-extensions-init.js](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/assets/js/bootstrap-extensions-init.js) file.
