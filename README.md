@@ -40,18 +40,20 @@ The Ghost Cerkit Theme uses [CDN](https://en.wikipedia.org/wiki/Content_delivery
 By default, the Ghost Cerkit Theme uses the [Superhero](http://bootswatch.com/superhero/) Bootswatch theme.
 
 ## Theme Picker
-There is a theme selection control on the sidebar that allows the user to pick which theme they wish to display. To disable this theme picker on your site, simply add the following code within a script block in your Code Injection section in your site settings: `showThemeSelector = false;`
+There is a theme selection control on the sidebar that allows the user to pick which theme they wish to display. To disable this theme picker on your site, simply add the following code within a script block in your Code Injection section in your site settings: 
+
+```showThemeSelector = false;```
 
 The theme selector will store the selected theme in a cookie on the user's browser. It will then change the page to use their selected theme on each page load. It also provides a Theme Reset button that will return the site to its default theme.
 
-To change the default theme for your site without modifying the source code, simply add the following code in your Code Injection within a script block: `defaultTheme = 'cosmo';` (or any other bootswatch theme value).
+To change the default theme for your site without modifying the source code, simply add the following code in your Code Injection within a script block: 
+
+```defaultTheme = 'cosmo';```
 
 Note: when you change the theme via JavaScript code, a theme is loaded twice: once for the default site theme, and once for the theme chosen by the theme picker or the defaultTheme override. If you wish to permanently change your default theme, it is recommended that you alter the default.hbs source and change it there.
 
 ## Notes about custom JavaScript for the theme
 Custom features and JavaScript features all use variables defined in the [assets/js/bootstrap-extensions-init.js](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/assets/js/bootstrap-extensions-init.js) file.
-
-
 
 ## Copyright & License
 
