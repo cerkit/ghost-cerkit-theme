@@ -17,7 +17,7 @@
     {{! Styles'n'Scripts }}
     <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
-	<script type="text/javascript" src="{{asset "js/bootstrap-extensions-init.js"}}"></script>
+	<script type="text/javascript" src="{{asset "js/site-init.js"}}"></script>
 	
 	<!-- Bootstrap -->
 	<!-- Optional theme -->
@@ -50,8 +50,16 @@
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 	<!-- minified JavaScript for Bootstrap -->
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-	<script id="dsq-count-scr" src="//cerkit.disqus.com/count.js" async></script>
+	<script type="text/javascript">
+		// load the Disqus comment count script
+		$(document).ready(function(){
+			$.getScript('https://' + disqusSite + '.disqus.com/count.js', function() {
+				// do something after load if necessary...
+				//alert('loaded count:' + disqusSite);
+			});
+		});
+	</script>
+	
     {{! Ghost outputs important scripts and data with this tag }}
     {{ghost_foot}}
 

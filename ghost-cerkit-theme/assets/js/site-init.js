@@ -20,3 +20,9 @@ var linkToBootstrapCDN = "//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/";
 var themeStyleCss = "/bootstrap.min.css";
 var defaultTheme = 'superhero';
 var showThemeSelector = true;
+
+/************************************************************************************************
+* Disqus (comments system) variables
+************************************************************************************************/
+var disqusSite; // REQUIRED: Set your site name in the Code Injection header of your blog settings
+var disqusSource = '.disqus.com/embed.js';

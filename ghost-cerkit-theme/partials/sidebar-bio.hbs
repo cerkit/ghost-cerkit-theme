@@ -1,0 +1,22 @@
+{{#posts.[0].author}}
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		About
+	</div>
+	<div class="panel-body">
+		{{#if image}}
+		<img class="img-thumbnail" src="{{image}}" alt="{{name}}'s Picture" />
+		{{/if}}
+		<h2 class="author-title">{{name}}</h2>
+		{{#if bio}}
+			<div class="bio-container">
+				<h2 class="author-bio text-justify">{{bio}}</h2>
+			</div>
+		{{/if}}
+		<div class="author-meta">
+			{{#if location}}<span class="author-location icon-location"><a href="https://www.google.com/maps/place/{{location}}" aria-label="{{location}} map link" target="_locationMap">{{location}}</a></span>{{/if}}
+			{{#if website}}<span class="author-link icon-link"><a href="{{website}}">{{website}}</a></span>{{/if}}
+		</div>
+	</div>
+</div>
+{{/posts.[0].author}}
