@@ -26,6 +26,9 @@ In order to get the original pagination (which displays "Page 1 of X"), you will
 Otherwise, your site will display a pagination control with 3 pages on either side of an ellipses (indicating there are pages in between the first and last pages). To change the number of pages surrounding the ellipses,
 you will need to add the following within a script block: `numbersSurroundingEllipses = 5;` (or any other number).
 
+## Resource Loading
+The Ghost Cerkit Theme uses [CDN](https://en.wikipedia.org/wiki/Content_delivery_network)s whenever possible to eliminate the need to manually manage source files.
+
 ## Bootswatch Themes
 By default, the Ghost Cerkit Theme uses the [Superhero](http://bootswatch.com/superhero/) Bootswatch theme.
 
@@ -40,6 +43,8 @@ Note: when you change the theme via JavaScript code, a theme is loaded twice: on
 
 ## Notes about custom JavaScript for the theme
 Custom features and JavaScript features all use variables defined in the [assets/js/bootstrap-extensions-init.js](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/assets/js/bootstrap-extensions-init.js) file.
+
+
 
 ## Copyright & License
 
