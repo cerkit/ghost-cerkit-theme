@@ -1,4 +1,4 @@
-# Cerkit Ghost Theme (based on the default Casper theme)
+# Cerkit Ghost Theme
 
 Based on the default theme for [Ghost](http://github.com/tryghost/ghost/).
 
