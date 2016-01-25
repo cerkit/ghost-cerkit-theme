@@ -22,9 +22,14 @@ The Pagination for the Casper theme has been replaced by Bootstrap pagination.
 *The default Casper theme that this theme is based on utilizes meta tags for next and previous navigation, as well as other SEO support, so the lack of static HTML pagination may not be an issue overall.*
 
 There are a few different customizations supported for the pagination control.
-In order to get the original pagination (which displays "Page 1 of X"), you will need to add the following code to your Code Injection in site settings (within a script block): `useSimplePagination = true;`.
+In order to get the original pagination (which displays `Page 1 of X`), you will need to add the following code to your Code Injection in site settings (within a script block):
+
+```useSimplePagination = true;```
+
 Otherwise, your site will display a pagination control with 3 pages on either side of an ellipses (indicating there are pages in between the first and last pages). To change the number of pages surrounding the ellipses,
-you will need to add the following within a script block: `numbersSurroundingEllipses = 5;` (or any other number).
+you will need to add the following within a script block: 
+
+```numbersSurroundingEllipses = 5;```
 
 If this value is set to -1 then it will display all page numbers on the control.
 
