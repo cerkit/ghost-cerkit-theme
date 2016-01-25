@@ -44,7 +44,6 @@ function doSimplePagination() {
 function doComplexPagination() {
 	// if numbersSurroundingEllipses is < 0 (-1 is the preferred value for this use case), then we need to reset it to max pages so we'll show all pages
 	if (numbersSurroundingEllipses < 0) {
-		
 		numbersSurroundingEllipses = pages;
 	}
 	else if (numbersSurroundingEllipses < 2) {

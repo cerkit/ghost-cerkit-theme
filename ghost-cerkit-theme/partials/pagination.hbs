@@ -5,35 +5,6 @@ pagination.hbs - bootstrap compliant pagination
 
 This pagination module requires that bootstrap-pagination.js is included (below jQuery) in the header of
 your default page.
-
-The variables need to be defined in the header of the page. Open up default.hbs and add the following:
-
- <script type="text/javascript">
-     // define the vars we'll use later (the pagination will set the values multiple times...)
-     var prev;
-     var pages;
-     var page;
-     var next;
-     var numbersSurroundingEllipses = 3; // override this in the Settings->Code Injection if desired
-     var pageUrlPrev;
-     var pageUrlNext;
- </script>
-
-It is possible to override how manay numbers are before and after the ellipses by changeing the 
-value of the numbersSurroundingEllipses variable in the Settings->Code Injection in the header.
-
-Here is an example:
-
- <script type="text/javascript">
-     numbersSurroundingEllipses = 5;
- </script>
-
-If this value is set to -1, then all page numbers will be displayed on the pagination component:
-
- <script type="text/javascript">
-     // show all page numbers
-     numbersSurroundingEllipses = -1;
- </script>
 }}
 {{!information required by pagination}}
 <script type="text/javascript">

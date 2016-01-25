@@ -26,6 +26,8 @@ In order to get the original pagination (which displays "Page 1 of X"), you will
 Otherwise, your site will display a pagination control with 3 pages on either side of an ellipses (indicating there are pages in between the first and last pages). To change the number of pages surrounding the ellipses,
 you will need to add the following within a script block: `numbersSurroundingEllipses = 5;` (or any other number).
 
+If this value is set to -1 then it will display all page numbers on the control.
+
 ## Resource Loading
 The Ghost Cerkit Theme uses [CDN](https://en.wikipedia.org/wiki/Content_delivery_network)s whenever possible to eliminate the need to manually manage source files.
 
