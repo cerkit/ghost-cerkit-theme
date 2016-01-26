@@ -52,6 +52,16 @@ To change the default theme for your site without modifying the source code, sim
 
 *Note: when you change the theme via JavaScript code, a theme is loaded twice: once for the default site theme, and once for the theme chosen by the theme picker or the `defaultTheme` override. If you wish to permanently change your default theme, it is recommended that you alter the default.hbs source and change it there.*
 
+## Disqus Comments
+
+The site utilizes Disqus for comments. You will need to follow the instruction on the [Ghost website](http://support.ghost.org/add-disqus-to-my-ghost-blog/) on how to set up Disqus.
+
+In order for this to work, you will need to add code to the header (in Code Injection on your site's settings page):
+
+```disqusSite = 'cerkit';```
+
+Replace 'cerkit' with the short name for your Disqus forum. 
+
 ## Notes about custom JavaScript for the theme
 Custom features and JavaScript features all use variables defined in the [assets/js/bootstrap-extensions-init.js](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/assets/js/bootstrap-extensions-init.js) file.
 
