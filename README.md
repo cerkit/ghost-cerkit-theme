@@ -63,7 +63,7 @@ In order for this to work, you will need to add code to the header (in Code Inje
 Replace 'cerkit' with the short name for your Disqus forum. 
 
 ## Notes about custom JavaScript for the theme
-Custom features and JavaScript features all use variables defined in the [assets/js/bootstrap-extensions-init.js](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/assets/js/bootstrap-extensions-init.js) file.
+Custom features and JavaScript features all use variables defined in the [assets/js/site-init.js](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/assets/js/site-init.js) file.
 
 ## Copyright & License
 
