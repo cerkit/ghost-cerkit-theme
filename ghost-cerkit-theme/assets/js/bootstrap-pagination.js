@@ -26,7 +26,7 @@ $(document).ready(function() {
 	// if we have pages after this one, display the 'next' buttons
 	if (next > 0) {
 		$('.bootstrap-pagination').append('<li class="nxt"><a href="' + pageUrlNext + '" title="Go to next page" aria-label="Next"><span aria-hidden="true"><i class="fa fa-angle-right"></i></span></a></li>');
-		$('ul.bootstrap-pagination').append('<li class="prev"><a href="' + pageUrlLast + '" title="Go to last page" aria-label="Last"><span aria-hidden="true"><i class="fa fa-angle-double-right"></i></i></span></a></li>');
+		$('ul.bootstrap-pagination').append('<li class="nxt"><a href="' + pageUrlLast + '" title="Go to last page" aria-label="Last"><span aria-hidden="true"><i class="fa fa-angle-double-right"></i></i></span></a></li>');
 	}
 });
 
