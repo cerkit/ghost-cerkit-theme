@@ -30,6 +30,9 @@ function changeTheme(selectedTheme) {
 		if ($(this).val() === selectedTheme) {
 			$(this).attr('selected','true');
 		}
+		else {
+			$(this).removeAttr('selected');
+		}
 	});
 	
 	var completeCssLink = linkToBootstrapCDN + selectedTheme + themeStyleCss;
