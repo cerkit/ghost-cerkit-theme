@@ -6,7 +6,7 @@ $(document).ready(function() {
 		changeTheme(selectedTheme);
 	}
 	else {
-		changeTheme(defaultTheme);
+		setSelectedOption(defaultTheme);
 	}
 	
 	$(document).on('change', '#theme-selector', function(e) {
@@ -26,14 +26,7 @@ function setTheme(theme) {
 }
 
 function changeTheme(selectedTheme) {
-	$("#theme-selector option").each(function() {
-		if ($(this).val() === selectedTheme) {
-			$(this).attr('selected','true');
-		}
-		else {
-			$(this).removeAttr('selected');
-		}
-	});
+	setSelectedOption(selectedTheme);
 	
 	var completeCssLink = linkToBootstrapCDN + selectedTheme + themeStyleCss;
 	$('link#bootstrap-theme').attr('href', completeCssLink);
@@ -42,4 +35,15 @@ function changeTheme(selectedTheme) {
 function clearTheme() {
 	$.removeCookie('user-theme', { path: '/' });
 	changeTheme(defaultTheme);
+}
+
+function setSelectedOption(selectedTheme) {
+	$("#theme-selector option").each(function() {
+		if ($(this).val() === selectedTheme) {
+			$(this).attr('selected','true');
+		}
+		else {
+			$(this).removeAttr('selected');
+		}
+	});
 }
