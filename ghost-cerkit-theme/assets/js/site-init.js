@@ -21,8 +21,10 @@ var themeStyleCss = "/bootstrap.min.css";
 var defaultTheme = 'superhero';
 var showThemeSelector = true;
 
-/************************************************************************************************
-* Disqus (comments system) variables
-************************************************************************************************/
-var disqusSite; // REQUIRED: Set your site name in the Code Injection header of your blog settings
-var disqusSource = '.disqus.com/embed.js';
+$(document).ready(function(){
+	$('.post-comment-link-button').each(function(e){
+		$(this).click(function(){
+			window.location.href = $(this).children(0).attr('href');
+		});
+	});
+});

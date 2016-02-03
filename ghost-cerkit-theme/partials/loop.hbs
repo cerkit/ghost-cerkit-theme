@@ -1,18 +1,44 @@
 {{! This is the post loop - each post will be output using this markup }}
 {{#foreach posts}}
 <article class="{{post_class}}">
-    <header class="post-header">
-        <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>{{excerpt words="26"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
-    </section>
-    <footer class="post-meta">
-        {{#if author.image}}<img class="author-thumb" src="{{author.image}}" alt="{{author.name}}" nopin="nopin" />{{/if}}
-        {{author}}
-        {{tags prefix=" on "}}
-        <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
-		<a href="{{url}}#disqus_thread">Comments</a>
-    </footer>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<header class="post-header">
+				<h2 class="panel-title"><a href="{{url}}">{{{title}}}</a></h2>
+			</header>
+		</div>
+		<div class="panel-body">
+			<section class="post-excerpt">
+				<p>{{excerpt words="26"}}&#8230;&nbsp;&nbsp; <a class="btn btn-primary" href="{{url}}" title="Read More"><i class="fa fa-2x fa-angle-double-right"></i></a></p>
+			</section>
+			<footer>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Post Details
+					</div>
+					<div class="panel-body">
+						{{#author}}
+							<a href="{{url}}" class="btn btn-success" title="{{name}}" aria-label="Link to {{name}}'s page">{{#if image}}<img class="author-thumb" src="{{image}}" alt="{{name}}" nopin="nopin" />&nbsp;{{/if}}{{name}}</a>
+							&nbsp;
+							<time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+						{{/author}}
+						<br />
+						<br />
+						{{#if tags}}
+							{{#foreach tags}}
+								<a href="{{url}}" title="{{name}}" class="tag-{{id}} btn btn-primary">{{name}}</a>
+								&nbsp;
+							{{/foreach}}
+							<br />
+							<br />
+						{{/if}}
+						<button class="btn btn-success post-comment-link-button">
+							Comments <a href="{{url}}#disqus_thread" id="comment-{{id}}" data-disqus-identifier="{{id}}" class="badge"></a>
+						</button>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
 </article>
 {{/foreach}}

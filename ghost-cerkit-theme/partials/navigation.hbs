@@ -3,7 +3,7 @@
     <a href="#" class="nav-close">
         <span class="hidden">Close</span>
     </a>
-    <ul>
+    <ul class="nav nav-pills nav-stacked span2">
         {{#foreach navigation}}
             <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}" role="presentation"><a href="{{url absolute="true"}}">{{label}}</a></li>
         {{/foreach}}

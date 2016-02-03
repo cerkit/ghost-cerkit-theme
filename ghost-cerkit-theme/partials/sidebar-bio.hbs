@@ -14,7 +14,7 @@
 			</div>
 		{{/if}}
 		<div class="author-meta center-block sidebar-meta">
-			{{#if location}}<p><i class="fa fa-map-marker"></i> <small>{{location}} <a href="https://www.google.com/maps/place/{{ location }}" aria-label="{{location}} map link" target="locationMap">(map)</a></small></p>{{/if}}
+			{{#if location}}<p><i class="fa fa-map-marker"></i> <small>{{location}} <a href="https://www.google.com/maps/place/{{ encode location }}" aria-label="{{location}} map link" target="locationMap">(map)</a></small></p>{{/if}}
 			{{#if website}}<p><i class="fa fa-link"></i> <small><a href="{{website}}">{{website}}</a></small></p>{{/if}}
 		</div>
 	</div>

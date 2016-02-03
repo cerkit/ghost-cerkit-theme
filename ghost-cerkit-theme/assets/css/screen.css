@@ -136,7 +136,7 @@ html {
     font-size: 62.5%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
+/*
 body {
     height: 100%;
     max-height: 100%;
@@ -150,7 +150,7 @@ body {
     -o-font-feature-settings: 'kern' 1;
     text-rendering: geometricPrecision;
 }
-
+*/
 ::-moz-selection {
     background: #D6EDFF;
 }
@@ -407,6 +407,7 @@ body.nav-opened .nav {
     counter-reset: item;
 }
 
+/*
 .nav li:before {
     display: block;
     float: right;
@@ -419,6 +420,7 @@ body.nav-opened .nav {
     content: counter(item, lower-roman);
     counter-increment: item;
 }
+
 .nav li {
     margin: 0;
 }
@@ -459,7 +461,7 @@ body.nav-opened .nav {
 .nav a:focus {
     color: #fff;
 }
-
+*/
 .subscribe-button {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -689,18 +691,20 @@ body.nav-opened .nav {
 }
 
 /* Every post, on every page, gets this style on its <article> tag */
+/*
 .post {
     position: relative;
-    /*width: 80%;
-    max-width: 710px;*/
+    width: 80%;
+    max-width: 710px;
     margin: 4rem auto;
     padding-bottom: 4rem;
     border-bottom: #EBF2F6 1px solid;
     word-wrap: break-word;
 }
-
+*/
 /* Add a little circle in the middle of the border-bottom on our .post
    just for the lolz and stylepoints. */
+   /*
 .post:after {
     display: block;
     content: "";
@@ -715,6 +719,7 @@ body.nav-opened .nav {
     border-radius: 100%;
     box-shadow: #FFF 0 0 0 5px;
 }
+*/
 
 body:not(.post-template) .post-title {
     font-size: 3.6rem;
@@ -723,17 +728,18 @@ body:not(.post-template) .post-title {
 .post-title a {
     text-decoration: none;
 }
-
+/*
 .post-excerpt p {
     margin: 0;
     font-size: 0.9em;
     line-height: 1.7em;
 }
+*/
 
 .read-more {
     text-decoration: none;
 }
-
+/*
 .post-meta {
     display: block;
     margin: 1.75rem 0 0 0;
@@ -742,7 +748,7 @@ body:not(.post-template) .post-title {
     line-height: 2.2rem;
     color: #9EABB3;
 }
-
+*/
 .author-thumb {
     width: 24px;
     height: 24px;
@@ -765,7 +771,7 @@ body:not(.post-template) .post-title {
     padding: 0.3rem 40px 0 100px;
     min-height: 77px;
 }
-
+/*
 .post-date {
     display: inline-block;
     margin-left: 8px;
@@ -775,7 +781,7 @@ body:not(.post-template) .post-title {
     font-size: 1.3rem;
     white-space: nowrap;
 }
-
+*/
 .user-image {
     position: absolute;
     top: 0;
@@ -921,13 +927,14 @@ body:not(.post-template) .post-title {
     font-style: italic;
     color: #9EABB3;
 }
-
+/*
 .author-meta a {
     color: #9EABB3;
 }
 .author-meta a:hover {
     color: #111;
 }
+*/
 
 /* Create some space to the right for the share links */
 .post-footer .author {
@@ -1316,12 +1323,16 @@ body:not(.post-template) .post-title {
     border-color: #98a0a4;
 }
 */
+
+
 .extra-pagination {
     display: none;
-    border-bottom: #EBF2F6 1px solid;
+    /*border-bottom: #EBF2F6 1px solid;*/
 }
 
+
 /* line under the top pagination component */
+/*
 .extra-pagination:after {
     display: block;
     content: "";
@@ -1336,6 +1347,7 @@ body:not(.post-template) .post-title {
     border-radius: 100%;
     box-shadow: #FFF 0 0 0 5px;
 }
+*/
 /*
 .extra-pagination .pagination {
     width: auto;
