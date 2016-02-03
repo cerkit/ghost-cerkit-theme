@@ -22,9 +22,11 @@ var defaultTheme = 'superhero';
 var showThemeSelector = true;
 
 $(document).ready(function(){
+	/*
 	$('.post-comment-link-button').each(function(e){
 		$(this).click(function(){
-			window.location.href = $(this).children(0).attr('href');
+			window.location.href = $(this).children('a').attr('href');
 		});
 	});
+	*/
 });

@@ -7,12 +7,6 @@
 {{! Everything inside the #author tags pulls data from the author }}
 {{#author}}
 <header class="main-header author-head {{#if cover}}" style="background-image: url({{cover}}){{else}}no-cover{{/if}}">
-	<nav class="main-nav overlay clearfix">
-		{{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" title="Navigate to home page" aria-label="Navigate to home page" /></a>{{/if}}
-		{{#if @blog.navigation}}
-			<a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-		{{/if}}
-	</nav>
 </header>
 <div class="row">
 	<div id="sidebar-container" class="col-md-4">
@@ -20,22 +14,12 @@
 	</div> <!-- .col-md-4 -->
 
 	<div class="col-md-8">
-		<section class="author-profile inner">
-			{{#if image}}
-			<img class="img-circle author-image" src="{{image}}" alt="{{name}}'s Picture" />
-			{{/if}}
-			<h1 class="author-title">{{name}}</h1>
-			{{#if bio}}
-				<div class="bio-container">
-					<h2 class="author-bio text-justify">{{bio}}</h2>
-				</div>
-			{{/if}}
-			<div class="author-meta">
-				{{#if location}}<span class="author-location icon-location"><a href="https://www.google.com/maps/place/{{ encode location}}" aria-label="{{location}} map link" target="_locationMap">{{location}}</a></span>{{/if}}
-				{{#if website}}<span class="author-link icon-link"><a href="{{website}}">{{website}}</a></span>{{/if}}
-				<span class="author-stats"><i class="icon-stats"></i> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
+		{{> "bio-panel"}}
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<span class="author-stats text-center"><i class="icon-stats"></i> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
 			</div>
-		</section>
+		</di>
 	</div> <!-- .col-md-8 -->
 </div> <!-- .row -->
 <div class="row">

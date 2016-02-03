@@ -7,16 +7,8 @@
 {{#post}}
 
 <header class="main-header post-head {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}">
-    <nav class="main-nav {{#if image}}overlay{{/if}} clearfix">
-        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" title="Navigate to home page" aria-label="Navigate to home page"/></a>{{/if}}
-        {{#if @blog.navigation}}
-            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-        {{/if}}
-    </nav>
 </header>
-
 <main class="content" role="main">
-	
 	<div class="row">
 		<div id="sidebar-container" class="col-md-4">
 			{{> "sidebar"}}
@@ -35,54 +27,45 @@
 			</article>
 		</div> <!-- .col-md-8 -->
 	</div> <!-- .row -->
+	{{! Everything inside the #author tags pulls data from the author }}
+
+	{{#if image}}
+	<a class="img-thumbnail " href="{{url}}" style="background-image: url({{image}})"><img class="author-image" src="{{image}}" alt="{{name}}'s Picture" /></a>
+	{{/if}}
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-6 col-md-offset-3">
 			<footer class="post-footer">
-
-				{{! Everything inside the #author tags pulls data from the author }}
-				{{#author}}
-
-				{{#if image}}
-				<a class="img" href="{{url}}" style="background-image: url({{image}})"><img class="author-image" src="{{image}}" alt="{{name}}'s Picture" /></a>
-				{{/if}}
-				<section class="author">
-					<h4><a href="{{url}}">{{name}}</a></h4>
-
-					{{#if bio}}
-						<p>{{bio}}</p>
-					{{else}}
-						<p>Read <a href="{{url}}">more posts</a> by this author.</p>
-					{{/if}}
-					<div class="author-meta">
-						{{#if location}}<span class="author-location icon-location">{{location}} <a href="https://www.google.com/maps/place/{{location}}" aria-label="{{location}} map link" target="_locationMap">(map)</a></span>{{/if}}
-						{{#if website}}<span class="author-link icon-link"><a href="{{website}}">{{website}}</a></span>{{/if}}
-					</div>
-				</section>
-
-				{{/author}}
-
-				<section class="share">
-					<h4>Share this post</h4>
-					<a class="icon-twitter" href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}"
-						onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-						<span class="hidden">Twitter</span>
-					</a>
-					<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
-						onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-						<span class="hidden">Facebook</span>
-					</a>
-					<a class="icon-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
-					   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-						<span class="hidden">Google+</span>
-					</a>
-				</section>
-
-				<section class="comments">
+				<div class="panel panel-default share">
+					<div class="panel-heading">
+						<h4 class="panel-title">Share this post</h4>
+					</div> <!-- .panel-heading (share) -->
+					<div class="panel-body">
+						<a class="icon-twitter" href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}"
+							onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+							<span class="hidden">Twitter</span>
+						</a>
+						<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+							onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+							<span class="hidden">Facebook</span>
+						</a>
+						<a class="icon-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
+						   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+							<span class="hidden">Google+</span>
+						</a>
+					</div> <!-- .panel-body (share) -->
+				</div> <!-- .panel (share) -->
+			</footer>
+		</div> <!-- .col-md-6 -->
+	</div> <!-- .row -->
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-default">
+				<div class="panel-body">
 					<div id="disqus_thread"></div>
 					<script>						
 						var disqus_config = function () {
-						this.page.url = "{{url absolute="true"}}"; 
-						this.page.identifier = {{id}};
+						this.page.url = "{{url}}"; 
+						this.page.identifier = '{{id}}';
 						};
 						
 						(function() { // DON'T EDIT BELOW THIS LINE
@@ -95,12 +78,11 @@
 						})();
 					</script>
 					<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-				</section>
-			</footer>
-		</div> <!-- .col-md-12 -->
-	</div> <!-- .row -->	
+				</div> <!-- .panel-body (comments) -->
+			</div> <!-- comment panel -->
+		</div> <!-- .col-md-6 -->
+	</div> <!-- .row -->
 </main>
-
 <aside class="read-next">
     {{#next_post}}
     <a class="read-next-story {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">

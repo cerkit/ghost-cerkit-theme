@@ -1,13 +1,31 @@
-<div class="nav">
-    <h3 class="nav-title">Menu</h3>
-    <a href="#" class="nav-close">
-        <span class="hidden">Close</span>
-    </a>
-    <ul class="nav nav-pills nav-stacked span2">
-        {{#foreach navigation}}
-            <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}" role="presentation"><a href="{{url absolute="true"}}">{{label}}</a></li>
-        {{/foreach}}
-    </ul>
-    <a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
-</div>
-<span class="nav-cover"></span>
+<nav class="navbar navbar-fixed-top navbar-inverse">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#ghost-menu-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			{{#if @blog.logo}}
+			<a class="blog-logo navbar-brand" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" title="Navigate to home page" aria-label="Navigate to home page" /></a>
+			{{else}}
+			<a class="navbar-brand" href="{{@blog.url}}">{{@blog.title}}</a>
+			{{/if}}
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		{{#if navigation}}
+		<div class="collapse navbar-collapse" id="ghost-menu-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				{{#foreach navigation}}
+				<li class="nav-{{slug}}{{#if current}} active{{/if}}" role="presentation"><a href="{{url absolute="true"}}" aria-label="{{label}}">{{label}}</a></li>
+				{{/foreach}}
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="{{@blog.url}}/rss/" class="btn btn-primary navbar-btn"><i class="fa fa-fw fa-lg fa-rss"></i>&nbsp;&nbsp;Subscribe</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+		{{/if}}
+	</div><!-- /.container-fluid -->
+</nav>

@@ -6,7 +6,7 @@
 			<header class="post-header">
 				<h2 class="panel-title"><a href="{{url}}">{{{title}}}</a></h2>
 			</header>
-		</div>
+		</div> <!-- .panel-heading (main panel) -->
 		<div class="panel-body">
 			<section class="post-excerpt">
 				<p>{{excerpt words="26"}}&#8230;&nbsp;&nbsp; <a class="btn btn-primary" href="{{url}}" title="Read More"><i class="fa fa-2x fa-angle-double-right"></i></a></p>
@@ -15,30 +15,29 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						Post Details
-					</div>
+					</div> <!-- .panel-heading (inner panel) -->
 					<div class="panel-body">
 						{{#author}}
 							<a href="{{url}}" class="btn btn-success" title="{{name}}" aria-label="Link to {{name}}'s page">{{#if image}}<img class="author-thumb" src="{{image}}" alt="{{name}}" nopin="nopin" />&nbsp;{{/if}}{{name}}</a>
 							&nbsp;
-							<time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+							<i class="fa fa-lg fa-fw fa-calendar"></i>&nbsp;<time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
 						{{/author}}
 						<br />
 						<br />
 						{{#if tags}}
 							{{#foreach tags}}
-								<a href="{{url}}" title="{{name}}" class="tag-{{id}} btn btn-primary">{{name}}</a>
-								&nbsp;
+								<a href="{{url}}" title="{{name}}" class="tag-button tag-{{id}} btn btn-primary"><i class="fa fa-fw fa-tag"></i>&nbsp;{{name}}</a>
 							{{/foreach}}
 							<br />
 							<br />
 						{{/if}}
-						<button class="btn btn-success post-comment-link-button">
-							Comments <a href="{{url}}#disqus_thread" id="comment-{{id}}" data-disqus-identifier="{{id}}" class="badge"></a>
+						<button class="btn btn-success" onclick="window.location.href='{{url}}#disqus_thread'">
+							<i class="fa fa-flip-horizontal fa-fw fa-comment"></i>&nbsp;&nbsp;Comments <span data-disqus-identifier="{{id}}" class="disqus-comment-count badge"></span>
 						</button>
-					</div>
-				</div>
+					</div> <!-- .panel-body (inner panel) -->
+				</div> <!-- .panel (inner panel) -->
 			</footer>
-		</div>
-	</div>
+		</div> <!-- .panel-body (main panel)-->
+	</div> <!-- .panel (main panel) -->
 </article>
 {{/foreach}}

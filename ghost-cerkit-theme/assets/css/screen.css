@@ -28,7 +28,7 @@
 article, aside, details,
 figcaption, figure,
 footer, header, hgroup,
-main, nav, section,
+main, section,
 summary { display: block; }
 audio, canvas, video { display: inline-block; }
 audio:not([controls]) { display: none; height: 0; }
@@ -129,13 +129,14 @@ q { quotes: "\201C" "\201D" "\2018" "\2019"; }
 /* ==========================================================================
    2. General - Setting up some base styles
    ========================================================================== */
-
+/*
 html {
     height: 100%;
     max-height: 100%;
     font-size: 62.5%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+*/
 /*
 body {
     height: 100%;
@@ -303,6 +304,7 @@ body.nav-opened .site-wrapper {
 }
 
 /* Navigation */
+/*
 body.nav-opened .nav-cover {
     position: fixed;
     top: 0;
@@ -312,7 +314,7 @@ body.nav-opened .nav-cover {
     z-index: 200;
 }
 
-.nav {
+.ghost-nav {
     position: fixed;
     top: 0;
     right: 0;
@@ -330,13 +332,13 @@ body.nav-opened .nav-cover {
                         opacity 0.3s ease 0.7s;
 }
 
-body.nav-closed .nav {
+body.nav-closed .ghost-nav {
     -webkit-transform: translate3D(97px, 0, 0);
         -ms-transform: translate3D(97px, 0, 0);
             transform: translate3D(97px, 0, 0);
 }
 
-body.nav-opened .nav {
+body.nav-opened .ghost-nav {
     opacity: 1;
     -webkit-transition: -webkit-transform 0.3s ease,
                         opacity 0s ease 0s;
@@ -346,7 +348,8 @@ body.nav-opened .nav {
         -ms-transform: translate3D(0, 0, 0);
             transform: translate3D(0, 0, 0);
 }
-
+*/
+/*
 .nav-title {
     position: absolute;
     top: 45px;
@@ -406,6 +409,7 @@ body.nav-opened .nav {
     list-style: none;
     counter-reset: item;
 }
+*/
 
 /*
 .nav li:before {
@@ -621,6 +625,7 @@ body.nav-opened .nav {
         -ms-transform: translate3D(94px, 0, 0);
             transform: translate3D(94px, 0, 0);
     transition: all 0.3s ease;
+	z-index: 250;
 }
 
 .nav-opened .menu-button .word {
@@ -955,9 +960,10 @@ body:not(.post-template) .post-title {
    to be flexible at smaller screen sizes while the share
    links remain at a fixed width the whole time */
 .post-footer .share {
-    position: absolute;
+    /* position: absolute;
     top: 6rem;
     right: 0;
+	*/
     width: 140px;
 }
 
@@ -1012,14 +1018,16 @@ body:not(.post-template) .post-title {
     background: transparent;
 }
 
+
 .author-profile {
 	width: 100%;
     padding: 0 15px 5rem 15px;
-    border-bottom: #EBF2F6 1px solid;
     text-align: center;
 }
 
+
 /* Add a little circle in the middle of the border-bottom */
+/*
 .author-profile:after {
     display: block;
     content: "";
@@ -1034,7 +1042,7 @@ body:not(.post-template) .post-title {
     border-radius: 100%;
     box-shadow: #FFF 0 0 0 5px;
 }
-
+*/
 .author-image {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -1071,7 +1079,7 @@ body:not(.post-template) .post-title {
     width: 120px;
     height: 120px;
     padding: 3px;
-    /*margin: -100px auto 0 auto;*/
+    margin: -100px auto 0 auto;
 	margin: 0px auto 0 auto;
     box-shadow: none;
 }
@@ -1095,12 +1103,14 @@ body:not(.post-template) .post-title {
     margin: 1.6rem 0;
 }
 /* Location, website, and link */
+/*
 .author-profile .author-meta {
     margin: 2rem 0;
     font-family: "Merriweather", serif;
     letter-spacing: 0.01rem;
     font-size: 1.7rem;
 }
+
 .author-meta span {
     display: inline-block;
     margin: 0 2rem 1rem 0;
@@ -1109,6 +1119,8 @@ body:not(.post-template) .post-title {
 .author-meta a {
     text-decoration: none;
 }
+
+*/
 
 /* Turn off meta for page2+ to make room for extra
    pagination prev/next links */
@@ -1618,11 +1630,11 @@ body:not(.post-template) .post-title {
         position: absolute;
         top: 18px;
     }
-
-    .nav ul {
+/*
+    .ghost-nav ul {
         padding: 60px 9% 5%;
     }
-
+*/
 	/*
     .inner,
     .pagination {
@@ -1630,7 +1642,7 @@ body:not(.post-template) .post-title {
         margin: 2rem auto;
     }
 	*/
-	
+/*	
     .post {
         width: auto;
         margin-top: 2rem;
@@ -1716,9 +1728,10 @@ body:not(.post-template) .post-title {
     .post-content img {
         padding: 0;
         width: calc(100% + 32px); /* expand with to image + margins */
-        min-width: 0;
+ /*       
+		min-width: 0;
         max-width: 112%; /* fallback when calc doesn't work */
-    }
+/*    }
 
     .post-meta {
         font-size: 1.3rem;
@@ -1733,6 +1746,7 @@ body:not(.post-template) .post-title {
     .post-footer .author {
         margin: 0 0 2rem 0;
         padding: 0 0 1.6rem 0;
+		max-width: 350px;
         border-bottom: #EBF2F6 1px dashed;
     }
 
@@ -1804,7 +1818,7 @@ body:not(.post-template) .post-title {
     }
 
 }
-
+*/
 
 /* ==========================================================================
    13. Animations
