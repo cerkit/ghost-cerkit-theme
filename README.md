@@ -112,7 +112,7 @@ For a div to be moved to the sidebar, it merely needs to add the `sidebar-compon
         </div>
     </div>
 
-When the document ready handler fires, it will move everything on the page to the Sidebar Component Container element:
+When the document ready handler fires, it will move everything on the page to the `sidebar-component-container` element:
 
     $(document).ready(function () {
         // move items to the sidebar
