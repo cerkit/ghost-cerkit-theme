@@ -112,7 +112,14 @@ For a div to be moved to the sidebar, it merely needs to add the `sidebar-compon
         </div>
     </div>
 
-When the document ready handler fires, it will move everything on the page to the Sidebar Component Container element.
+When the document ready handler fires, it will move everything on the page to the Sidebar Component Container element:
+
+    $(document).ready(function () {
+        // move items to the sidebar
+        $('.sidebar-component').each(function () {
+            $(this).detach().appendTo($('#sidebar-component-container'));
+        });
+    });
 	
 ## Notes about custom JavaScript for the theme
 Custom features and JavaScript features all use variables defined in the [assets/js/site-init.js](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/assets/js/site-init.js) file.

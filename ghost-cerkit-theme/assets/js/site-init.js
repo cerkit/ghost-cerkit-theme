@@ -24,7 +24,7 @@ var showThemeSelector = true;
 $(document).ready(function () {
 
     // move items to the sidebar
-    $('.move-to-sidebar').each(function () {
+    $('.sidebar-component').each(function () {
         $(this).detach().appendTo($('#sidebar-component-container'));
     });
 });
