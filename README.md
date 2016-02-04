@@ -11,6 +11,8 @@ There are a few features that have been added to the theme, such as:
 - [Bootstrap Pagination](http://getbootstrap.com/components/#pagination)
 - [Bootswatch Themes](http://bootswatch.com/)
 - Theme Picker
+- Disqus Comments
+- Sidebar
 
 
 ## Bootstrap Pagination
@@ -56,14 +58,22 @@ To change the default theme for your site without modifying the source code, sim
 
 The site utilizes Disqus for comments. You will need to follow the instruction on the [Ghost website](http://support.ghost.org/add-disqus-to-my-ghost-blog/) on how to set up Disqus.
 
+*Note: The following setting is not currently supported. This will be fixed in a future release. For now, please modify the default.hbs file and change the link to the Disqus script to use your short name.
+
 In order for this to work, you will need to add code to the header (in Code Injection on your site's settings page):
 
 ```disqusSite = 'cerkit';```
 
 Replace 'cerkit' with the short name for your Disqus forum. 
 
+## Sidebar
+This theme makes use of a sidebar partial.
+
 ## Notes about custom JavaScript for the theme
 Custom features and JavaScript features all use variables defined in the [assets/js/site-init.js](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/assets/js/site-init.js) file.
+
+## Minification
+Each of the scripts and css files are minified. If you make changes to the originals, make sure to save a [filename].min.[file-extension] version.
 
 ## Copyright & License
 

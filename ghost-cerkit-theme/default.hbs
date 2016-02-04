@@ -33,7 +33,7 @@
     </div>
 	
 	<!-- Bootstrap -->
-	<link id="bootstrap-theme" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cyborg/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous" />
+	<link id="bootstrap-theme" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/simplex/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous" />
 	<!-- Fontawesome -->
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	
@@ -42,24 +42,24 @@
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 	
 	<!-- theme specific css -->
-	<link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset "css/screen.min.css"}}" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
 	
 	<!-- minified JavaScript for Bootstrap -->
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	
 	<!-- site specific javascript (needs to load before footer so that variables can be overridden in footer code injection) -->
-	<script type="text/javascript" src="{{asset "js/site-init.js"}}"></script>
+	<script type="text/javascript" src="{{asset "js/site-init.min.js"}}"></script>
 	
     {{! Ghost outputs important scripts and data with this tag }}
     {{ghost_foot}}
 	
 	<script id="dsq-count-scr" src="//cerkit.disqus.com/count.js" async></script>
 
-    <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/jquery.fitvids.min.js"}}"></script>
     {{! The main JavaScript file for the theme }}
     <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
 	<script type="text/javascript" src="{{asset "js/bootstrap-pagination.min.js"}}"></script>
-	<script type="text/javascript" src="{{asset "js/bootstrap-theme-selector.js"}}"></script>
+	<script type="text/javascript" src="{{asset "js/bootstrap-theme-selector.min.js"}}"></script>
 	</body>
 </html>

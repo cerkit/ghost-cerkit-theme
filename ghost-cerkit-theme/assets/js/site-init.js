@@ -18,11 +18,13 @@ var useSimplePagination = false;
 ************************************************************************************************/
 var linkToBootstrapCDN = "//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/";
 var themeStyleCss = "/bootstrap.min.css";
-var defaultTheme = 'cyborg';
+var defaultTheme = 'simplex';
 var showThemeSelector = true;
 
 $(document).ready(function () {
 
-    // copy the contents of the share panel to the sidebar
-    $('#share-container').append($('div#share-panel'));
+    // move items to the sidebar
+    $('.move-to-sidebar').each(function () {
+        $(this).detach().appendTo($('#sidebar-component-container'));
+    });
 });
