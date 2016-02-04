@@ -100,7 +100,7 @@ As an example, this theme has added a panel containing social media share button
 Instead, it is defined in the [post.hbs](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/post.hbs) file at the bottom. It uses a hidden div to contain the elements that need to be copied to the sidebar.
 
 The reason we had to define this share panel in the post page is because it relies on the context of the _current_ post.
-By doing it this way, we can ad whatever data we want to the element and then simply move it to the sidebar during the page ready handler.
+By doing it this way, we can add whatever data we want to the element and then simply move it to the sidebar during the page ready handler.
 
 For a div to be moved to the sidebar, it merely needs to add the "sidebar-component" css class.
     
