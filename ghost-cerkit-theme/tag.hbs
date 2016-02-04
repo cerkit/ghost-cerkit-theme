@@ -18,7 +18,9 @@
 </header>
 <div class="row">
 	<div id="sidebar-container" class="col-md-4">
-		{{> "sidebar"}}
+        {{#posts.[0].author}}
+		    {{> "sidebar"}}
+        {{/posts.[0].author}}
 	</div> <!-- .col-md-4 -->
 
 	<div class="col-md-8">

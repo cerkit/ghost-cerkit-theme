@@ -18,15 +18,11 @@ var useSimplePagination = false;
 ************************************************************************************************/
 var linkToBootstrapCDN = "//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/";
 var themeStyleCss = "/bootstrap.min.css";
-var defaultTheme = 'superhero';
+var defaultTheme = 'cyborg';
 var showThemeSelector = true;
 
-$(document).ready(function(){
-	/*
-	$('.post-comment-link-button').each(function(e){
-		$(this).click(function(){
-			window.location.href = $(this).children('a').attr('href');
-		});
-	});
-	*/
+$(document).ready(function () {
+
+    // copy the contents of the share panel to the sidebar
+    $('#share-container').append($('div#share-panel'));
 });
