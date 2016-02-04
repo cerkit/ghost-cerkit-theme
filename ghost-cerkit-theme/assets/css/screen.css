@@ -16,7 +16,6 @@ body {
     
 .prettyprint{
     font-size: small;
-    /*line-height: 90%;*/
 }
 .post-title a:hover {
     text-decoration: none;
@@ -51,6 +50,34 @@ body {
     margin-left: 0;
 }
 
+.share-link {
+    text-decoration: none;
+    margin: 2px;
+}
+
+h1.panel-title {
+	font-size: 6rem;
+}
+
+h2.panel-title {
+	font-size: 4rem;
+}
+
+h3.panel-title {
+	font-size: 2rem;
+}
+
+ h4.panel-title {
+	font-size: 1rem;
+}
+
+h5.panel-title {
+	font-size: 0.8rem;
+}
+
+h6.panel-title {
+	font-size: 0.65rem;
+}
 
 /* ==========================================================================
    Original Casper styles (what's left of them)

@@ -67,13 +67,58 @@ In order for this to work, you will need to add code to the header (in Code Inje
 Replace 'cerkit' with the short name for your Disqus forum. 
 
 ## Sidebar
-This theme makes use of a sidebar partial.
+This theme makes use of a [sidebar partial](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/sidebar.hbs). 
+This partial uses other partials to build a sidebar. The following components are included in the sidebar:
 
+- [Search Form](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/search-form.hbs)
+- A Sidebar Component Container - allows us to add components to the sidebar from other pages (in differing contexts)
+- [Bio Panel](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/bio-panel.hbs)
+- [Sidebar Theme Picker](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/sidebar-theme-picker.hbs)
+
+In order for the bio panel to work, an Author context has to be passed in for each page that uses it. Here is an example:
+
+    <div id="sidebar-container" class="col-md-4">
+        {{#author}}
+            {{> "sidebar"}}
+        {{/author}}
+    </div>
+
+The same is true for a context that does not have immediate access to the author context. Here is how we use the sidebar from the tags.hbs page:
+
+    <div id="sidebar-container" class="col-md-4">
+        {{#posts.[0].author}}
+		    {{> "sidebar"}}
+        {{/posts.[0].author}}
+	</div>
+	
+It should be noted that the bio panel only shows the information for the author of the first post in this case. The bio panel should not be used on the sidebar for sites with multiple authors.
+
+### Adding components to the Sidebar from other pages (with other contexts)
+Because the sidebar runs in the Author context, it makes it difficult to add items that require other contexts to it in a dynamic fashion.
+
+As an example, this theme has added a panel containing social media share buttons to the sidebar. However, this panel is not in the sidebar partial file.
+Instead, it is defined in the [post.hbs](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/post.hbs) file at the bottom. It uses a hidden div to contain the elements that need to be copied to the sidebar.
+
+The reason we had to define this share panel in the post page is because it relies on the context of the _current_ post.
+By doing it this way, we can ad whatever data we want to the element and then simply move it to the sidebar during the page ready handler.
+
+For a div to be moved to the sidebar, it merely needs to add the "sidebar-component" css class.
+    
+    <div class="hidden">
+        <div class="panel panel-default sidebar-component">
+	        <div class="panel-body">
+                <p>This will be in the sidebar...</p>
+            </div>
+        </div>
+    </div>
+
+When the document ready handler fires, it will move everything on the page to the Sidebar Component Container element.
+	
 ## Notes about custom JavaScript for the theme
 Custom features and JavaScript features all use variables defined in the [assets/js/site-init.js](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/assets/js/site-init.js) file.
 
 ## Minification
-Each of the scripts and css files are minified. If you make changes to the originals, make sure to save a [filename].min.[file-extension] version.
+Each of the scripts and css files are minified. If you make changes to the originals, make sure to save a _filename_.min._file-extension_ version.
 
 ## Copyright & License
 
