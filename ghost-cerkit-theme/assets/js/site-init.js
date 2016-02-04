@@ -1,8 +1,11 @@
+"use strict";
+
 /************************************************************************************************
 * Pagination variables
+*************************************************************************************************
+* define the vars we'll use later 
+* (the pagination will set the values each time it appears on screen)
 ************************************************************************************************/
-// define the vars we'll use later 
-// (the pagination will set the values each time it appears on screen)
 var prev;
 var pages;
 var page;
@@ -21,10 +24,96 @@ var themeStyleCss = "/bootstrap.min.css";
 var defaultTheme = 'simplex';
 var showThemeSelector = true;
 
+/************************************************************************************************
+* Alternate Subscribe link (for use with Feedburner or other RSS host)
+************************************************************************************************/
+var subscriptionLink = null;
+
+/************************************************************************************************
+* Navbar Icons
+* 
+* Requires that a JSON object named "navbarIconMap" be defined in your FOOTER in Code Injection
+* 
+* Here is a sample JSON definition:
+* 
+*   var navbarIconMap = { 
+*        'defaultIconSize' : 'fa-lg', 
+*        'iconMaps' : [
+*			{ 'class' : 'nav-home', 'icon' : 'fa-home' },
+*			{ 'class' : 'nav-about', 'icon' : 'fa-user' },
+*			{ 'class' : 'nav-my-public-key', 'icon' : 'fa-key' }
+*		]
+*    };
+* 
+*  Note: for defaultIconSize, the following values are valid:
+*  
+*  '' (will use default fontawesome size), 
+*  'fa-lg'
+*  'fa-2x'
+*  'fa-3x'
+*  'fa-4x'
+*  'fa-5x'
+* 
+*  If you do not supply a size for your icon, then the theme will use the default size 
+*  as determined by the defaultNavbarIconSize variable
+* 
+*  You can find a list of icons to use at http://fontawesome.io
+* 
+************************************************************************************************/
+var curIconMap;
+var curClass;
+var curIcon; 
+var curSize;
+var navbarIconItem;
+var iconItemLink;
+var iconParent;
+var parentContents;
+/***********************************************************************************************/
+
 $(document).ready(function () {
 
     // move items to the sidebar
     $('.sidebar-component').each(function () {
         $(this).detach().appendTo($('#sidebar-component-container'));
     });
+
+	// see if we need to change the link on the subscription button to an alternate...
+    if (subscriptionLink != null) {
+    	$('#subscribe-button').attr('href', subscriptionLink);
+
+    	// change the link for the site alternate, as well
+    	$('link [type*="application/rss+xml"]').attr('href', subscriptionLink);
+    }
+
+    if (navbarIconMap != null) {
+    	for (var i = 0; i < navbarIconMap.iconMaps.length; i++) {
+    		curIconMap = navbarIconMap.iconMaps[i];
+    		curClass = curIconMap.class;
+    		curIcon = curIconMap.icon;
+			// see if the model provided a size. If not, use the default
+    		curSize = 'size' in curIconMap ? curIconMap.size : navbarIconMap.defaultIconSize;
+
+    		// set the icon on the navbar item
+    		console.log('curClass = ' + curClass);
+    		navbarIconItem = $('.' + curClass);
+    		console.log('$(navbarIconItem).html() = ' + $(navbarIconItem).html());
+			
+    		// figure out if the nav item has any links in it. If so, use that as the icon parent.
+			// Otherwise, use the navbarIconItem.
+    		iconItemLink = $(navbarIconItem).children('a')[0];
+    		if ($(iconItemLink) !== null) {
+    			iconParent = $(iconItemLink);
+    		}
+    		else {
+    			iconParent = $(navbarIconItem);
+    		}
+
+			// temporarily pull the contents of the parent container
+    		parentContents = $(iconParent).children().detach();
+			// add our new icon
+    		$(iconParent).prepend('<i class="fa fa-fw ' + curSize + ' ' + curIcon + '"></i>&nbsp;');
+			// put the original contents back
+    		$(iconParent).append(parentContents);
+    	}
+    }
 });

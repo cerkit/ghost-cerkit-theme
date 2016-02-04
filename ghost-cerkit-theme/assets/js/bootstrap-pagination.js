@@ -79,7 +79,7 @@ function doComplexPagination() {
 
 	
 	// create the list items for each page number
-	for (i = curPage; i < firstLiCount ; i++) {
+	for (var i = curPage; i < firstLiCount ; i++) {
 		addPageLink(i);
 	}
 	
