@@ -97,12 +97,12 @@ It should be noted that the bio panel only shows the information for the author 
 Because the sidebar runs in the Author context, it makes it difficult to add items that require other contexts to it in a dynamic fashion.
 
 As an example, this theme has added a panel containing social media share buttons to the sidebar. However, this panel is not in the sidebar partial file.
-Instead, it is defined in the [post.hbs](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/post.hbs) file at the bottom. It uses a hidden div to contain the elements that need to be copied to the sidebar.
+Instead, it is defined in the [post.hbs](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/post.hbs) file at the bottom. It uses a hidden `div` to contain the elements that need to be copied to the sidebar.
 
 The reason we had to define this share panel in the post page is because it relies on the context of the _current_ post.
 By doing it this way, we can add whatever data we want to the element and then simply move it to the sidebar during the page ready handler.
 
-For a div to be moved to the sidebar, it merely needs to add the "sidebar-component" css class.
+For a div to be moved to the sidebar, it merely needs to add the `sidebar-component` css class.
     
     <div class="hidden">
         <div class="panel panel-default sidebar-component">
