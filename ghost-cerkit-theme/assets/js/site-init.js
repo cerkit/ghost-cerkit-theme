@@ -61,13 +61,10 @@ var subscriptionLink = null;
 * 
 ************************************************************************************************/
 var curIconMap;
-var curClass;
-var curIcon; 
 var curSize;
-var navbarIconItem;
-var iconItemLink;
-var iconParent;
-var parentContents;
+var targetNavbarItem;
+var targetItemFirstChild;
+var iconParentElement;
 /***********************************************************************************************/
 
 $(document).ready(function () {
@@ -88,32 +85,33 @@ $(document).ready(function () {
     if (navbarIconMap != null) {
     	for (var i = 0; i < navbarIconMap.iconMaps.length; i++) {
     		curIconMap = navbarIconMap.iconMaps[i];
-    		curClass = curIconMap.class;
-    		curIcon = curIconMap.icon;
-			// see if the model provided a size. If not, use the default
+			// see if the current map provided a size. If not, use the default
     		curSize = 'size' in curIconMap ? curIconMap.size : navbarIconMap.defaultIconSize;
 
     		// set the icon on the navbar item
-    		console.log('curClass = ' + curClass);
-    		navbarIconItem = $('.' + curClass);
-    		console.log('$(navbarIconItem).html() = ' + $(navbarIconItem).html());
+    		console.log('curIconMap.class = ' + curIconMap.class);
+
+    		targetNavbarItem = $('.' + curIconMap.class);
+
+    		console.log('$(targetNavbarItem).html() = ' + $(targetNavbarItem).html());
 			
     		// figure out if the nav item has any links in it. If so, use that as the icon parent.
-			// Otherwise, use the navbarIconItem.
-    		iconItemLink = $(navbarIconItem).children('a')[0];
-    		if ($(iconItemLink) !== null) {
-    			iconParent = $(iconItemLink);
-    		}
-    		else {
-    			iconParent = $(navbarIconItem);
-    		}
+    		targetItemFirstChild = $(targetNavbarItem).children()[0];
 
-			// temporarily pull the contents of the parent container
-    		parentContents = $(iconParent).children().detach();
-			// add our new icon
-    		$(iconParent).prepend('<i class="fa fa-fw ' + curSize + ' ' + curIcon + '"></i>&nbsp;');
-			// put the original contents back
-    		$(iconParent).append(parentContents);
+    	    // Otherwise, use the navbarIconItem.
+    		iconParentElement = targetItemFirstChild == null ? targetNavbarItem : targetItemFirstChild;
+
+    		console.log($(iconParentElement).html());
+
+    	    // insert the icon element at the beginning of the parent
+    		var iconElement = createIcon(curIconMap.icon, curSize);
+    		$(iconParentElement).prepend(iconElement);
     	}
     }
 });
+
+function createIcon(icon, size) {
+    var iconElement = $(document.createElement('i')).attr('class', 'fa fa-fw ' + icon + ' ' + size).append('&nbsp;');
+    console.log('iconElement class attribute value: "' + iconElement.attr('class') + '"');
+    return iconElement;
+}

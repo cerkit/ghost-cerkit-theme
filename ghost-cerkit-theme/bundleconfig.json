@@ -1,0 +1,48 @@
+[
+  {
+    "outputFileName": "assets/js/site-init.js",
+    "inputFiles": [
+      "assets/js/site-init.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/js/bootstrap-pagination.js",
+    "inputFiles": [
+      "assets/js/bootstrap-pagination.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/js/bootstrap-theme-selector.js",
+    "inputFiles": [
+      "assets/js/bootstrap-theme-selector.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/js/index.js",
+    "inputFiles": [
+      "assets/js/index.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/js/jquery.fitvids.js",
+    "inputFiles": [
+      "assets/js/jquery.fitvids.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/css/screen.css",
+    "inputFiles": [
+      "assets/css/screen.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/js/bundle.js",
+    "inputFiles": [
+      "assets/js/site-init.js",
+      "assets/js/bootstrap-pagination.js",
+      "assets/js/bootstrap-theme-selector.js",
+      "assets/js/index.js",
+      "assets/js/jquery.fitvids.js"
+    ]
+  }
+]
