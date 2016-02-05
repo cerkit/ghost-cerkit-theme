@@ -37,11 +37,11 @@ var subscriptionLink = null;
 * Here is a sample JSON definition:
 * 
 *   var navbarIconMap = { 
-*        'defaultIconSize' : 'fa-lg', 
-*        'iconMaps' : [
-*			{ 'target' : 'nav-home', 'icon' : 'fa-home' },
-*			{ 'target' : 'nav-about', 'icon' : 'fa-user' },
-*			{ 'target' : 'nav-my-public-key', 'icon' : 'fa-key' }
+*        "defaultIconSize" : "fa-lg", 
+*        "iconMaps" : [
+*			{ "target" : "nav-home", "icon" : "fa-home" },
+*			{ "target" : "nav-about", "icon" : "fa-user" },
+*			{ "target" : "nav-my-public-key", "icon" : "fa-key" }
 *		]
 *    };
 * 
@@ -68,7 +68,8 @@ var iconParentElement;
 /***********************************************************************************************/
 
 $(document).ready(function () {
-
+	// show the content of the page
+	$('main.content').removeClass('hidden');
     // move items to the sidebar
     $('.sidebar-component').each(function () {
         $(this).detach().appendTo($('#sidebar-component-container'));
@@ -95,10 +96,10 @@ $(document).ready(function () {
 
     		console.log('$(targetNavbarItem).html() = ' + $(targetNavbarItem).html());
 			
-    		// figure out if the nav item has any links in it. If so, use that as the icon parent.
     		targetItemFirstChild = $(targetNavbarItem).children()[0];
 
-    	    // Otherwise, use the navbarIconItem.
+    		// figure out if the nav item has any links in it. If so, use that as the icon parent.
+    		// Otherwise, use the navbarIconItem.
     		iconParentElement = targetItemFirstChild == null ? targetNavbarItem : targetItemFirstChild;
 
     		console.log($(iconParentElement).html());

@@ -1,4 +1,27 @@
 {
-  "name": "Cerkit Ghost Theme",
-  "version": "1.1.0"
+	"name": "CerkitGhostTheme",
+	"version": "1.1.0",
+	"author": "Michael Earls",
+	"description": "A Bootstrap enabled theme for the Ghost blogging engine",
+	"bin": {
+		"package-name": "./bin/ghost-cerkit-package"
+	},
+	"dependencies": {
+	},
+	"readme" : "../README.md",
+	"analyze": false,
+	"devDependencies": {
+		"grun": "^0.4.5",
+		"grunt-bowercopy": "^1.2.0",
+		"karma": "^0.12.31",
+		"karma-jasmine": "^0.3.5",
+		"grunt-karma": "^0.10.1",
+		"grunt-contrib-copy": "^0.7.0",
+		"grunt-contrib-concat": "^0.5.0",
+		"grunt-contrib-clean": "^0.6.0"
+	},
+	"license": "MIT",
+	"engines": {
+		"node": ">=0.6"
+	}
 }
