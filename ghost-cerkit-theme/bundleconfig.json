@@ -38,11 +38,11 @@
   {
     "outputFileName": "assets/js/bundle.js",
     "inputFiles": [
-      "assets/js/site-init.js",
       "assets/js/bootstrap-pagination.js",
       "assets/js/bootstrap-theme-selector.js",
       "assets/js/index.js",
-      "assets/js/jquery.fitvids.js"
+      "assets/js/jquery.fitvids.js",
+      "assets/js/site-init.js"
     ]
   }
 ]

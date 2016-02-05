@@ -39,9 +39,9 @@ var subscriptionLink = null;
 *   var navbarIconMap = { 
 *        'defaultIconSize' : 'fa-lg', 
 *        'iconMaps' : [
-*			{ 'class' : 'nav-home', 'icon' : 'fa-home' },
-*			{ 'class' : 'nav-about', 'icon' : 'fa-user' },
-*			{ 'class' : 'nav-my-public-key', 'icon' : 'fa-key' }
+*			{ 'target' : 'nav-home', 'icon' : 'fa-home' },
+*			{ 'target' : 'nav-about', 'icon' : 'fa-user' },
+*			{ 'target' : 'nav-my-public-key', 'icon' : 'fa-key' }
 *		]
 *    };
 * 
@@ -89,9 +89,9 @@ $(document).ready(function () {
     		curSize = 'size' in curIconMap ? curIconMap.size : navbarIconMap.defaultIconSize;
 
     		// set the icon on the navbar item
-    		console.log('curIconMap.class = ' + curIconMap.class);
+    		console.log('curIconMap.target = ' + curIconMap.target);
 
-    		targetNavbarItem = $('.' + curIconMap.class);
+    		targetNavbarItem = $('.' + curIconMap.target);
 
     		console.log('$(targetNavbarItem).html() = ' + $(targetNavbarItem).html());
 			
