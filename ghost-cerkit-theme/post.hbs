@@ -6,55 +6,53 @@
 {{! Everything inside the #post tags pulls data from the post }}
 {{#post}}
 <header class="main-header post-head {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}"></header>
-<main class="content hidden" role="main">
-	<div class="row">
-		<div id="sidebar-container" class="col-md-4">
-			{{#author}}
-			{{> "sidebar"}}
-			{{/author}}
-		</div> <!-- .col-md-4 -->
-		<div class="col-md-8">
-			<article class="{{post_class}}">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h2 class="panel-title">{{title}}</h2>
-					</div>
-					{{#if tags}}
-					<table class="table">
-						<tbody>
-							<tr>
-								<td>
-									<i class="fa fa-fw fa-lg fa-calendar"></i> <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
-								</td>
-							</tr>
-							<tr class="active">
-								<td>
-									{{#foreach tags}}
-									<a href="{{url}}" title="{{name}}" class="tag-button tag-{{id}} btn btn-sm btn-default"><i class="fa fa-fw fa-tag"></i>&nbsp;{{name}}</a>
-									{{/foreach}}
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					{{/if}}
-					<div class="panel-body">
-						<section class="post-content">
-							{{content}}
-						</section>
-					</div>
-				</div>
-			</article>
-		</div> <!-- .col-md-8 -->
-	</div> <!-- .row -->
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<div id="disqus_thread"></div>
-					<script>
+<div class="row">
+    <div id="sidebar-container" class="col-md-4">
+        {{#author}}
+        {{> "sidebar"}}
+        {{/author}}
+    </div> <!-- .col-md-4 -->
+    <div class="col-md-8">
+        <article class="{{post_class}}">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h2 class="panel-title">{{title}}</h2>
+                </div>
+                {{#if tags}}
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i class="fa fa-fw fa-lg fa-calendar"></i> <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+                            </td>
+                        </tr>
+                        <tr class="active">
+                            <td>
+                                {{#foreach tags}}
+                                <a href="{{url}}" title="{{name}}" class="tag-button tag-{{id}} btn btn-sm btn-default"><i class="fa fa-fw fa-tag"></i>&nbsp;{{name}}</a>
+                                {{/foreach}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                {{/if}}
+                <div class="panel-body">
+                    <section class="post-content">
+                        {{content}}
+                    </section>
+                </div>
+            </div>
+        </article>
+    </div> <!-- .col-md-8 -->
+</div> <!-- .row -->
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div id="disqus_thread"></div>
+                <script>
 						var disqus_config = function () {
 							this.page.url = '{{url absolute="true"}}';
-							console.log('DISQUS:this.page.url = ' + this.page.url);
 							this.page.identifier = '{{id}}';
 						};
 
@@ -62,18 +60,16 @@
 							var d = document, s = d.createElement('script');
 
 							s.src = 'https://' + disqusSite + disqusSource;
-							console.log('DISQUS:s.src = ' + s.src);
 
 							s.setAttribute('data-timestamp', +new Date());
 							(d.head || d.body).appendChild(s);
 						})();
-					</script>
-					<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-				</div> <!-- .panel-body (comments) -->
-			</div> <!-- comment panel -->
-		</div> <!-- .col-md-6 -->
-	</div> <!-- .row -->
-</main>
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div> <!-- .panel-body (comments) -->
+        </div> <!-- comment panel -->
+    </div> <!-- .col-md-6 -->
+</div> <!-- .row -->
 <aside class="read-next">
 	{{#next_post}}
 	<a class="read-next-story {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">

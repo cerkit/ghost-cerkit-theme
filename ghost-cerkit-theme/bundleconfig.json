@@ -42,6 +42,7 @@
       "assets/js/bootstrap-theme-selector.js",
       "assets/js/index.js",
       "assets/js/jquery.fitvids.js",
+      "assets/js/link-to-icon-mapper.js",
       "assets/js/site-init.js"
     ]
   }

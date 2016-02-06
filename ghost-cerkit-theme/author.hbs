@@ -8,29 +8,27 @@
 {{#author}}
 <header class="main-header author-head {{#if cover}}" style="background-image: url({{cover}}){{else}}no-cover{{/if}}">
 </header>
-<main class="content">
-	<div class="row">
-		<div id="sidebar-container" class="col-md-4">
-			{{> "author-sidebar"}}
-		</div> <!-- .col-md-4 -->
-		<div class="col-md-8">
-			{{> "bio-panel"}}
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<span class="author-stats text-center"><i class="icon-stats"></i> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
-				</div>
-				</di>
-			</div> <!-- .col-md-8 -->
-		</div> <!-- .row -->
-		<div class="row">
-			<div class="col-md-8 col-md-offset-4">
-				{{! The main content area on the homepage }}
-				<main class="content" role="main">
-					{{! The tag below includes the post loop - partials/loop.hbs }}
-					{{> "loop"}}
-				</main>
-			</div>
-		</div> <!-- .row -->
-</main>
-{{/author}}
-<!-- /author -->
+<div class="row">
+    <div id="sidebar-container" class="col-md-4">
+        {{> "author-sidebar"}}
+    </div> <!-- .col-md-4 -->
+    <div class="col-md-8">
+        {{> "bio-panel"}}
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <span class="author-stats text-center"><i class="icon-stats"></i> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
+            </div>
+            </di>
+        </div> <!-- .col-md-8 -->
+    </div> <!-- .row -->
+    <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+            {{! The main content area on the homepage }}
+            <main class="content" role="main">
+                {{! The tag below includes the post loop - partials/loop.hbs }}
+                {{> "loop"}}
+            </main>
+        </div>
+    </div> <!-- .row -->
+    {{/author}}
+    <!-- /author -->

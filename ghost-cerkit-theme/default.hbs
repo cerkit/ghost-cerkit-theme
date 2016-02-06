@@ -12,13 +12,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
-	
+	<script type="text/javascript">
+        window.__themeCfg = {
+            "disqusUsername": null,
+            "googleAnalyticsId": null,
+
+        };
+    </script>
     {{! Ghost outputs important style and meta data with this tag }}
     {{ghost_head}}
 </head>
 <body class="{{body_class}}">
     {{navigation}}
-    <div class="site-wrapper container-fluid hidden">
+    <div class="site-wrapper container-fluid">
         {{! Everything else gets inserted here }}
         {{{body}}}
         <div class="row">
