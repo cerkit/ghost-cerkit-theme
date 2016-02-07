@@ -149,7 +149,7 @@ It may be necessary for you to add icons to your nabar link items. Doing this is
     </script>
 
 The first argument is the target class, this will match any element on the page with a given class name and bind the icon to it. 
-The next argument is the icon. This is the [Font Awesome](http://fontawesome.io) icon name to use. 
+The next argument is the icon. This is the [Font Awesome](http://fontawesome.io/icons/) icon name to use. 
 The last argument is optional. It is the size you wish to use. If it is not provided, the system will use the default size defined in `window.linkIconMap.defaultIconSize`.
 If that is not provided, then it will fall back to use the default Font Awesome size.
 
