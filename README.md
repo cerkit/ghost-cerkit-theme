@@ -13,6 +13,7 @@ There are a few features that have been added to the theme, such as:
 - Theme Picker
 - Disqus Comments
 - Sidebar
+- [Font Awesome](http://fontawesome.io) icon binding (for navbar links)
 
 
 ## Bootstrap Pagination
@@ -54,17 +55,33 @@ To change the default theme for your site without modifying the source code, sim
 
 *Note: when you change the theme via JavaScript code, a theme is loaded twice: once for the default site theme, and once for the theme chosen by the theme picker or the `defaultTheme` override. If you wish to permanently change your default theme, it is recommended that you alter the default.hbs source and change it there.*
 
-## Disqus Comments
+## Configuration
+__ghost-cerkit-bootstrap__ implements the [GTCA](http://unwttng.com/introducing-gtca-make-your-ghost-themes-super-configurable/) approach to configuration (for those items that are GTCA-compliant).
+It supports __Google Analytics__ and __Disqus__ integration so far, with __social profile links__ coming soon. 
+The best thing is, not a single bit of it requires
+you to hack around with the theme's files. It works right out of the box, and you can set it
+up however you like using the Ghost admin interface.
 
-The site utilizes Disqus for comments. You will need to follow the instruction on the [Ghost website](http://support.ghost.org/add-disqus-to-my-ghost-blog/) on how to set up Disqus.
+All theme configuration is done by adding one-line items to your Ghost blog __header__ via the
+code injection interface at `yourblog.com/ghost/settings/code-injection`.
 
-*Note: The following setting is not currently supported. This will be fixed in a future release. For now, please modify the default.hbs file and change the link to the Disqus script to use your short name.
+### Google Analytics
+Got a Google Analytics tracking ID? Instantly enable tracking on your blog by adding the following
+line to header code injection:
 
-In order for this to work, you will need to add code to the header (in Code Injection on your site's settings page):
+```html
+<script>window.__themeCfg.googleAnalyticsId = 'UA-12345678-1';</script>
+```
 
-```disqusSite = 'cerkit';```
+### Disqus
+To integrate a __ghost-cerkit-bootstrap__ blog with Disqus, you just need a Disqus username. Drop it into your
+configuration with this one line in the header code injection interface:
 
-Replace 'cerkit' with the short name for your Disqus forum. 
+```html
+<script>window.__themeCfg.disqusUsername = 'mydisqususername';</script>
+``````
+
+Disqus threads will now appear on all of your posts.
 
 ## Sidebar
 This theme makes use of a [sidebar partial](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/sidebar.hbs). 
@@ -120,7 +137,22 @@ When the document ready handler fires, it will move everything on the page that 
             $(this).detach().appendTo($('#sidebar-component-container'));
         });
     });
-	
+
+## Font Awesome icon binding
+
+It may be necessary for you to add icons to your nabar link items. Doing this is very easy with the theme. In the Footer section of the code injection page, simply add the following code:
+
+    <script type="text/javascript">
+        // Navbar Icon Map
+        window.linkIconMap.defaultIconSize = 'fa-lg'; //use whatever size you want, or, leave this blank for Font Awesome default
+        window.addLinkIcon(/* target class = */ 'nav-home', /* icon = */ 'fa-home', /* (optional) size = */ 'fa-3x');
+    </script>
+
+The first argument is the target class, this will match any element on the page with a given class name and bind the icon to it. 
+The next argument is the icon. This is the [Font Awesome](http://fontawesome.io) icon name to use. 
+The last argument is optional. It is the size you wish to use. If it is not provided, the system will use the default size defined in `window.linkIconMap.defaultIconSize`.
+If that is not provided, then it will fall back to use the default Font Awesome size.
+
 ## Notes about custom JavaScript for the theme
 Custom features and JavaScript features all use variables defined in the [assets/js/site-init.js](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/assets/js/site-init.js) file.
 

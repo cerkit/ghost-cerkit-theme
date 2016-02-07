@@ -381,7 +381,7 @@ var useSimplePagination = false;
 ************************************************************************************************/
 var linkToBootstrapCDN = "//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/";
 var themeStyleCss = "/bootstrap.min.css";
-var defaultTheme = 'simplex';
+var defaultTheme = 'cosmo';
 var showThemeSelector = true;
 
 /************************************************************************************************
