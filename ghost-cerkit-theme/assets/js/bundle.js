@@ -325,12 +325,13 @@ window.addLinkIcon = function (target, icon, size) {
     window.linkIconMap.maps.push({ "target": target, "icon": icon, "size": iconSize });
 };
 
-var curIconMap;
-var curSize;
 /***********************************************************************************************/
 
 function bindLinkIcons() {
     if (window.linkIconMap.maps) {
+        var curIconMap;
+        var curSize;
+
         for (var i = 0; i < window.linkIconMap.maps.length; i++) {
             // get a handle on the current icon map
             curIconMap = linkIconMap.maps[i];
@@ -344,7 +345,7 @@ function bindLinkIcons() {
 }
 
 function createIcon(target, icon, size) {
-    var iconElement = $(document.createElement('i')).attr('class', 'fa fa-fw ' + icon + ' ' + size).append('&nbsp;');
+    var iconElement = $(document.createElement('i')).attr('class', 'link-icon fa fa-fw ' + icon + ' ' + size);
     var targetNavbarItem = $('.' + target);
     var targetItemFirstChild = $(targetNavbarItem).children()[0];
 
