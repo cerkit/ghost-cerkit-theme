@@ -1,25 +1,26 @@
-<div id="disqus_thread"></div>
 <script>
 
-var disqus_config = function () {
-  if (window.location) {
-    this.page.url = '{{@blog.url}}{{url}}';
-    this.page.identifier = 'post-{{id}}';
-  }
-};
+	var disqus_config = function () {
+		if (window.location) {
+			this.page.url = '{{url absolute="true"}}';
+			this.page.identifier = '{{id}}';
+		}
+	};
 
-if (window.__themeCfg.disqusUsername) {
-  (function() { // DON'T EDIT BELOW THIS LINE
-  var d = document, s = d.createElement('script');
+	$(document).ready(function () {
+		if ($('#disqus_thread').length) {
+			if (window.__themeCfg.disqusUsername) {
+				(function () { // DON'T EDIT BELOW THIS LINE
+					var d = document, s = d.createElement('script');
 
-  s.src = '//' + window.__themeCfg.disqusUsername + '.disqus.com/embed.js';
+					s.src = '//' + window.__themeCfg.disqusUsername + '.disqus.com/embed.js';
 
-  s.setAttribute('data-timestamp', +new Date());
-  (d.head || d.body).appendChild(s);
-  })();
-} else {
-  console.warn('ghost-cerkit-bootstrap theme supports Disqus commenting - put "\<script\>window.__themeCfg.disqusUsername = \'myDisqusName\';\</script\>" in Ghost code injection to turn it on');
-}
-
+					s.setAttribute('data-timestamp', +new Date());
+					(d.head || d.body).appendChild(s);
+				})();
+			} else {
+				console.warn('ghost-cerkit-bootstrap theme supports Disqus commenting - put "\<script\>window.__themeCfg.disqusUsername = \'myDisqusName\';\<\/script\>" in Ghost code injection to turn it on');
+			}
+		}
+	});
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>

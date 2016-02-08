@@ -244,8 +244,7 @@ margin on the iframe, cause it breaks stuff. */
 
 /* Wraps the main content & footer */
 .site-wrapper {
-    padding-top: 40px;
-    position: relative;
+    padding-top: 55px;
     z-index: 10;
     min-height: 100%;
     -webkit-transition: -webkit-transform 0.5s ease;
