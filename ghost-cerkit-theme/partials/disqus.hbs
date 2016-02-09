@@ -1,13 +1,15 @@
+<div id="disqus_thread"></div>
 <script>
 
 	var disqus_config = function () {
 		if (window.location) {
-			this.page.url = '{{url absolute="true"}}';
+			this.page.url = '{{url}}';
 			this.page.identifier = '{{id}}';
 		}
 	};
 
-	$(document).ready(function () {
+	function disqus_init() {
+		console.log('disqus_init() ran');
 		if ($('#disqus_thread').length) {
 			if (window.__themeCfg.disqusUsername) {
 				(function () { // DON'T EDIT BELOW THIS LINE
@@ -22,5 +24,6 @@
 				console.warn('ghost-cerkit-bootstrap theme supports Disqus commenting - put "\<script\>window.__themeCfg.disqusUsername = \'myDisqusName\';\<\/script\>" in Ghost code injection to turn it on');
 			}
 		}
-	});
+	}
 </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>

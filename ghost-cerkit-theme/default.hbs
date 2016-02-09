@@ -12,6 +12,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+
+		<script type="text/javascript">
+			window.__themeCfg = {
+				"disqusUsername": null,
+				"googleAnalyticsId": null
+			};
+		</script>
+
         {{! Ghost outputs important style and meta data with this tag }}
         {{ghost_head}}
     </head>
@@ -49,17 +57,13 @@
 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
 	{{!-- minified JavaScript for Bootstrap --}}
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-	<script type="text/javascript">
-	window.__themeCfg = {
-		"disqusUsername": null,
-		"googleAnalyticsId": null
-	};
-	</script>
 	{{!-- load all the scripts for the theme (they are all in a bundle) --}}
 	<script type="text/javascript" src="{{asset "js/bundle.min.js"}}"></script>
 	{{! Ghost outputs important scripts and data with this tag }}
 	{{ghost_foot}}
-	{{>disqus}}
+	<script type="text/javascript">
+		$(disqus_init());
+	</script>
 	{{>google-analytics}}
 	<script id="dsq-count-scr" src="//cerkit.disqus.com/count.js" async></script>
 </body>

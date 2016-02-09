@@ -27,7 +27,7 @@
 		{{/if}}
 		<div class="panel-body">
 			<button class="btn btn-sm btn-success" onclick="window.location.href='{{url}}#disqus_thread'">
-				<i class="fa fa-flip-horizontal fa-fw fa-comment"></i>&nbsp;&nbsp;Comments <span data-disqus-identifier="{{id}}" class="disqus-comment-count badge"></span>
+				<i class="fa fa-flip-horizontal fa-fw fa-comment"></i>&nbsp;&nbsp;Comments <span data-disqus-url="{{@blog.url}}{{url}}" class="disqus-comment-count badge"></span>
 			</button>
 		</div>
 	</div> <!-- .panel (main panel) -->
