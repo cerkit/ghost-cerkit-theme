@@ -62,7 +62,8 @@
 	{{! Ghost outputs important scripts and data with this tag }}
 	{{ghost_foot}}
 	<script type="text/javascript">
-        if ($.isFunction(disqus_init)) {
+		if ($.isFunction(window.disqus_init)) {
+			console.log('disqus_init exists');
             $(disqus_init());
         }
 	</script>
