@@ -10,6 +10,7 @@ var prev;
 var pages;
 var page;
 var next;
+var pageUrl;
 var pageUrlPrev;
 var pageUrlNext;
 // define the number of page numbers that will be displayed before and after the ellipses

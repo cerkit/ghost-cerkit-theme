@@ -3,7 +3,7 @@
 
 	var disqus_config = function () {
 		if (window.location) {
-			this.page.url = '{{url}}';
+			this.page.url = '{{@blog.url}}{{url}}';
 			this.page.identifier = '{{id}}';
 		}
 	};

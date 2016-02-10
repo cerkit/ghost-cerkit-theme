@@ -34,11 +34,11 @@ $(document).ready(function() {
 // This will also add the appropriate screen reader labels.
 // pageNum - the number of the page to create a link to
 function addPageLink(pageNum) {
-	$('.bootstrap-pagination').append("<li class='page" + pageNum + "'><a href='/page/" + pageNum + "/' title='Go to page " + pageNum + "' aria-label='Go to page " + pageNum + "'>" + pageNum + "</a></li>");
+	$('.bootstrap-pagination').append("<li class='page" + pageNum + "'><a href='" + pageUrl + "page/" + pageNum + "/' title='Go to page " + pageNum + "' aria-label='Go to page " + pageNum + "'>" + pageNum + "</a></li>");
 }
 
 function doSimplePagination() {
-	$('.bootstrap-pagination').append('<li><a href="/page/"' + page + '" aria-label="Page ' + page + ' of ' + pages + '">Page ' + page + ' of ' + pages + '</a></li>');
+	$('.bootstrap-pagination').append('<li><a href="' + pageUrl + 'page/"' + page + '" aria-label="Page ' + page + ' of ' + pages + '">Page ' + page + ' of ' + pages + '</a></li>');
 }
 
 function doComplexPagination() {
@@ -88,7 +88,7 @@ function doComplexPagination() {
 		
 		if (showEllipses) {
 			//append the ellipses as a link that simply navigates to the current page
-			$('.bootstrap-pagination').append('<li><a href="/page/"' + page + '">&#x2026;</a></li>');
+			$('.bootstrap-pagination').append('<li><a href="' + pageUrl + 'page/"' + page + '">&#x2026;</a></li>');
 		}
 		else
 		{

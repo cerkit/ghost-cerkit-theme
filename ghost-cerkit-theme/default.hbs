@@ -62,7 +62,9 @@
 	{{! Ghost outputs important scripts and data with this tag }}
 	{{ghost_foot}}
 	<script type="text/javascript">
-		$(disqus_init());
+        if ($.isFunction(disqus_init)) {
+            $(disqus_init());
+        }
 	</script>
 	{{>google-analytics}}
 	<script id="dsq-count-scr" src="//cerkit.disqus.com/count.js" async></script>
