@@ -264,6 +264,10 @@ margin on the iframe, cause it breaks stuff. */
     overflow: hidden;
 }
 
+body.paged .main-header {
+	background-position-y: 0px;
+}
+
 /* Create a bouncing scroll-down arrow on homepage with cover image */
 .scroll-down {
     display: block;

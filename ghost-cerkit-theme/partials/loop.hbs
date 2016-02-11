@@ -12,11 +12,9 @@
 			</section>
 		</div>
 		<div class="panel-body">
-			{{#author}}
-			<a href="{{url}}" title="Link to {{name}}'s page'" aria-label="Link to {{name}}'s page"><i class="fa fa-lg fa-fw fa-user"></i>&nbsp;{{name}}</a>
+			<a href="{{author.url}}" title="Link to {{author.name}}'s page'" aria-label="Link to {{author.name}}'s page"><i class="fa fa-lg fa-fw fa-user"></i>&nbsp;{{author.name}}</a>
 			&nbsp;
 			<i class="fa fa-lg fa-fw fa-calendar"></i>&nbsp;<time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
-			{{/author}}
 		</div>
 		{{#if tags}}
 		<div class="panel-body">

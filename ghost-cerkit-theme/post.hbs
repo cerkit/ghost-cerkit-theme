@@ -17,7 +17,6 @@
                     <header class="panel-heading">
                         <h1 class="panel-title">{{title}}</h1>
                     </header>
-                    {{#if tags}}
                     <table class="table">
                         <tbody>
                             <tr>
@@ -25,6 +24,7 @@
                                     <i class="fa fa-fw fa-lg fa-calendar"></i> <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
                                 </td>
                             </tr>
+							{{#if tags}}
                             <tr class="active">
                                 <td>
                                     {{#foreach tags}}
@@ -32,9 +32,9 @@
                                     {{/foreach}}
                                 </td>
                             </tr>
+							{{/if}}
                         </tbody>
                     </table>
-                    {{/if}}
                     <div class="panel-body">
                         <section class="post-content">
                             {{content}}

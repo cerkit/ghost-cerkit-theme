@@ -10,5 +10,11 @@
       "assets/js/reading-time.js",
       "assets/js/site-init.js"
     ]
+  },
+  {
+    "outputFileName": "assets/css/screen.css",
+    "inputFiles": [
+      "assets/css/screen.css"
+    ]
   }
 ]

@@ -391,11 +391,6 @@ var themeStyleCss = "/bootstrap.min.css";
 var defaultTheme = 'cosmo';
 var showThemeSelector = true;
 
-/************************************************************************************************
-* Alternate Subscribe link (for use with Feedburner or other RSS host)
-************************************************************************************************/
-var subscriptionLink = null;
-
 function moveSidebarItems() {
     // move items to the sidebar
     $('.sidebar-component').each(function () {
@@ -408,12 +403,15 @@ $(moveSidebarItems);
 
 function setAlternateSubscriptionLink() {
     // see if we need to change the link on the subscription button to an alternate...
-    if (subscriptionLink != null) {
-        $('#subscribe-button').attr('href', subscriptionLink);
+	if (window.__themeCfg.alternateSubscribeLink != null) {
+		$('#subscribe-button').attr('href', window.__themeCfg.alternateSubscribeLink);
 
-        // change the link for the site alternate, as well
-        $('link [type*="application/rss+xml"]').attr('href', subscriptionLink);
-    }
+		// change the link for the site alternate, as well
+		$('link [type*="application/rss+xml"]').attr('href', window.__themeCfg.alternateSubscribeLink);
+	}
+	else {
+		console.warn('ghost-cerkit-bootstrap theme supports an alternate RSS link (i.e. - FeedBurner) - put "\<script\>window.__themeCfg.alternateSubscribeLink = \'alternate rss url\';\<\/script\>" in Ghost code injection to turn it on');
+	}
 }
 
 $(setAlternateSubscriptionLink);
