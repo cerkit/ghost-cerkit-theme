@@ -76,7 +76,7 @@ body {
     width: 100%
 }
 
-/*    
+
 .page-description {
     max-width: 500px;
     margin: 0 auto;
@@ -90,7 +90,6 @@ body {
     letter-spacing: 0.01rem;
     color: rgb(128, 128, 128);
 }
-*/
     
 .author-title {
     width: 100%;
@@ -264,7 +263,7 @@ margin on the iframe, cause it breaks stuff. */
     overflow: hidden;
 }
 
-body.paged .main-header {
+body.paged .main-header, .tag-template .main-header {
 	background-position-y: 0px;
 }
 
