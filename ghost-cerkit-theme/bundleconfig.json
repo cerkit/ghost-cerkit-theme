@@ -1,5 +1,11 @@
 [
   {
+    "outputFileName": "assets/css/screen.css",
+    "inputFiles": [
+      "assets/css/screen.css"
+    ]
+  },
+  {
     "outputFileName": "assets/js/bundle.js",
     "inputFiles": [
       "assets/js/bootstrap-pagination.js",
@@ -7,13 +13,14 @@
       "assets/js/index.js",
       "assets/js/jquery.fitvids.js",
       "assets/js/link-to-icon-mapper.js",
-      "assets/js/reading-time.js",
+      "assets/js/prism.js",
       "assets/js/site-init.js"
     ]
   },
   {
-    "outputFileName": "assets/css/screen.css",
+    "outputFileName": "assets/css/bundle.css",
     "inputFiles": [
+      "assets/css/prism.css",
       "assets/css/screen.css"
     ]
   }

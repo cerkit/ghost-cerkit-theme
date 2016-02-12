@@ -26,17 +26,17 @@ var defaultTheme = 'cosmo';
 var showThemeSelector = true;
 
 function moveSidebarItems() {
-    // move items to the sidebar
-    $('.sidebar-component').each(function () {
-        $(this).detach().appendTo($('#sidebar-component-container'));
-    });
+	// move items to the sidebar
+	$('.sidebar-component').each(function () {
+		$(this).detach().appendTo($('#sidebar-component-container'));
+	});
 }
 
 $(moveSidebarItems);
 
 
 function setAlternateSubscriptionLink() {
-    // see if we need to change the link on the subscription button to an alternate...
+	// see if we need to change the link on the subscription button to an alternate...
 	if (window.__themeCfg.alternateSubscribeLink != null) {
 		$('#subscribe-button').attr('href', window.__themeCfg.alternateSubscribeLink);
 
@@ -50,3 +50,25 @@ function setAlternateSubscriptionLink() {
 
 $(setAlternateSubscriptionLink);
 
+function convertPrettyfierToPrism() {
+
+	if ($('pre.prettyprint').length) {
+
+
+		console.warn('there are ' + $('pre.prettyprint').length + ' prettyprint pre tags on this page');
+		console.warn('there are ' + $('pre.linenums').length + ' linenums pre tags on this page');
+
+		$('pre.prettyprint').each(function () {
+			$(this).removeClass('prettyprint').children('code').each(function () {
+				$(this).addClass('language-clike');
+			});
+		});
+
+		$('pre.linenums').each(function () {
+			$(this).removeClass('linenums').addClass('line-numbers');
+		});
+
+	}
+}
+
+$(convertPrettyfierToPrism);
