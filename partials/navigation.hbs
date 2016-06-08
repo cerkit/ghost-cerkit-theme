@@ -1,0 +1,32 @@
+<nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed navbar-text" data-toggle="collapse" data-target="#ghost-menu-navbar-collapse-1" aria-expanded="false"></button>
+            {{#if @blog.logo}}
+            <a class="blog-logo navbar-brand" href="{{@blog.url}}">
+                <div class="navbar-brand-image">
+                    <img src="{{@blog.logo}}" alt="{{@blog.title}}" title="Navigate to home page" aria-label="Navigate to home page" />
+                </div>
+                <div class="navbar-brand-blog-title">{{@blog.title}}</div>
+            </a>
+            {{else}}
+            <a class="navbar-brand" href="{{@blog.url}}">{{@blog.title}}</a>
+            {{/if}}
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        {{#if navigation}}
+        <div class="collapse navbar-collapse" id="ghost-menu-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                {{#foreach navigation}}
+                <li class="nav-{{slug}}{{#if current}} active{{/if}}" role="presentation"><a href="{{url absolute="true"}}" aria-label="{{label}}">{{label}}</a></li>
+                {{/foreach}}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-llap" role="presentation"><p class="navbar-text">LLAP</p></li>
+                <li><a href="{{@blog.url}}/rss/" role="presentation" id="subscribe-button"><i class="fa fa-fw fa-lg fa-rss"></i>&nbsp;&nbsp;Subscribe</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+        {{/if}}
+    </div><!-- /.container-fluid -->
+</nav>

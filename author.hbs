@@ -1,0 +1,55 @@
+<!-- author -->
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+{{! The big featured header }}
+{{! Everything inside the #author tags pulls data from the author }}
+{{#author}}
+<header class="main-header author-head {{#if cover}}" style="background-image: url({{cover}}){{else}}no-cover{{/if}}">
+</header>
+{{/author}}
+<main id="content" class="content" role="main">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-8">
+            {{! Previous/next page links - only displayed on page 2+ }}
+            <div class="extra-pagination text-center">
+                {{pagination}}
+            </div>
+        </div>
+    </div> <!-- .row for pagination -->
+    {{! Everything inside the #author tags pulls data from the author }}
+    {{#author}}
+    <div class="row">
+        <div id="sidebar-container" class="col-md-4">
+            {{> "author-sidebar"}}
+        </div> <!-- .col-md-4 -->
+        <div class="col-md-8">
+			<a name="content" class="sr-only"></a>
+            {{> "bio-panel"}}
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <span class="author-stats text-center"><i class="icon-stats"></i> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
+                </div>
+            </div>
+        </div> <!-- .col-md-8 -->
+    </div> <!-- .row -->
+    {{/author}}
+    <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+            {{! The main content area on the homepage }}
+            <main class="content" role="main">
+                {{! The tag below includes the post loop - partials/loop.hbs }}
+                {{> "loop"}}
+            </main>
+        </div>
+    </div> <!-- .row -->
+    <div class="row">
+        <div class="col-md-offset-4 col-md-8">
+            <div class="text-center">
+                {{! Previous/next page links - displayed on every page }}
+                {{pagination}}
+            </div>
+        </div>
+    </div> <!-- .row for pagination -->
+</main>
+<!-- /author -->
