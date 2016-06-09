@@ -10,7 +10,7 @@ This theme takes advantage of [npm](https://npmjs.com). To setup everything in y
 * CD to the folder where you cloned the repository
 * type `npm install` and press [Enter]
 
-This will install all of the requirements that you will need in order to extend this theme.
+This will install all of the dependencies that you will need in order to extend this theme.
 
 Once you have installed all of the dependencies, you can simply run `gulp` from the node command line and it will start watching the css and js folders for changes. When a change is detedcted, it will concatenate (bundle) and minify (uglify) the code and save it to the assets folder.
 
