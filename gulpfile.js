@@ -14,17 +14,18 @@ var merge = require('merge2');
 var cleanCSS = require('gulp-clean-css');
 var sourcemaps = require('gulp-sourcemaps');
 var streamqueue  = require('streamqueue');
+var zip = require('gulp-zip');
 
-var DEST = 'assets/';
-var scriptSrc = 'src/js/';
-var scriptsGlob = 'src/**/*.js';
-var sassGlob = 'src/sass/**/*.scss';
-var cssGlob = 'src/css/**/*.css';
+var DEST = 'src/assets/';
+var scriptSrc = 'dev/js/';
+var scriptsGlob = 'dev/**/*.js';
+var sassGlob = 'dev/sass/**/*.scss';
+var cssGlob = 'dev/css/**/*.css';
 
 gulp.task('styles', function () {
     return merge(
-        gulp.src('src/css/**/*.css'),
-        gulp.src('src/sass/**/*.scss')
+        gulp.src(cssGlob),
+        gulp.src(sassGlob)
             .pipe(sass().on('error', sass.logError))
         )
         .pipe(cached('styles'))
@@ -77,4 +78,10 @@ gulp.task('default', function () {
     //gulp.watch([sassGlob, cssGlob], 'styles'); // watch the same files in our styles task
     
  
+});
+
+gulp.task('build', function (){
+    return gulp.src('src/*')
+		.pipe(zip('archive.zip'))
+		.pipe(gulp.dest('dist'));
 });
