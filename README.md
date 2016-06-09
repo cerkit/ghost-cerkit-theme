@@ -8,7 +8,7 @@ This theme takes advantage of [npm](https://npmjs.com). To setup everything in y
 * Clone the repository
 * Open a node command line
 * CD to the folder where you cloned the repository
-* type `npm install` and press [Enter]
+* type `npm install` and press <kbd>Enter</kbd>
 
 This will install all of the dependencies that you will need in order to extend this theme.
 
