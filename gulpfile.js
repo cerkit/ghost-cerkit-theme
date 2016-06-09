@@ -163,7 +163,7 @@ gulp.task('bump', ['deploy:zip'], function (done) {
 
 
 gulp.task('deploy:commit', ['bump'], function () {
-  return gulp.src(['./package.json', './CHANGELOG.md'])
+  return gulp.src(['./package.json', './CHANGELOG.md','./dist/**/*.zip'])
     .pipe(git.add())
     .pipe(git.commit('release: version ' + version))
     .pipe(size({ title: '/', showFiles: true }));
