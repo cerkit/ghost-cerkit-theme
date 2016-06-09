@@ -156,8 +156,8 @@ gulp.task('changelog', ['deploy:zip'] , function (done) {
 gulp.task('bump', ['deploy:zip'], function (done) {
   return gulp.src(['./package.json'])
     .pipe($.bump({ version: version }))
-    .pipe(gulp.dest('./'))
-    .pipe($.size({ title: '/', showFiles: true }));
+    .pipe(gulp.dest('./'));
+    //.pipe($.size({ title: '/', showFiles: true }));
 });
 
 
