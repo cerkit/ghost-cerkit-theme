@@ -157,25 +157,25 @@ gulp.task('bump', ['deploy:zip'], function (done) {
   return gulp.src(['./package.json'])
     .pipe($.bump({ version: version }))
     .pipe(gulp.dest('./'));
-    //.pipe($.size({ title: '/', showFiles: true }));
+    .pipe(size({ title: '/', showFiles: true }));
 });
 
 
 gulp.task('deploy:commit', ['bump'], function () {
   return gulp.src(['./package.json', './CHANGELOG.md'])
-    .pipe($.git.add())
-    .pipe($.git.commit('release: version ' + version))
-    .pipe($.size({ title: '/', showFiles: true }));
+    .pipe(git.add())
+    .pipe(git.commit('release: version ' + version))
+    .pipe(size({ title: '/', showFiles: true }));
 });
 
 
 gulp.task('deploy:tag', ['deploy:commit'], function (done) {
-  $.git.tag('v' + version, 'release: version ' + version, done);
+  git.tag('v' + version, 'release: version ' + version, done);
 });
 
 
 gulp.task('deploy:push', ['deploy:tag'], function (done) {
-  $.git.push('origin', 'master', { args: '--tags' }, done);
+  git.push('origin', 'master', { args: '--tags' }, done);
 });
 
 gulp.task('deploy', [
