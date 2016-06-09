@@ -24,7 +24,7 @@
                                     <i class="fa fa-fw fa-lg fa-calendar"></i> <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
                                 </td>
                             </tr>
-							{{#if tags}}
+                            {{#if tags}}
                             <tr class="active">
                                 <td>
                                     {{#foreach tags}}
@@ -32,12 +32,12 @@
                                     {{/foreach}}
                                 </td>
                             </tr>
-							{{/if}}
+                            {{/if}}
                         </tbody>
                     </table>
                     <div class="panel-body">
                         <section class="post-content">
-							<a name="content" class="sr-only"></a>
+                            <a name="content" class="sr-only"></a>
                             {{content}}
                         </section>
                     </div>

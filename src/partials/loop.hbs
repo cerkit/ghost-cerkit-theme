@@ -1,35 +1,35 @@
 {{! This is the post loop - each post will be output using this markup }}
 {{#foreach posts}}
 <article class="{{post_class}}">
-	<h1 class="post-title"><a href="{{url}}">{{{title}}}</a></h1>
-	<div class="panel panel-default">
-		<!--<header class="panel-heading">
-			
-		</header>--> <!-- .panel-heading (main panel) -->
-		<div class="panel-body">
-			<section class="post-excerpt">
-				<p>{{excerpt words="40"}}&#8230;&nbsp;&nbsp; <a class="btn btn-primary" href="{{url}}" title="Read More" aria-label="Read more" alt="Read more"><i class="fa fa-2x fa-angle-double-right"></i></a></p>
-			</section>
-		</div>
-		<div class="panel-body">
-			{{#author}}
-			<a href="{{url}}" title="Link to {{name}}'s page'" aria-label="Link to {{name}}'s page"><i class="fa fa-lg fa-fw fa-user"></i>&nbsp;{{name}}</a>
-			{{/author}}
-			&nbsp;
-			<i class="fa fa-lg fa-fw fa-calendar"></i>&nbsp;<time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
-		</div>
-		{{#if tags}}
-		<div class="panel-body">
-			{{#foreach tags}}
-			<a href="{{url}}" title="{{name}}" class="tag-button tag-{{id}} btn btn-sm btn-default"><i class="fa fa-fw fa-tag"></i>&nbsp;{{name}}</a>
-			{{/foreach}}
-		</div>
-		{{/if}}
-		<div class="panel-body">
-			<button class="btn btn-sm btn-success" onclick="window.location.href='{{url}}#disqus_thread'">
-				<i class="fa fa-flip-horizontal fa-fw fa-comment"></i>&nbsp;&nbsp;Comments <span data-disqus-url="{{@blog.url}}{{url}}" class="disqus-comment-count badge"></span>
-			</button>
-		</div>
-	</div> <!-- .panel (main panel) -->
+    <h1 class="post-title"><a href="{{url}}">{{{title}}}</a></h1>
+    <div class="panel panel-default">
+        <!--<header class="panel-heading">
+            
+        </header>--> <!-- .panel-heading (main panel) -->
+        <div class="panel-body">
+            <section class="post-excerpt">
+                <p>{{excerpt words="40"}}&#8230;&nbsp;&nbsp; <a class="btn btn-primary" href="{{url}}" title="Read More" aria-label="Read more" alt="Read more"><i class="fa fa-2x fa-angle-double-right"></i></a></p>
+            </section>
+        </div>
+        <div class="panel-body">
+            {{#author}}
+            <a href="{{url}}" title="Link to {{name}}'s page'" aria-label="Link to {{name}}'s page"><i class="fa fa-lg fa-fw fa-user"></i>&nbsp;{{name}}</a>
+            {{/author}}
+            &nbsp;
+            <i class="fa fa-lg fa-fw fa-calendar"></i>&nbsp;<time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+        </div>
+        {{#if tags}}
+        <div class="panel-body">
+            {{#foreach tags}}
+            <a href="{{url}}" title="{{name}}" class="tag-button tag-{{id}} btn btn-sm btn-default"><i class="fa fa-fw fa-tag"></i>&nbsp;{{name}}</a>
+            {{/foreach}}
+        </div>
+        {{/if}}
+        <div class="panel-body">
+            <button class="btn btn-sm btn-success" onclick="window.location.href='{{url}}#disqus_thread'">
+                <i class="fa fa-flip-horizontal fa-fw fa-comment"></i>&nbsp;&nbsp;Comments <span data-disqus-url="{{@blog.url}}{{url}}" class="disqus-comment-count badge"></span>
+            </button>
+        </div>
+    </div> <!-- .panel (main panel) -->
 </article>
 {{/foreach}}
