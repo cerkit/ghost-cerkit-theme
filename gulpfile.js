@@ -27,6 +27,7 @@ var pkg = require('./package.json');
 var semver = require('semver');
 var util = require('gulp-util');
 var git = require('git');
+var log;
 
 var DEST = 'src/assets/';
 var scriptSrc = 'dev/js/';
@@ -148,7 +149,7 @@ gulp.task('changelog', ['deploy:zip'] , function (done) {
     version: version,
     file: 'CHANGELOG.md'
   }, function (err, log) {
-    fs.writeFileSync(__dirname + './CHANGELOG.md', log);
+    fs.writeFileSync('./CHANGELOG.md', log);
     done();
   });
 });
