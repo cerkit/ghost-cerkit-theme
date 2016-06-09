@@ -82,6 +82,6 @@ gulp.task('default', function () {
 
 gulp.task('build', function (){
     return gulp.src('src/*')
-		.pipe(zip('archive.zip'))
+		.pipe(zip('ghost-cerkit-theme.zip'))
 		.pipe(gulp.dest('dist'));
 });

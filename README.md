@@ -2,8 +2,23 @@
 
 Based on the default theme for [Ghost](http://github.com/tryghost/ghost/).
 
-To download, visit the [releases](https://github.com/cerkit/ghost-cerkit-theme/tree/master/releases) page.
+## Installation
+This theme takes advantage of [npm](https://npmjs.com). To setup everything in your environment, follow these steps:
 
+* Clone the repository
+* Open a node command line
+* CD to the folder where you cloned the repository
+* type `npm install` and press [Enter]
+
+This will install all of the requirements that you will need in order to extend this theme.
+
+Once you have installed all of the dependencies, you can simply run `gulp` from the node command line and it will start watching the css and js folders for changes. When a change is detedcted, it will concatenate (bundle) and minify (uglify) the code and save it to the assets folder.
+
+## Accessing a build
+To get access to a `.zip` file that you can upload to [Ghost pro](https://ghost.io), simply run `gulp build` from a node command line (after navigating to the theme folder). The file will be saved as `dist/ghost-cerkit-theme.zip`/
+
+
+## Bootstrap support
 This theme provides support for [Bootstrap](http://getbootstrap.com) 3. It also includes [Font Awesome](http://fontawesome.io) and utilizes [Disqus](http://disqus.com) for comments.
 
 There are a few features that have been added to the theme, such as:
@@ -27,12 +42,12 @@ The Pagination for the Casper theme has been replaced by Bootstrap pagination.
 There are a few different customizations supported for the pagination control.
 In order to get the original pagination (which displays `Page 1 of X`), you will need to add the following code to your Code Injection in site settings (within a script block):
 
-```useSimplePagination = true;```
+```_cerkit.pagination.useSimplePagination = true;```
 
 Otherwise, your site will display a pagination control with 3 pages on either side of an ellipses (indicating there are pages in between the first and last pages). To change the number of pages surrounding the ellipses,
 you will need to add the following within a script block: 
 
-```numbersSurroundingEllipses = 5;```
+```_cerkit.pagination.numbersSurroundingEllipses = 5;```
 
 If this value is set to -1 then it will display all page numbers on the control.
 
@@ -45,13 +60,13 @@ By default, the Ghost Cerkit Theme uses the [Superhero](http://bootswatch.com/su
 ## Theme Picker
 There is a theme selection control on the sidebar that allows the user to pick which theme they wish to display. To disable this theme picker on your site, simply add the following code within a script block in your Code Injection section in your site settings: 
 
-```showThemeSelector = false;```
+```_cerkit.themeSelector.showThemeSelector = false;```
 
 The theme selector will store the selected theme in a cookie on the user's browser. It will then change the page to use their selected theme on each page load. It also provides a Theme Reset button that will return the site to its default theme.
 
 To change the default theme for your site without modifying the source code, simply add the following code in your Code Injection within a script block: 
 
-```defaultTheme = 'cosmo';```
+```_cerkit.themeSelector.defaultTheme = 'cosmo';```
 
 *Note: when you change the theme via JavaScript code, a theme is loaded twice: once for the default site theme, and once for the theme chosen by the theme picker or the `defaultTheme` override. If you wish to permanently change your default theme, it is recommended that you alter the default.hbs source and change it there.*
 
@@ -144,8 +159,8 @@ It may be necessary for you to add icons to your nabar link items. Doing this is
 
     <script type="text/javascript">
         // Navbar Icon Map
-        window.linkIconMap.defaultIconSize = 'fa-lg'; //use whatever size you want, or, leave this blank for Font Awesome default
-        window.addLinkIcon(/* target class = */ 'nav-home', /* icon = */ 'fa-home', /* (optional) size = */ 'fa-3x');
+        _cerkit.navbar.linkIconMap.defaultIconSize = 'fa-lg'; //use whatever size you want, or, leave this blank for Font Awesome default
+        _cerkit.navbar.addLinkIcon(/* target class = */ 'nav-home', /* icon = */ 'fa-home', /* (optional) size = */ 'fa-3x');
     </script>
 
 The first argument is the target class, this will match any element on the page with a given class name and bind the icon to it. 
@@ -156,9 +171,8 @@ If that is not provided, then it will fall back to use the default Font Awesome 
 ## Notes about custom JavaScript for the theme
 Custom features and JavaScript features all use variables defined in the [assets/js/site-init.js](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/assets/js/site-init.js) file.
 
-## Minification and Bundling
-Each of the scripts and css files are minified. If you make changes to the originals, make sure to save a _filename_.min._file-extension_ version.
-All required local js is bundled up into `bundle.js` and then minified. The theme links to the `bundle.min.js` file.
+## Minification and Concatenating(bundling)
+Each of the scripts and css files are minified automatically by gulp (assuming you are running it while developing). The theme links to the `app.min.js` file.
 
 ## Copyright & License
 
