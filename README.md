@@ -12,11 +12,10 @@ This theme takes advantage of [npm](https://npmjs.com). To setup everything in y
 
 This will install all of the dependencies that you will need in order to extend this theme.
 
-Once you have installed all of the dependencies, you can simply run `gulp` from the node command line and it will start watching the css and js folders for changes. When a change is detected, it will concatenate (bundle) and minify (uglify) the code and save it to the `src/assets` folder.
+Once you have installed all of the dependencies, you can simply run `gulp watch` from the node command line and it will start watching the css and js folders for changes. When a change is detected, it will concatenate (bundle) and minify (uglify) the code and save it to the `src/assets` folder.
 
 ## Accessing a build
-To get access to a `.zip` file that you can upload to [Ghost pro](https://ghost.io), simply run `gulp build` from a node command line (after navigating to the theme folder). The file will be saved as `dist/ghost-cerkit-theme.zip`
-
+To get access to a `.zip` file that you can upload to [Ghost pro](https://ghost.io), simply run `gulp` from a node command line (after navigating to the theme folder). The file will be saved as `dist/ghost-cerkit-theme.zip`
 
 ## Bootstrap support
 This theme provides support for [Bootstrap](http://getbootstrap.com) 3. It also includes [Font Awesome](http://fontawesome.io) and utilizes [Disqus](http://disqus.com) for comments.

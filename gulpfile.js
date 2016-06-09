@@ -22,18 +22,20 @@ var scriptsGlob = 'dev/**/*.js';
 var sassGlob = 'dev/sass/**/*.scss';
 var cssGlob = 'dev/css/**/*.css';
 
+var buildTasks = ['styles', 'scripts'];
+
 gulp.task('styles', function () {
     return merge(
         gulp.src(cssGlob),
         gulp.src(sassGlob)
             .pipe(sass().on('error', sass.logError))
-        )
-        .pipe(cached('styles'))
-        .pipe(remember('styles')) 
-        .pipe(concat('app.css'))
-        .pipe(cleanCSS())
-        .pipe(rename({ extname: '.min.css' }))
-        .pipe(gulp.dest(DEST));
+    )
+    .pipe(cached('styles'))
+    .pipe(remember('styles')) 
+    .pipe(concat('app.css'))
+    .pipe(cleanCSS())
+    .pipe(rename({ extname: '.min.css' }))
+    .pipe(gulp.dest(DEST));
 });
 
 gulp.task('scripts', function () {
@@ -58,7 +60,7 @@ gulp.task('scripts', function () {
 });
 
 //Watch tasks
-gulp.task('default', function () {
+gulp.task('watch', function () {
     var scriptWatcher = gulp.watch(scriptsGlob, ['scripts']); // watch the same files in our scripts task
     scriptWatcher.on('change', function (event) {
         if (event.type === 'deleted') {                   // if a file is deleted, forget about it
@@ -74,14 +76,12 @@ gulp.task('default', function () {
             remember.forget('styles', event.path);         // gulp-remember remove api
         }
     });
-    // watch for style changes    
-    //gulp.watch([sassGlob, cssGlob], 'styles'); // watch the same files in our styles task
-    
- 
 });
 
-gulp.task('build', function (){
-    return gulp.src('src/*')
-		.pipe(zip('ghost-cerkit-theme.zip'))
-		.pipe(gulp.dest('dist'));
+gulp.task('build', buildTasks, function(){
+    gulp.src('src/**/*.*')
+        .pipe(zip('ghost-cerkit-theme.zip'))
+        .pipe(gulp.dest('dist'));
 });
+
+gulp.task('default', ['build']);
