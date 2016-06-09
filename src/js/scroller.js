@@ -1,5 +1,5 @@
 /**
- * Main JS file for Casper behaviours
+ * Main JS file for theme behaviours
  */
 
 /* globals jQuery, document */
@@ -14,13 +14,6 @@
         $postContent.fitVids();
 
         $(".scroll-down").arctic_scroll();
-
-		/*
-        $(".menu-button, .nav-cover, .nav-close").on("click", function(e){
-            e.preventDefault();
-            $("body").toggleClass("nav-opened nav-closed");
-        });
-		*/
 
     });
 
