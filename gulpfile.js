@@ -27,8 +27,6 @@ var pkg = require('./package.json');
 var semver = require('semver');
 var util = require('gulp-util');
 var git = require('git');
-var log;
-
 var DEST = 'src/assets/';
 var scriptSrc = 'dev/js/';
 var scriptsGlob = 'dev/**/*.js';
@@ -141,7 +139,7 @@ gulp.task('deploy:zip', ['deploy:init'], function () {
     .pipe(gulp.dest('dist'));
 });
 
-
+/*
 gulp.task('changelog', ['deploy:zip'] , function (done) {
   changelog({
     repository: pkg.repository.url.replace('git://', 'https://')
@@ -153,8 +151,9 @@ gulp.task('changelog', ['deploy:zip'] , function (done) {
     done();
   });
 });
+*/
 
-gulp.task('bump', ['changelog', 'deploy:zip'], function (done) {
+gulp.task('bump', ['deploy:zip'], function (done) {
   return gulp.src(['./package.json'])
     .pipe($.bump({ version: version }))
     .pipe(gulp.dest('./'))
@@ -180,6 +179,6 @@ gulp.task('deploy:push', ['deploy:tag'], function (done) {
 });
 
 gulp.task('deploy', [
-  'deploy:init', 'changelog', 'deploy:zip', 'bump',
+  'deploy:init', 'deploy:zip', 'bump',
   'deploy:commit', 'deploy:tag', 'deploy:push'
 ]);
