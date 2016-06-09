@@ -10,15 +10,15 @@ your default page.
 <script type="text/javascript">
 	// set the values that we'll use in the bootstrap-pagination.js file
 	{{!if there is no value for the variable, display a 0}}
-	prev = {{#if prev}}{{prev}}{{else}}0{{/if}};
-	pages = {{#if pages}}{{pages}}{{else}}0{{/if}};
-	page = {{#if page}}{{page}}{{else}}0{{/if}};
-	next = {{#if next}}{{next}}{{else}}0{{/if}};
-	pageUrl = '{{page_url}}';
-	pageUrlPrev = '{{pageUrl prev}}';
-	pageUrlNext = '{{pageUrl next}}';
-	pageUrlFirst = '{{pageUrl 1}}';
-	pageUrlLast = '{{pageUrl pages}}';
+	_cerkit.pagination.prev = {{#if prev}}{{prev}}{{else}}0{{/if}};
+	_cerkit.pagination.pages = {{#if pages}}{{pages}}{{else}}0{{/if}};
+	_cerkit.pagination.page = {{#if page}}{{page}}{{else}}0{{/if}};
+	_cerkit.pagination.next = {{#if next}}{{next}}{{else}}0{{/if}};
+	_cerkit.pagination.pageUrl = '{{page_url}}';
+	_cerkit.pagination.pageUrlPrev = '{{pageUrl prev}}';
+	_cerkit.pagination.pageUrlNext = '{{pageUrl next}}';
+	_cerkit.pagination.pageUrlFirst = '{{pageUrl 1}}';
+	_cerkit.pagination.pageUrlLast = '{{pageUrl pages}}';
 </script>
 <nav>
   <ul class="pagination bootstrap-pagination">
