@@ -17,6 +17,7 @@ var cleanCSS = require('gulp-clean-css');
 var streamqueue = require('streamqueue');
 var zip = require('gulp-zip');
 var bump = require('gulp-bump');
+var size = require('size');
 
 // deploy
 var $ = require('gulp-load-plugins')();
@@ -123,7 +124,7 @@ gulp.task('deploy:init', buildTasks, function (done) {
 
   if (!$.util.env.tag) return done('--tag is required');
   if (!tagType) return done('--tag must be patch, feature or release');
-  if ($.util.env.f) return $.git.exec({ args: 'stash' });
+  if ($.util.env.f) return git.exec({ args: 'stash' });
 
   exec('git status -s', function (err, stdout, stderr) {
     if (err) return done(err);
@@ -156,7 +157,7 @@ gulp.task('changelog', ['deploy:zip'] , function (done) {
 gulp.task('bump', ['deploy:zip'], function (done) {
   return gulp.src(['./package.json'])
     .pipe($.bump({ version: version }))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('./'))
     .pipe(size({ title: '/', showFiles: true }));
 });
 
