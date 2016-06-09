@@ -17,7 +17,7 @@ var cleanCSS = require('gulp-clean-css');
 var streamqueue = require('streamqueue');
 var zip = require('gulp-zip');
 var bump = require('gulp-bump');
-var size = require('size');
+var size = require('gulp-size');
 
 // deploy
 var $ = require('gulp-load-plugins')();
@@ -27,7 +27,7 @@ var fs = require('fs');
 var pkg = require('./package.json');
 var semver = require('semver');
 var util = require('gulp-util');
-var git = require('git');
+var git = require('gulp-git');
 var DEST = 'src/assets/';
 var scriptSrc = 'dev/js/';
 var scriptsGlob = 'dev/**/*.js';
