@@ -58,8 +58,8 @@ gulp.task('scripts', function () {
     gulp.src(scriptSrc + 'jquery.fitvids.js'),
     gulp.src(scriptSrc + 'prism.js'),
     gulp.src(scriptSrc + 'reading-time.js'),
-    gulp.src(scriptSrc + 'scroller.js'),
     gulp.src(scriptSrc + 'cerkit-app.js'),
+    gulp.src(scriptSrc + 'scroller.js'),
     gulp.src(scriptSrc + 'startup.js')
   )
     .pipe(cached('scripts'))        // only pass through changed files

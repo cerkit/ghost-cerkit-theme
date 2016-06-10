@@ -1,9 +1,7 @@
-var _cerkit = _cerkit || {};
-
 "use strict";
 
 
-_cerkit = {
+var _cerkit = _cerkit || {
     pagination: {
         /*********************************************************************************************************
         * Pagination
@@ -94,6 +92,7 @@ _cerkit = {
         }
     },
     navbar: {
+        
         /************************************************************************************************
         * Navbar Icons
         * 
@@ -130,7 +129,7 @@ _cerkit = {
             }
 
             // if we have a size passed in, use it, otherwise use the default icon size on our icon map. If that's missing, use nothing (Font Awesome default size)
-            var iconSize = size ? size : 'defaultIconSize' in window.linkIconMap ? window.linkIconMap.defaultIconSize : '';
+            var iconSize = size ? size : 'defaultIconSize' in _cerkit.navbar.linkIconMap ? _cerkit.navbar.linkIconMap.defaultIconSize : '';
             _cerkit.navbar.linkIconMap.maps.push({ "target": target, "icon": icon, "size": iconSize });
         },
         bindLinkIcons: function () {
