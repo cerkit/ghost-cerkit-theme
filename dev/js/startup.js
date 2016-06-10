@@ -18,7 +18,7 @@ $(function () {
         }
 
         $(document).on('change', '#theme-selector', function (e) {
-            var selectedTheme = e.target.options[e.target.selectedIndex].value;
+            selectedTheme = e.target.options[e.target.selectedIndex].value;
             _cerkit.themeSelector.setTheme(selectedTheme);
         });
     }
