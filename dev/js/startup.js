@@ -1,6 +1,12 @@
+$(document).on('change', '#theme-selector', function (e) {
+    _cerkit.themeSelector.selectedTheme = e.target.options[e.target.selectedIndex].value;
+    _cerkit.themeSelector.setTheme();
+});
+
 // startup initialization
 $(function () {
-
+    "use strict";
+    
     _cerkit.methods.moveSidebarItems();
     _cerkit.config.setAlternateSubscriptionLink();
     _cerkit.config.convertPrettyfierToPrism();
@@ -16,11 +22,6 @@ $(function () {
         else {
             _cerkit.themeSelector.setSelectedOption(_cerkit.themeSelector.defaultTheme);
         }
-
-        $(document).on('change', '#theme-selector', function (e) {
-            _cerkit.themeSelector.selectedTheme = e.target.options[e.target.selectedIndex].value;
-            _cerkit.themeSelector.setTheme();
-        });
     }
     else {
         $('#theme-selector').css('display', 'none');
