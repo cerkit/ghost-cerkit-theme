@@ -1,0 +1,941 @@
+@mixin box-sizing($sizing) {
+    -webkit-box-sizing: $sizing;
+    -moz-box-sizing: $sizing;
+    box-sizing: $sizing;
+}
+
+$post-suggestion-text: "You Might Enjoy";
+$site-font: "Open Sans", sans-serif;
+$page-title-color: #fff;
+$main-header-height: 96vh;
+
+/* ==========================================================================
+   Custom theme styles
+   ========================================================================== */
+
+body { 
+    padding-bottom: 70px; 
+}
+
+.navbar-brand-image {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+
+.navbar-brand-blog-title {   
+    display: table;
+    margin-left: 40px;
+}
+    
+.tag-button {
+    margin: 2px;
+}
+    
+.prettyprint{
+    font-size: small;
+}
+.post-title a:hover {
+    text-decoration: none;
+}
+
+/* The details of your blog. Defined in ghost/settings/ */
+.page-title {
+    margin: 10px 0 10px 0;
+    font-size: 5rem;
+    letter-spacing: -1px;
+    font-weight: 700;
+    font-family: $site-font;
+    color: $page-title-color;
+}
+
+.main-header .panel {
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.main-header .panel .panel-title {
+    font-size: 1.8em;
+}
+
+.main-header .panel .panel-body {  
+    font-size: 2rem;
+    line-height: 1.5em;
+    font-weight: 400;
+    font-family: "Merriweather", serif;
+    letter-spacing: 0.01rem;
+    color: rgba(255,255,255,0.8); 
+}
+
+.post-template .main-header {
+    background-position-y: 0px;
+}
+
+/* Add subtle load-in animation for content on the home page */
+.home-template page-title {
+    -webkit-animation: fade-in-down 0.6s;
+    animation: fade-in-down 0.6s;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+.home-template .panel.panel-body {
+    -webkit-animation: fade-in-down 0.9s;
+    animation: fade-in-down 0.9s;
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+       
+.bio-container {
+    width: 100%
+}
+
+
+.page-description {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 6px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 6px;
+    font-size: 2rem;
+    line-height: 1.5em;
+    font-weight: 400;
+    font-family: "Merriweather", serif;
+    letter-spacing: 0.01rem;
+    color: rgb(128, 128, 128);
+}
+    
+.author-title {
+    width: 100%;
+    text-align: center;
+}
+    
+.sidebar-meta {
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+}
+
+.share-link {
+    text-decoration: none;
+    margin: 2px;
+}
+
+h1.panel-title {
+    font-size: 6rem;
+}
+
+h2.panel-title {
+    font-size: 4rem;
+}
+
+h3.panel-title {
+    font-size: 2.75rem;
+}
+
+ h4.panel-title {
+    font-size: 1.5rem;
+}
+
+h5.panel-title {
+    font-size: 1rem;
+}
+
+h6.panel-title {
+    font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   Original Casper styles (what's left of them)
+   ========================================================================== */
+
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+/* ==========================================================================
+   1. Icons - Sets up the icon font and respective classes
+   ========================================================================== */
+
+/* Import the font file with the icons in it */
+@font-face {
+    font-family: "casper-icons";
+    src:url("./fonts/casper-icons.eot?v=1");
+    src:url("./fonts/casper-icons.eot?v=1#iefix") format("embedded-opentype"),
+        url("./fonts/casper-icons.woff?v=1") format("woff"),
+        url("./fonts/casper-icons.ttf?v=1") format("truetype"),
+        url("./fonts/casper-icons.svg?v=1#icons") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Apply these base styles to all icons */
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: "casper-icons", "Open Sans", sans-serif;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    text-decoration: none !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Each icon is created by inserting the correct character into the
+   content of the :before pseudo element. Like a boss. */
+.icon-ghost:before {
+    content: "\f600";
+}
+.icon-feed:before {
+    content: "\f601";
+}
+.icon-twitter:before {
+    content: "\f602";
+    font-size: 1.1em;
+}
+.icon-google-plus:before {
+    content: "\f603";
+}
+.icon-facebook:before {
+    content: "\f604";
+}
+.icon-arrow-left:before {
+    content: "\f605";
+}
+.icon-stats:before {
+    content: "\f606";
+}
+.icon-location:before {
+    content: "\f607";
+    margin-left: -3px; /* Tracking fix */
+}
+.icon-link:before {
+    content: "\f608";
+}
+.icon-menu:before {
+    content: "\f609";
+}
+/*
+    IMPORTANT: When making any changes to the icon font, be sure to increment
+    the version number by 1 in the @font-face rule. `?v=1` becomes `?v=2`
+    This forces browsers to download the new font file.
+*/
+
+
+iframe, .fluid-width-video-wrapper {
+    display: block;
+    margin: 1.75em 0;
+}
+
+/* When a video is inside the fitvids wrapper, drop the
+margin on the iframe, cause it breaks stuff. */
+.fluid-width-video-wrapper iframe {
+    margin: 0;
+}
+
+/* Clears shit */
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+/* Hides stuff */
+.hidden {
+    text-indent: -9999px;
+    visibility: hidden;
+    display: none;
+}
+
+/* Centres vertically yo. (IE8+) */
+.vertical {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* Wraps the main content & footer */
+.site-wrapper {
+    padding-top: 50px;
+    z-index: 10;
+    min-height: 100%;
+    -webkit-transition: -webkit-transform 0.5s ease;
+            transition: transform 0.5s ease;
+}
+
+/* Big cover image on the home page */
+.main-header {
+    position: relative;
+    display: table;
+    width: 100%;
+    height: $main-header-height;
+    margin-bottom: 2rem;
+    text-align: center;
+    background: #222 no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+body.paged .main-header, .tag-template .main-header {
+    background-position-y: 0px;
+}
+
+/* Create a bouncing scroll-down arrow on homepage with cover image */
+.scroll-down {
+    display: block;
+    position: absolute;
+    z-index: 100;
+    bottom: 45px;
+    left: 50%;
+    width: 34px;
+    height: 34px;
+    text-align: center;
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+    -webkit-animation: bounce 4s 2s infinite;
+    -moz-animation: bounce 4s 2s infinite;
+    -o-animation: bounce 4s 2s infinite;
+    animation: bounce 4s 2s infinite;
+}
+
+/* Stop it bouncing and increase contrast when hovered */
+    .scroll-down:hover {
+        color: #fff;
+        -webkit-animation: none;
+        -moz-animation: none;
+        -o-animation: none;
+        animation: none;
+    }
+
+/* Put a semi-opaque radial gradient behind the icon to make it more visible
+   on photos which happen to have a light background. */
+/*.home-template .main-header:after {
+    display: block;
+    content: " ";
+    width: 150px;
+    height: 130px;
+    border-radius: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -75px;
+    background: radial-gradient(ellipse at center,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 70%,rgba(0,0,0,0) 100%);
+}*/
+
+/* Hide when there's no cover image or on page2+ */
+.no-cover .scroll-down,
+.no-cover.main-header:after,
+.archive-template .scroll-down,
+.archive-template .main-header:after {
+    display: none;
+}
+
+/* Every post, on every page, gets this style on its <article> tag */
+.nextprev-post {
+    position: relative;
+    margin: 4rem auto;
+    padding-bottom: 4rem;
+    word-wrap: break-word;
+}
+
+
+body:not(.post-template) .post-title {
+    font-size: 3.6rem;
+}
+
+.post-title a {
+    text-decoration: none;
+}
+
+.read-more {
+    text-decoration: none;
+}
+
+.author-thumb {
+    width: 24px;
+    height: 24px;
+    float: left;
+    margin-right: 9px;
+    border-radius: 100%;
+}
+
+.user-meta {
+    position: relative;
+    padding: 0.3rem 40px 0 100px;
+    min-height: 77px;
+}
+
+.publish-meta {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 4.3rem 0 4rem 0;
+    text-align: right;
+}
+
+.publish-heading {
+    display: block;
+    font-weight: 700;
+}
+
+.publish-date {
+    display: block;
+    font-size: 1.4rem;
+    line-height: 1.5em;
+}
+
+/* Stop elements, such as img wider than the post content, from
+   creating horizontal scroll - slight hack due to imperfections
+   with browser width % calculations and rounding */
+.post-template .content {
+    overflow: hidden;
+}
+
+/* Tweak the .post wrapper style */
+.post-template .post {
+    margin-top: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Kill that stylish little circle that was on the border, too */
+.post-template .post:after {
+    display: none;
+}
+
+/* Keep images centered, and allow images wider than the main
+   text column to break out. */
+.post-content img {
+    display: block;
+    max-width: 126%;
+    height: auto;
+    padding: 0.6em 0;
+    /* Centers an image by (1) pushing its left edge to the
+       center of its container and (2) shifting the entire image
+       in the opposite direction by half its own width.
+       Works for images that are larger than their containers. */
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%); /* for Safari and iOS */
+    -ms-transform: translateX(-50%); /* for IE9 */
+    transform: translateX(-50%);
+}
+
+.footnotes {
+    font-style: italic;
+    font-size: 1.3rem;
+    line-height: 1.6em;
+}
+
+.footnotes li {
+    margin: 0.6rem 0;
+}
+
+.footnotes p {
+    margin: 0;
+}
+
+.footnotes p a:last-child {
+    text-decoration: none;
+}
+/* ==========================================================================
+   6. Author profile
+   ========================================================================== */
+
+.post-head.main-header {
+    height: 65vh;
+    min-height: 180px;
+}
+
+.no-cover.post-head.main-header {
+    height: 85px;
+    min-height: 0;
+    margin-bottom: 0;
+    background: transparent;
+}
+
+.tag-head.main-header {
+    height: 40vh;
+    min-height: 180px;
+}
+
+.author-head.main-header {
+    height: 40vh;
+    min-height: 180px;
+}
+
+.no-cover.author-head.main-header {
+    height: 10vh;
+    min-height: 100px;
+    background: transparent;
+}
+
+
+.author-profile {
+    width: 100%;
+    padding: 0 15px 5rem 15px;
+    text-align: center;
+}
+
+.author-title {
+    margin: 1.5rem 0 1rem;
+}
+
+.author-bio {
+    font-size: 1.8rem;
+    line-height: 1.5em;
+    font-weight: 200;
+    letter-spacing: 0;
+    text-indent: 0;
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+.author-meta {
+    margin: 1.6rem 0;
+}
+
+/* Turn off meta for page2+ to make room for extra
+   pagination prev/next links */
+.archive-template .author-profile .author-meta {
+    display: none;
+}
+
+
+/* ==========================================================================
+   7. Read More - Next/Prev Post Links
+   ========================================================================== */
+
+.read-next {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    margin-top: 10rem;
+}
+
+.read-next-story {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    min-width: 50%;
+    text-decoration: none;
+    position: relative;
+    text-align: center;
+    color: #fff;
+    background: #222 no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.read-next-story:hover:before {
+    background: rgba(0,0,0,0.8);
+    transition: all 0.2s ease;
+}
+.read-next-story:hover .post:before {
+    color: #222;
+    background: #fff;
+    transition: all 0.2s ease;
+}
+
+.read-next-story:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    transition: all 0.5s ease;
+}
+
+.read-next-story .nextprev-post {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+.read-next-story .nextprev-post:before {
+    content: "Read This Next";
+    padding: 4px 10px 5px;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-family: "Open Sans", sans-serif;
+    color: rgba(255,255,255,0.8);
+    border: rgba(255,255,255,0.5) 1px solid;
+    border-radius: 4px;
+    transition: all 0.5s ease;
+}
+.read-next-story.prev .nextprev-post:before {
+    content: $post-suggestion-text;
+}
+
+.read-next-story h2 {
+    margin-top: 1rem;
+    color: #fff;
+}
+
+.read-next-story p {
+    margin: 0;
+    color: rgba(255,255,255,0.8);
+}
+
+/* Special styles for posts with no cover images */
+.read-next-story.no-cover {
+    background: #f5f8fa;
+}
+
+.read-next-story.no-cover:before {
+    display: none;
+}
+
+.read-next-story.no-cover .nextprev-post:before {
+    color: rgba(0,0,0,0.5);
+    border-color: rgba(0,0,0,0.2);
+}
+
+.read-next-story.no-cover h2 {
+    color: rgba(0,0,0,0.8);
+}
+
+.read-next-story.no-cover p {
+    color: rgba(0,0,0,0.5);
+}
+
+/* if there are two posts without covers, put a border between them */
+.read-next-story.no-cover + .read-next-story.no-cover {
+    border-left: rgba(0,0,100,0.04) 1px solid;
+    @include box-sizing(border-box);
+}
+
+footer {
+    margin-top: 25px;
+}
+
+/* ==========================================================================
+   8. Third Party Elements - Embeds from other services
+   ========================================================================== */
+
+/* Github */
+.gist table {
+    margin: 0;
+    font-size: 1.4rem;
+    text-rendering: auto;
+}
+.gist td {
+    line-height: 1.4;
+}
+.gist .line-number {
+    min-width: 25px;
+}
+
+/* Pastebin */
+.content .embedPastebin {
+    margin-bottom: 1.75em;
+}
+
+.extra-pagination {
+    display: none;
+    /*border-bottom: #EBF2F6 1px solid;*/
+}
+
+/* On page2+ make all the headers smaller */
+.archive-template .main-header {
+    max-height: 30vh;
+}
+
+/* On page2+ show extra pagination controls at the top of post list */
+.archive-template .extra-pagination {
+    display: block;
+}
+
+/* ==========================================================================
+   11. Media Queries - Smaller than 900px
+   ========================================================================== */
+
+@media only screen and (max-width: 900px) {
+
+    blockquote {
+        margin-left: 0;
+    }
+
+    .main-header {
+        @include box-sizing(border-box);
+        height: auto;
+        min-height: 240px;
+        height: 60vh;
+        padding: 15% 0;
+    }
+
+    .scroll-down,
+    .home-template .main-header:after { display: none; }
+
+    .archive-template .main-header {
+        min-height: 180px;
+        padding: 10% 0;
+    }
+
+    .blog-logo img {
+        padding: 4px 0;
+    }
+
+    .page-title {
+        font-size: 4rem;
+        letter-spacing: -1px;
+    }
+
+    .page-description {
+        font-size: 1.8rem;
+        line-height: 1.5em;
+    }
+
+    .post {
+        font-size: 0.95em
+    }
+
+    body:not(.post-template) .post-title {
+        font-size: 3.2rem;
+    }
+
+    hr {
+        margin: 2.4em 0;
+    }
+
+    ol, ul {
+        padding-left: 2em;
+    }
+
+    h1 {
+        font-size: 4.5rem;
+        text-indent: -2px;
+    }
+
+    h2 {
+        font-size: 3.6rem;
+    }
+
+    h3 {
+        font-size: 3.1rem;
+    }
+
+    h4 {
+        font-size: 2.5rem;
+    }
+
+    h5 {
+        font-size: 2.2rem;
+    }
+
+    h6 {
+        font-size: 1.8rem;
+    }
+
+    .author-profile {
+        padding-bottom: 4rem;
+    }
+
+    .author-profile .author-bio {
+        font-size: 1.6rem;
+    }
+
+    .author-meta span {
+        display: block;
+        margin: 1.5rem 0;
+    }
+    .author-profile .author-meta span {
+        font-size: 1.6rem;
+    }
+
+    .post-head.main-header {
+        height:45vh;
+    }
+
+    .tag-head.main-header,
+    .author-head.main-header {
+        height: 30vh;
+    }
+
+    .no-cover.post-head.main-header {
+        height: 55px;
+        padding: 0;
+    }
+
+    .no-cover.author-head.main-header {
+        padding: 0;
+    }
+
+    .read-next {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        margin-top: 4rem;
+    }
+
+    .read-next p {
+        display: none;
+    }
+
+    .read-next-story.no-cover + .read-next-story.no-cover {
+        border-top: rgba(0,0,100,0.06) 1px solid;
+        border-left: none;
+    }
+
+}
+
+
+/* ==========================================================================
+   12. Media Queries - Smaller than 500px
+   ========================================================================== */
+
+@media only screen and (max-width: 500px) {
+
+    .main-header {
+        margin-bottom: 15px;
+        height: 40vh;
+    }
+
+    .no-cover.main-header {
+        height: 30vh;
+    }
+
+    .archive-template .main-header {
+        max-height: 20vh;
+        min-height: 160px;
+        padding: 10% 0;
+    }
+
+    .main-nav {
+        padding: 5px;
+        margin-bottom: 2rem;
+    }
+
+    .blog-logo {
+        padding: 5px;
+    }
+
+    .blog-logo img {
+        height: 30px;
+    }
+
+    .menu-button {
+        padding: 0 5px;
+        border-radius: 0;
+        border-width: 0;
+        color: #2e2e2e;
+        background: transparent;
+    }
+    .menu-button:hover {
+        color: #2e2e2e;
+        border-color: transparent;
+        background: none;
+    }
+    body.nav-opened .menu-button {
+        background: none;
+        border: transparent;
+    }
+
+    .main-nav.overlay a:hover {
+        color: #fff;
+        border-color: transparent;
+        background: transparent;
+    }
+
+    .no-cover .main-nav.overlay {
+        background: none;
+    }
+    .no-cover .main-nav.overlay .menu-button {
+        border: none;
+    }
+
+    .main-nav.overlay .menu-button {
+        border-color: transparent;
+    }
+
+    .nav-title {
+        top: 25px;
+
+    }
+
+    .nav-close {
+        position: absolute;
+        top: 18px;
+    }
+
+    .link-icon {
+        margin-right: 3px;
+    }
+
+/* ==========================================================================
+   13. Animations
+   ========================================================================== */
+
+/* Used to fade in title/desc on the home page */
+@-webkit-keyframes fade-in-down {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+@keyframes fade-in-down {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+/* Used to bounce .scroll-down on home page */
+/* Used to bounce .scroll-down on home page */
+@-webkit-keyframes bounce {
+    0%, 10%, 25%, 40%, 50% {
+        -webkit-transform: translateY(0) rotate(0);
+                transform: translateY(0) rotate(0);
+    }
+    20% {
+        -webkit-transform: translateY(-10px) rotate(0);
+                transform: translateY(-10px) rotate(0);
+    }
+    30% {
+        -webkit-transform: translateY(-5px) rotate(0);
+                transform: translateY(-5px) rotate(0);
+    }
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        -webkit-transform: translateY(0) rotate(0);
+                transform: translateY(0) rotate(0);
+    }
+    40% {
+        -webkit-transform: translateY(-10px) rotate(0);
+                transform: translateY(-10px) rotate(0);
+    }
+    60% {
+        -webkit-transform: translateY(-5px) rotate(0);
+                transform: translateY(-5px) rotate(0);
+    }
+}
+}

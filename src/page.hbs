@@ -1,0 +1,37 @@
+<!-- page -->
+{{!< default}}
+
+{{! This is a page template. A page outputs content just like any other post, and has all the same
+    attributes by default, but you can also customise it to behave differently if you prefer. }}
+
+{{! Everything inside the #post tags pulls data from the page }}
+{{#post}}
+
+<header class="main-header post-head {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}">
+</header>
+<main id="content" class="content" role="main">
+    <div class="row">
+        <div id="sidebar-container" class="col-md-4">
+            {{#author}}
+            {{> "sidebar"}}
+            {{/author}}
+        </div> <!-- .col-md-4 -->
+        <div class="col-md-8">
+            <div class="panel panel-primary">
+                <header class="panel-heading">
+                    <h1 class="panel-title">{{title}}</h1>
+                </header>
+                <div class="panel-body">
+                    <article class="{{post_class}}">
+                        <section class="post-content">
+                            <a name="content" class="sr-only"></a>
+                            {{content}}
+                        </section>
+                    </article>
+                </div>
+            </div>
+        </div> <!-- .col-md-8 -->
+    </div> <!-- .row -->
+</main>
+{{/post}}
+<!-- /page -->
