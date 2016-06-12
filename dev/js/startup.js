@@ -1,8 +1,3 @@
-$(document).on('change', '#theme-selector', function (e) {
-    _cerkit.themeSelector.selectedTheme = e.target.options[e.target.selectedIndex].value;
-    _cerkit.themeSelector.setTheme();
-});
-
 // startup initialization
 $(function () {
     "use strict";
@@ -26,6 +21,11 @@ $(function () {
     else {
         $('#theme-selector').css('display', 'none');
     }
+
+    $(document).on('change', '#theme-selector', function (e) {
+        _cerkit.themeSelector.selectedTheme = e.target.options[e.target.selectedIndex].value;
+        _cerkit.themeSelector.setTheme();
+    });
 
     // see if there are any previous pages
     // if so, append them to the pagination ul
