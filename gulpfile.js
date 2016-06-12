@@ -54,7 +54,7 @@ gulp.task('styles', function () {
 
 gulp.task('scripts', function () {
   // make sure the scripts get put into the correct order
-  /*
+  
   return streamqueue({ objectMode: true },
     gulp.src(scriptSrc + 'jquery.fitvids.js'),
     gulp.src(scriptSrc + 'prism.js'),
@@ -62,13 +62,13 @@ gulp.task('scripts', function () {
     gulp.src(scriptSrc + 'cerkit-app.js'),
     gulp.src(scriptSrc + 'scroller.js'),
     gulp.src(scriptSrc + 'startup.js')
-  )*/
-  return gulp.src(scriptsGlob)
+  )
+    //return gulp.src(scriptsGlob)
     .pipe(cached('scripts'))        // only pass through changed files
     .pipe(jshint())                 // do special things to the changed files...
     .pipe(jshint.reporter(stylish))
-    //.pipe(header('(function () {')) // e.g. jshinting ^^^
-    //.pipe(footer('})();'))          // and some kind of module wrapping
+    .pipe(header('(function () {')) // e.g. jshinting ^^^
+    .pipe(footer('})();'))          // and some kind of module wrapping
     .pipe(remember('scripts'))      // add back all files to the stream
     .pipe(concat('app.js'))         // do things that require all files
     .pipe(uglify({ mangle: false, compress: false }))

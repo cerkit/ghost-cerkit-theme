@@ -1,0 +1,3 @@
+{
+  "predef": [ "$", "window", "document", "console" ]
+}

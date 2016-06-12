@@ -1,8 +1,8 @@
 "use strict";
 
-window._cerkit = window._cerkit || {};
+var _cerkit = _cerkit || {};
 
-window._cerkit = {
+_cerkit = {
     pagination: {
         /*********************************************************************************************************
         * Pagination
