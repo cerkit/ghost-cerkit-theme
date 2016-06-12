@@ -101,7 +101,7 @@ var updateFileVersion = function () {
 
 };
 
-gulp.task('default', ['build']);
+gulp.task('default', ['watch']);
 
 var getPackageJson = function () {
   return JSON.parse(fs.readFileSync('./package.json', 'utf8'));
