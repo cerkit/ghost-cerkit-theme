@@ -10,7 +10,7 @@ $(function () {
     var selectedTheme = $.cookie('user-theme');
 
     if (_cerkit.themeSelector.showThemeSelector) {
-        if (selectedTheme !== null) {
+        if (selectedTheme) {
             _cerkit.themeSelector.changeTheme(selectedTheme);
         }
         else {
