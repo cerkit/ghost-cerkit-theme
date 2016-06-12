@@ -67,8 +67,6 @@ gulp.task('scripts', function () {
     .pipe(cached('scripts'))        // only pass through changed files
     .pipe(jshint())                 // do special things to the changed files...
     .pipe(jshint.reporter(stylish))
-    .pipe(header('(function () {')) // e.g. jshinting ^^^
-    .pipe(footer('})();'))          // and some kind of module wrapping
     .pipe(remember('scripts'))      // add back all files to the stream
     .pipe(concat('app.js'))         // do things that require all files
     .pipe(uglify({ mangle: false, compress: false }))
