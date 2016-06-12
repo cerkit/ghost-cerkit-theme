@@ -11,7 +11,7 @@ $(function () {
 
     if (_cerkit.themeSelector.showThemeSelector) {
         if (_cerkit.themeSelector.selectedTheme) {
-            _cerkit.themeSelector.changeTheme();
+            _cerkit.themeSelector.changeTheme(_cerkit.themeSelector.selectedTheme);
         }
         else {
             _cerkit.themeSelector.setSelectedOption(_cerkit.themeSelector.defaultTheme);

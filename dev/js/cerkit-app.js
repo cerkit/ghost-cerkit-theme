@@ -180,7 +180,7 @@ _cerkit = {
         showThemeSelector: true,
         setTheme: function () {
             $.cookie('user-theme', _cerkit.themeSelector.selectedTheme, { expires: 170, path: '/' });
-            _cerkit.themeSelector.changeTheme(theme);
+            _cerkit.themeSelector.changeTheme(_cerkit.themeSelector.selectedTheme);
         },
         changeTheme: function (selectedTheme) {
             _cerkit.themeSelector.setSelectedOption(selectedTheme);
