@@ -1,30 +1,31 @@
 // startup initialization
 $(function () {
-
+    "use strict";
+    
     _cerkit.methods.moveSidebarItems();
     _cerkit.config.setAlternateSubscriptionLink();
     _cerkit.config.convertPrettyfierToPrism();
     _cerkit.navbar.bindLinkIcons();
 
     // Bootstrap theme selector
-    var selectedTheme = $.cookie('user-theme');
+    _cerkit.themeSelector.selectedTheme = $.cookie('user-theme');
 
     if (_cerkit.themeSelector.showThemeSelector) {
-        if (selectedTheme !== null) {
-            _cerkit.themeSelector.changeTheme(selectedTheme);
+        if (_cerkit.themeSelector.selectedTheme) {
+            _cerkit.themeSelector.changeTheme(_cerkit.themeSelector.selectedTheme);
         }
         else {
             _cerkit.themeSelector.setSelectedOption(_cerkit.themeSelector.defaultTheme);
         }
-
-        $(document).on('change', '#theme-selector', function (e) {
-            selectedTheme = e.target.options[e.target.selectedIndex].value;
-            _cerkit.themeSelector.setTheme(selectedTheme);
-        });
     }
     else {
         $('#theme-selector').css('display', 'none');
     }
+
+    $(document).on('change', '#theme-selector', function (e) {
+        _cerkit.themeSelector.selectedTheme = e.target.options[e.target.selectedIndex].value;
+        _cerkit.themeSelector.setTheme();
+    });
 
     // see if there are any previous pages
     // if so, append them to the pagination ul
