@@ -7,19 +7,19 @@ $(function () {
     _cerkit.navbar.bindLinkIcons();
 
     // Bootstrap theme selector
-    var selectedTheme = $.cookie('user-theme');
+    _cerkit.themeSelector.selectedTheme = $.cookie('user-theme');
 
     if (_cerkit.themeSelector.showThemeSelector) {
-        if (selectedTheme) {
-            _cerkit.themeSelector.changeTheme(selectedTheme);
+        if (_cerkit.themeSelector.selectedTheme) {
+            _cerkit.themeSelector.changeTheme();
         }
         else {
             _cerkit.themeSelector.setSelectedOption(_cerkit.themeSelector.defaultTheme);
         }
 
         $(document).on('change', '#theme-selector', function (e) {
-            selectedTheme = e.target.options[e.target.selectedIndex].value;
-            _cerkit.themeSelector.setTheme(selectedTheme);
+            _cerkit.themeSelector.selectedTheme = e.target.options[e.target.selectedIndex].value;
+            _cerkit.themeSelector.setTheme();
         });
     }
     else {

@@ -2,6 +2,7 @@
 
 var _cerkit = _cerkit || {};
 
+
 _cerkit = {
     pagination: {
         /*********************************************************************************************************
@@ -175,9 +176,10 @@ _cerkit = {
         linkToBootstrapCDN: "//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/",
         themeStyleCss: "/bootstrap.min.css",
         defaultTheme: "cosmo",
+        selectedTheme: null,
         showThemeSelector: true,
-        setTheme: function (theme) {
-            $.cookie('user-theme', theme, { expires: 170, path: '/' });
+        setTheme: function () {
+            $.cookie('user-theme', _cerkit.themeSelector.selectedTheme, { expires: 170, path: '/' });
             _cerkit.themeSelector.changeTheme(theme);
         },
         changeTheme: function (selectedTheme) {
