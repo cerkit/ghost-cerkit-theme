@@ -62,7 +62,7 @@ If this value is set to -1 then it will display all page numbers on the control.
 The Ghost Cerkit Theme uses [CDN](https://en.wikipedia.org/wiki/Content_delivery_network)s whenever possible to eliminate the need to manually manage source files.
 
 ## Bootswatch Themes
-By default, the Ghost Cerkit Theme uses the [Superhero](http://bootswatch.com/superhero/) Bootswatch theme.
+By default, the Ghost Cerkit Theme uses the [Cosmo](http://bootswatch.com/cosmo/) Bootswatch theme.
 
 ## Theme Picker
 There is a theme selection control on the sidebar that allows the user to pick which theme they wish to display. To disable this theme picker on your site, simply add the following code within a script block in your Code Injection section in your site settings: 
