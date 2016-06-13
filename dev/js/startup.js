@@ -16,6 +16,7 @@ $(function () {
         }
         else {
             _cerkit.themeSelector.setSelectedOption(_cerkit.themeSelector.defaultTheme);
+            _cerkit.themeSelector.changeTheme(_cerkit.themeSelector.defaultTheme);
         }
     }
     else {
