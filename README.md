@@ -21,9 +21,9 @@ To deploy the changes to your branch, run `gulp deploy --tag <TAGTYPE>` from a n
 This will also bump the file version number and push to your remote repository. The best way I have found to execute this (on Windows) is to run it with the GitHub shell.
 
 There are three values you can use for `--tag`:
-* patch
-* feature
-* release
+* patch - increments the patch version: `0.0.X`
+* feature - increments the minor version: `0.X.0`
+* release - increments the major version: `X.0.0`
 
 ## Bootstrap support
 This theme provides support for [Bootstrap](http://getbootstrap.com) 3. It also includes [Font Awesome](http://fontawesome.io) and utilizes [Disqus](http://disqus.com) for comments.
