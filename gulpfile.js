@@ -106,6 +106,19 @@ var getPackageJson = function () {
 };
 
 /*****************************************************************************************
+ * Standalone zip
+ */
+gulp.task('zip', buildTasks, function () {
+  var fileName = $.util.env.name;
+  if (!fileName) return done('--name is required (without .zip extension)');
+
+  var zipFilename = fileName + '.zip';
+  return gulp.src('src/**/*.*')
+    .pipe(zip(zipFilename))
+    .pipe(gulp.dest('dist'));
+});
+
+/*****************************************************************************************
  * Deploy
  */
 

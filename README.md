@@ -12,10 +12,12 @@ This theme takes advantage of [npm](https://npmjs.com). To setup everything in y
 
 This will install all of the dependencies that you will need in order to extend this theme.
 
-Once you have installed all of the dependencies, you can simply run `gulp` from the node command line and it will start watching the css and js folders for changes. When a change is detected, it will concatenate (bundle) and minify (uglify) the code and save it to the `src/assets` folder.
+Once you have installed all of the dependencies, you can simply run `gulp` from the node command line and it will start watching the css and js folders for changes. When a change is detected, it will concatenate (bundle) and minify (uglify) the code and save it to the `src/assets` folder (where it is referenced by the `default.hbs` file and included on all pages).
 
 ## Accessing a build
-To get access to a `.zip` file that you can upload to [Ghost pro](https://ghost.io), simply run `gulp deploy --tag <TAGTYPE>` from a node command line (after navigating to the theme folder). The file will be saved as `dist/ghost-cerkit-theme.zip`.
+To get access to a `.zip` file that you can upload to [Ghost pro](https://ghost.io), simply run `gulp zip --name <FILENAME>` (without `.zip` extension) 
+
+To deploy the changes to your branch, run `gulp deploy --tag <TAGTYPE>` from a node command line (after navigating to the theme folder). The file will be saved as `dist/ghost-cerkit-theme.VERSION_NUMBER.zip`.
 This will also bump the file version number and push to your remote repository. The best way I have found to execute this (on Windows) is to run it with the GitHub shell.
 
 There are three values you can use for `--tag`:
