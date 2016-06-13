@@ -78,7 +78,7 @@ To change the default theme for your site without modifying the source code, sim
 *Note: when you change the theme via JavaScript code, a theme is loaded twice: once for the default site theme, and once for the theme chosen by the theme picker or the `defaultTheme` override. If you wish to permanently change your default theme, it is recommended that you alter the default.hbs source and change it there.*
 
 ## Configuration
-__ghost-cerkit-bootstrap__ implements the [GTCA](http://unwttng.com/introducing-gtca-make-your-ghost-themes-super-configurable/) approach to configuration (for those items that are GTCA-compliant).
+__ghost-cerkit-theme__ implements the [GTCA](http://unwttng.com/introducing-gtca-make-your-ghost-themes-super-configurable/) approach to configuration (for those items that are GTCA-compliant).
 It supports __Google Analytics__ and __Disqus__ integration so far, with __social profile links__ coming soon. 
 The best thing is, not a single bit of it requires
 you to hack around with the theme's files. It works right out of the box, and you can set it
