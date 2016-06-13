@@ -3,11 +3,11 @@
 Based on the default theme for [Ghost](http://github.com/tryghost/ghost/).
 
 ## Installation
-This theme takes advantage of [npm](https://npmjs.com). To setup everything in your environment, follow these steps:
+This theme takes advantage of [npm](https://npmjs.com). To setup everything in your environment (assuming you have npm installed), follow these steps:
 
 * Clone the repository
 * Open a node command line (I am using GitHub's command shell on Windows since it has the environment setup for GitHub)
-* CD to the folder where you cloned the repository
+* CD to the folder where you cloned the repository (or open the shell from the GitHub application).
 * type `npm install` and press <kbd>Enter</kbd>
 
 This will install all of the dependencies that you will need in order to extend this theme.
