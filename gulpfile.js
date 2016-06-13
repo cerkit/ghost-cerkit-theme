@@ -108,7 +108,7 @@ var getPackageJson = function () {
 /*****************************************************************************************
  * Standalone zip
  */
-gulp.task('zip', buildTasks, function () {
+gulp.task('zip', buildTasks, function (done) {
   var fileName = $.util.env.name;
   if (!fileName) return done('--name is required (without .zip extension)');
 
