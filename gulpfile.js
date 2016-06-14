@@ -147,7 +147,7 @@ gulp.task('deploy:init', buildTasks, function (done) {
 });
 
 gulp.task('deploy:zip', ['deploy:init'], function () {
-  var zipFilename = 'ghost-cerkit-theme-' + version + '.zip';
+  var zipFilename = 'ghost-cerkit-theme-distro.zip';
   return gulp.src('src/**/*.*')
     .pipe(zip(zipFilename))
     .pipe(gulp.dest('dist'));
