@@ -1,15 +1,13 @@
-{{! 
+{{!
 ***********************************************************************************************************
 pagination.hbs - bootstrap compliant pagination
 ***********************************************************************************************************
 
-This pagination module requires that bootstrap-pagination.js is included (below jQuery) in the header of
-your default page.
-}}
-{{!information required by pagination}}
+This pagination module requires that cerkit-app.js is included (below
+jQuery) in the header of your default page. }} {{!information required by
+pagination}}
 <script type="text/javascript">
-  $(function() {
-    // set the values that we'll use in the bootstrap-pagination.js file
+      // set the values that we'll use in the bootstrap-pagination.js file
     {{!if there is no value for the variable, display a 0}}
     _cerkit.pagination.prev = {{#if prev}}{{prev}}{{else}}0{{/if}};
     _cerkit.pagination.pages = {{#if pages}}{{pages}}{{else}}0{{/if}};
@@ -20,7 +18,6 @@ your default page.
     _cerkit.pagination.pageUrlNext = '{{pageUrl next}}';
     _cerkit.pagination.pageUrlFirst = '{{pageUrl 1}}';
     _cerkit.pagination.pageUrlLast = '{{pageUrl pages}}';
-  });
 </script>
 <nav>
   <ul class="pagination bootstrap-pagination">
