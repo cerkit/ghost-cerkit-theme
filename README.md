@@ -17,7 +17,7 @@ Once you have installed all of the dependencies, you can simply run `gulp` from 
 ## Accessing a build
 To get access to a `.zip` file that you can upload to [Ghost pro](https://ghost.io), simply run `gulp zip --name <FILENAME>` (without `.zip` extension) 
 
-To deploy the changes to your branch, run `gulp deploy --tag <TAGTYPE>` from a node command line (after navigating to the theme folder). The file will be saved as `dist/ghost-cerkit-theme.VERSION_NUMBER.zip`.
+To deploy the changes to your branch, run `gulp deploy --tag <TAGTYPE>` from a node command line (after navigating to the theme folder). The file will be saved as `dist/ghost-cerkit-theme-distro.zip`.
 This will also bump the file version number and push to your remote repository. The best way I have found to execute this (on Windows) is to run it with the GitHub shell.
 
 There are three values you can use for `--tag`:
