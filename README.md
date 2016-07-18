@@ -36,6 +36,7 @@ There are a few features that have been added to the theme, such as:
 - Disqus Comments
 - Sidebar
 - [Font Awesome](http://fontawesome.io) icon binding (for navbar links)
+- Google Search
 
 
 ## Bootstrap Pagination
@@ -109,7 +110,7 @@ Disqus threads will now appear on all of your posts.
 This theme makes use of a [sidebar partial](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/sidebar.hbs). 
 This partial uses other partials to build a sidebar. The following components are included in the sidebar:
 
-- [Search Form](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/search-form.hbs)
+- [Search Form](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/search-form.hbs) - Make sure you change the value of the ct input field to match your Google id
 - A Sidebar Component Container - allows us to add components to the sidebar from other pages (in differing contexts)
 - [Bio Panel](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/bio-panel.hbs)
 - [Sidebar Theme Picker](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/sidebar-theme-picker.hbs)
