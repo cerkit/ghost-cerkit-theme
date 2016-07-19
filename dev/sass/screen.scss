@@ -340,6 +340,15 @@ body.paged .main-header, .tag-template .main-header {
     word-wrap: break-word;
 }
 
+p {
+    font-size: 20px;
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
 
 body:not(.post-template) .post-title {
     font-size: 3.6rem;
