@@ -24,6 +24,7 @@
     "gulp-footer": "^1.0.5",
     "gulp-git": "^1.7.2",
     "gulp-header": "^1.8.2",
+    "gulp-install": "^0.6.0",
     "gulp-jshint": "^2.0.1",
     "gulp-package-number": "^1.0.0",
     "gulp-remember": "^0.3.1",
