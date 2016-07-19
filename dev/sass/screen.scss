@@ -270,11 +270,11 @@ margin on the iframe, cause it breaks stuff. */
     position: relative;
     display: table;
     width: 100%;
-    height: $main-header-height;
+    height: 70vh;
     margin-bottom: 2rem;
     text-align: center;
     background: #222 no-repeat center center;
-    background-size: cover;
+    background-size: 100%;
     overflow: hidden;
 }
 
