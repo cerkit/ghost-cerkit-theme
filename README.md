@@ -2,6 +2,8 @@
 
 Based on the default theme for [Ghost](http://github.com/tryghost/ghost/).
 
+There is a full working site using this theme at [cerkit.com](https://cerkit.com).
+
 Here is a screenshot of a sample landing page for a site using the theme
 ![Screenshot of landing page of sample site](https://res.cloudinary.com/cerkit/image/upload/v1469020334/ghost-cerkit-theme-homepage-screenshot_tov9pa.png)
 
