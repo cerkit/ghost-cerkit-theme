@@ -1,12 +1,12 @@
 {{! Custom Google Search form - http://www.stylifyyourblog.com/2011/07/customize-google-custom-search-box.html}}
-<div class="panel panel-primary">
+<div class="panel panel-primary" id="googleSearchBox">
     <div class="panel-body">
         <form action="https://cse.google.com/cse/publicurl" target="_blank">
-            <input value="017830699861956065656:baoa3gzzyva" name="cx" type="hidden"/>
+            <input name="cx" type="hidden" id="googleSearchField"/>
             <div class="form-group">
                 <div class="input-group">
                     <label class="sr-only" for="q">Search query</label>
-                    <input  id="q" name="q" type="search" placeholder="Search" class="form-control" /> 
+                    <input  id="q" name="q" type="search" placeholder="Search" class="form-control" />
                     <span class="input-group-btn">
                         <button type="submit" class="btn btn-primary" value="Search">
                             <i class="fa fa-search" alt="Search" aria-label="Search"></i>

@@ -2,8 +2,19 @@
 
 var _cerkit = _cerkit || {};
 
-
 _cerkit = {
+    sidebar: {
+      setMobileSidebar: function () {
+        if (_cerkit.mobile.isMobile.any() && __themeCfg.useMobileSidebar) {
+           $('#sidebar-container').addClass('hidden');
+           $('#sidebar-container-mobile').removeClass('hidden');
+       }
+       else {
+         $('#sidebar-container').removeClass('hidden');
+         $('#sidebar-container-mobile').addClass('hidden');
+       }
+      }
+    },
     pagination: {
         /*********************************************************************************************************
         * Pagination
@@ -96,30 +107,30 @@ _cerkit = {
     navbar: {
         /************************************************************************************************
         * Navbar Icons
-        * 
-        * 
+        *
+        *
         * Here is a sample use:
-        * 
+        *
         *  window.linkIconMap.defaultIconSize = 'fa-lg';
         *  window.addLinkIcon('nav-home', 'fa-home');
         *  window.addLinkIcon('nav-about', 'fa-user');
         *  window.addLinkIcon('nav-my-public-key', 'fa-key');
         *  window.addLinkIcon('nav-test', 'fa-cogs');
-        *   
+        *
         *  Note: for size, the following values are valid:
-        *  
-        *  '' (will use default fontawesome size), 
+        *
+        *  '' (will use default fontawesome size),
         *  'fa-lg'
         *  'fa-2x'
         *  'fa-3x'
         *  'fa-4x'
         *  'fa-5x'
-        * 
-        *  If you do not supply a size for your icon, then the theme will use the default size 
+        *
+        *  If you do not supply a size for your icon, then the theme will use the default size
         *  as determined by the defaultNavbarIconSize variable
-        * 
+        *
         *  You can find a list of icons to use at http://fontawesome.io
-        * 
+        *
         ************************************************************************************************/
         linkIconMap: {},
         addLinkIcon: function (target, icon, size) {
@@ -162,18 +173,39 @@ _cerkit = {
         }
     },
     methods: {
-        moveSidebarItems: function (sidebarContainerSelector) {
-            var containerSelector = '#sidebar-component-container';
-            
-            if (sidebarContainerSelector) {
-                containerSelector = sidebarContainerSelector;
-            }
-            
+        moveSidebarItems: function () {
+          try {
             // move items to the sidebar
             $('.sidebar-component').each(function () {
-                $(this).detach().appendTo($(containerSelector));
+                $(this).clone().appendTo($('.sidebar-component-container'));
             });
+          }
+          catch (e) {
+
+          }
         }
+    },
+    mobile: {
+        isMobile: {
+          Android: function() {
+              return navigator.userAgent.match(/Android/i);
+          },
+          BlackBerry: function() {
+              return navigator.userAgent.match(/BlackBerry/i);
+          },
+          iOS: function() {
+              return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+          },
+          Opera: function() {
+              return navigator.userAgent.match(/Opera Mini/i);
+          },
+          Windows: function() {
+              return navigator.userAgent.match(/IEMobile/i);
+          },
+          any: function() {
+              return (_cerkit.mobile.isMobile.Android() || _cerkit.mobile.isMobile.BlackBerry() || _cerkit.mobile.isMobile.iOS() || _cerkit.mobile.isMobile.Opera() || _cerkit.mobile.isMobile.Windows());
+          }
+      }
     },
     /************************************************************************************************
     * Theme selector variables

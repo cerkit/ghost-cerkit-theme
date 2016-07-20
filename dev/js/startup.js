@@ -2,10 +2,18 @@
 $(function () {
     "use strict";
 
+    _cerkit.sidebar.setMobileSidebar();
     _cerkit.methods.moveSidebarItems();
     _cerkit.config.setAlternateSubscriptionLink();
     _cerkit.config.convertPrettyfierToPrism();
     _cerkit.navbar.bindLinkIcons();
+
+    if (__themeCfg.googleSearchId) {
+        $('#googleSearchField').attr('value', __themeCfg.googleSearchId);
+    }
+    else {
+      $('#googleSearchBox').hide();
+    }
 
     // Bootstrap theme selector
     _cerkit.themeSelector.selectedTheme = $.cookie('user-theme');
