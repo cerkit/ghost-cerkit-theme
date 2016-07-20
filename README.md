@@ -1,6 +1,27 @@
 # Cerkit Ghost Theme
 
-Based on the default theme for [Ghost](http://github.com/tryghost/ghost/).
+Based on the default theme for [Ghost](http://github.com/tryghost/ghost/). This theme is fully responsive and adapts to any screen size. It is also accessible with screen reader links to relevant site components.
+
+There is a full working site using this theme at [cerkit.com](https://cerkit.com).
+
+## Screenshots
+
+Here is a screenshot of a sample landing page for a site using the theme
+![Screenshot of landing page of sample site](https://res.cloudinary.com/cerkit/image/upload/v1469020334/ghost-cerkit-theme-homepage-screenshot_tov9pa.png)
+
+Here is a screenshot of a post listing page for a site using the theme
+![Screenshot of a site using the theme](https://res.cloudinary.com/cerkit/image/upload/v1469020101/cerkit-ghost-theme-screenshot_ae4uym.png)
+
+Here is a screenshot of the landing page as seen by an iPhone 6 (portrait):
+![iPhone 6 View image](https://res.cloudinary.com/cerkit/image/upload/v1469024850/ghost-cerkit-theme-landing-mobile.com_pkorsi.png)
+
+Here is a screenshot of the post list as seen by an iPhone 6 (portrait):
+
+![image of iPhone 6 screenshot of post list](https://res.cloudinary.com/cerkit/image/upload/v1469024850/ghost-cerkit-theme-post-list-mobile.com_wjevoc.png)
+
+Here is a screenshot of the menu expanded as seen from an iPhone 6 (portrait):
+
+![image of iPhone 6 menu expansion on mobile device](https://res.cloudinary.com/cerkit/image/upload/v1469024850/ghost-cerkit-theme-menu-expand-mobile.com_qb5tzn.png)
 
 ## Installation
 This theme takes advantage of [npm](https://npmjs.com). To setup everything in your environment (assuming you have npm installed), follow these steps:
@@ -96,6 +117,13 @@ line to header code injection:
 <script>window.__themeCfg.googleAnalyticsId = 'UA-12345678-1';</script>
 ```
 
+### Google Search
+To add a Google search panel to your sidebar, create a custom search engine ([Google Custom Search](https://www.google.com/cse/)) and add the Google search id to your code injection (in the header):
+
+```html
+<script>window.__themeCfg.googleSearchId = 'YOUR_GOOGLE_SEARCH_ID';</script>
+```
+
 ### Disqus
 To integrate a __ghost-cerkit-bootstrap__ blog with Disqus, you just need a Disqus username. Drop it into your
 configuration with this one line in the header code injection interface:
@@ -108,12 +136,21 @@ Disqus threads will now appear on all of your posts.
 
 ## Sidebar
 This theme makes use of a [sidebar partial](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/sidebar.hbs). 
+
+### Mobile sidebar position
+If you'd like the sidebar to appear below the site contents, add the following to your code injection (in the header):
+
+`window.__themeCfg.useMobileSidebar = true;`
+
+### Sidebar components
+
 This partial uses other partials to build a sidebar. The following components are included in the sidebar:
 
-- [Search Form](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/search-form.hbs) - Make sure you change the value of the ct input field to match your Google id
+- [Search Form](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/search-form.hbs) - To set your search id, add the following to your code injection: `window.__themeCfg.googleSearchId = 'YOUR_GOOGLE_SEARCH_ID';`
 - A Sidebar Component Container - allows us to add components to the sidebar from other pages (in differing contexts)
 - [Bio Panel](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/bio-panel.hbs)
 - [Sidebar Theme Picker](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/sidebar-theme-picker.hbs)
+- SoundCloud widget - You can add a soundcloud widget by adding the following to your code injection header: `window.__themeCfg.soundcloudUserId = 'YOUR_SOUNDCLOUD_ID';`. It is also possible to change the color (the default coor is Orange): `window.__themeCfg.soundCloudWidgetColor = '006600';` (note the absence of the Hash tag).
 
 In order for the bio panel to work, an Author context has to be passed in for each page that uses it. Here is an example:
 
@@ -178,6 +215,9 @@ If that is not provided, then it will fall back to use the default Font Awesome 
 
 ## Notes about custom JavaScript for the theme
 Custom features and JavaScript features all use variables defined in the [assets/js/site-init.js](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/assets/js/site-init.js) file.
+
+## Custom styles
+Please do not edit or change `/dev/css/screen.scss` (unless you find a bug with the master styles). Instead, to override the theme's styles or add your own, please edit the `.scss` (Sass) or `.css` files in the `src/assets/custom` folder. These files will be compiled into `/src/assetscustom.min.css` and are linked in the main page after all other stylesheets.
 
 ## Minification and Concatenating(bundling)
 Each of the scripts and css files are minified automatically by gulp (assuming you are running it while developing). The theme links to the `app.min.js` file.

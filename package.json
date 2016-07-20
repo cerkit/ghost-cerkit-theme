@@ -1,6 +1,10 @@
 {
   "name": "cerkit-website",
+<<<<<<< HEAD
   "version": "2.0.11",
+=======
+  "version": "2.0.10",
+>>>>>>> refs/remotes/cerkit/master
   "author": "Michael Earls",
   "description": "A Bootstrap theme for https://cerkit.com",
   "bin": {

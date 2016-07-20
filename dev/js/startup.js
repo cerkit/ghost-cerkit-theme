@@ -3,9 +3,12 @@ $(function () {
     "use strict";
 
     _cerkit.methods.moveSidebarItems();
+    _cerkit.sidebar.setMobileSidebar();
     _cerkit.config.setAlternateSubscriptionLink();
     _cerkit.config.convertPrettyfierToPrism();
+    _cerkit.config.setGoogleSearchOptions();
     _cerkit.navbar.bindLinkIcons();
+    _cerkit.config.setSoundCloudOptions();
 
     // Bootstrap theme selector
     _cerkit.themeSelector.selectedTheme = $.cookie('user-theme');

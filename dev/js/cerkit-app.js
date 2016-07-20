@@ -2,8 +2,19 @@
 
 var _cerkit = _cerkit || {};
 
-
 _cerkit = {
+    sidebar: {
+      setMobileSidebar: function () {
+        if (_cerkit.mobile.isMobile.any() && __themeCfg.useMobileSidebar) {
+           $('#sidebar-container').hide();
+           $('#sidebar-container-mobile').show();
+       }
+       else {
+         $('#sidebar-container').show();
+         $('#sidebar-container-mobile').hide();
+       }
+      }
+    },
     pagination: {
         /*********************************************************************************************************
         * Pagination
@@ -96,30 +107,30 @@ _cerkit = {
     navbar: {
         /************************************************************************************************
         * Navbar Icons
-        * 
-        * 
+        *
+        *
         * Here is a sample use:
-        * 
+        *
         *  window.linkIconMap.defaultIconSize = 'fa-lg';
         *  window.addLinkIcon('nav-home', 'fa-home');
         *  window.addLinkIcon('nav-about', 'fa-user');
         *  window.addLinkIcon('nav-my-public-key', 'fa-key');
         *  window.addLinkIcon('nav-test', 'fa-cogs');
-        *   
+        *
         *  Note: for size, the following values are valid:
-        *  
-        *  '' (will use default fontawesome size), 
+        *
+        *  '' (will use default fontawesome size),
         *  'fa-lg'
         *  'fa-2x'
         *  'fa-3x'
         *  'fa-4x'
         *  'fa-5x'
-        * 
-        *  If you do not supply a size for your icon, then the theme will use the default size 
+        *
+        *  If you do not supply a size for your icon, then the theme will use the default size
         *  as determined by the defaultNavbarIconSize variable
-        * 
+        *
         *  You can find a list of icons to use at http://fontawesome.io
-        * 
+        *
         ************************************************************************************************/
         linkIconMap: {},
         addLinkIcon: function (target, icon, size) {
@@ -145,7 +156,7 @@ _cerkit = {
                     _cerkit.navbar.createIcon(curIconMap.target, curIconMap.icon, curIconMap.size);
                 }
             } else {
-                console.warn('cerkit-bootstrap theme supports navbar link icons. Add the following to your footer in code injection: \<script\>window.addLinkIcon(/* target = */ "nav-home", /* icon = */ "fa-home", /* (optional) size = */ "fa-3x");\</script\>');
+                console.log('ghost-cerkit-theme supports navbar link icons. Add the following to your footer in code injection: \<script\>window.addLinkIcon(/* target = */ "nav-home", /* icon = */ "fa-home", /* (optional) size = */ "fa-3x");\</script\>');
             }
         },
         createIcon: function (target, icon, size) {
@@ -163,11 +174,38 @@ _cerkit = {
     },
     methods: {
         moveSidebarItems: function () {
+          try {
             // move items to the sidebar
             $('.sidebar-component').each(function () {
-                $(this).detach().appendTo($('#sidebar-component-container'));
+                $(this).clone().appendTo($('.sidebar-component-container'));
             });
+          }
+          catch (e) {
+
+          }
         }
+    },
+    mobile: {
+        isMobile: {
+          Android: function() {
+              return navigator.userAgent.match(/Android/i);
+          },
+          BlackBerry: function() {
+              return navigator.userAgent.match(/BlackBerry/i);
+          },
+          iOS: function() {
+              return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+          },
+          Opera: function() {
+              return navigator.userAgent.match(/Opera Mini/i);
+          },
+          Windows: function() {
+              return navigator.userAgent.match(/IEMobile/i);
+          },
+          any: function() {
+              return (_cerkit.mobile.isMobile.Android() || _cerkit.mobile.isMobile.BlackBerry() || _cerkit.mobile.isMobile.iOS() || _cerkit.mobile.isMobile.Opera() || _cerkit.mobile.isMobile.Windows());
+          }
+      }
     },
     /************************************************************************************************
     * Theme selector variables
@@ -213,14 +251,14 @@ _cerkit = {
                 $('link [type*="application/rss+xml"]').attr('href', window.__themeCfg.alternateSubscribeLink);
             }
             else {
-                console.warn('ghost-cerkit-bootstrap theme supports an alternate RSS link (i.e. - FeedBurner) - put "\<script\>window.__themeCfg.alternateSubscribeLink = \'alternate rss url\';\<\/script\>" in Ghost code injection to turn it on');
+                console.log('ghost-cerkit-theme supports an alternate RSS link (i.e. - FeedBurner) - put "\<script\>window.__themeCfg.alternateSubscribeLink = \'alternate rss url\';\<\/script\>" in Ghost code injection to turn it on');
             }
         },
         convertPrettyfierToPrism: function () {
             if ($('pre.prettyprint').length) {
 
-                console.warn('there are ' + $('pre.prettyprint').length + ' prettyprint pre tags on this page');
-                console.warn('there are ' + $('pre.linenums').length + ' linenums pre tags on this page');
+                console.log('there are ' + $('pre.prettyprint').length + ' prettyprint pre tags on this page');
+                console.log('there are ' + $('pre.linenums').length + ' linenums pre tags on this page');
 
                 $('pre.prettyprint').each(function () {
                     $(this).removeClass('prettyprint').children('code').each(function () {
@@ -232,6 +270,25 @@ _cerkit = {
                     $(this).removeClass('linenums').addClass('line-numbers');
                 });
             }
+        },
+        setGoogleSearchOptions: function () {
+          if (window.__themeCfg.googleSearchId) {
+              $('#googleSearchField').attr('value', window.__themeCfg.googleSearchId);
+          }
+          else {
+            $('#googleSearchBox').hide();
+            console.log('ghost-cerkit-theme supports custom Google search engine - put "\<script\>window.__themeCfg.googleSearchId = \'YOUR_GOOGLE_SEARCH_ID\';\<\/script\>" in Ghost code injection to turn it on');
+          }
+        },
+        setSoundCloudOptions: function () {
+          if (window.__themeCfg.soundcloudUserId) {
+            $('#soundCloudContainer').show();
+            $('#soundCloudPanel').append('<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/' + window.__themeCfg.soundcloudUserId + '&amp;color=ff9900&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>');
+          }
+          else {
+            $('#soundCloudContainer').hide();
+            console.log('ghost-cerkit-theme supports the embedded SoundCloud widget - put "\<script\>window.__themeCfg.soundcloudUserId = \'YOUR_SOUNDCLOUD_USER_ID\';\<\/script\>" in Ghost code injection to turn it on');
+          }
         }
     }
 };

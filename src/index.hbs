@@ -39,6 +39,11 @@
             {{! The tag below includes the post loop - partials/loop.hbs }}
             {{> "loop"}}
         </div>
+        <div id="sidebar-container-mobile" class="col-md-4">
+            {{#posts.[0].author}}
+                {{> "sidebar"}}
+            {{/posts.[0].author}}
+        </div>
     </div>
     <div class="row">
         <div class="col-md-offset-4 col-md-8">
