@@ -162,10 +162,16 @@ _cerkit = {
         }
     },
     methods: {
-        moveSidebarItems: function () {
+        moveSidebarItems: function (sidebarContainerSelector) {
+            var containerSelector = '#sidebar-component-container';
+            
+            if (sidebarContainerSelector) {
+                containerSelector = sidebarContainerSelector;
+            }
+            
             // move items to the sidebar
             $('.sidebar-component').each(function () {
-                $(this).detach().appendTo($('#sidebar-component-container'));
+                $(this).detach().appendTo($(containerSelector));
             });
         }
     },
