@@ -9,18 +9,11 @@
 
 <header class="main-header post-head {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}">
 </header>
+
 <main id="content" class="content" role="main">
-    <div class="row">
-        <div id="sidebar-container" class="col-md-4">
-            {{#author}}
-            {{> "sidebar"}}
-            {{/author}}
-        </div> <!-- .col-md-4 -->
-        <div class="col-md-8">
-            <div class="panel panel-primary">
-                <header class="panel-heading">
-                    <h1 class="panel-title">{{title}}</h1>
-                </header>
+
+        <div class="col-md-8" style="width 70%; margin-left:15%; margin-right:15%;">
+                      <div class="panel panel-primary" >
                 <div class="panel-body">
                     <article class="{{post_class}}">
                         <section class="post-content">
@@ -31,7 +24,9 @@
                 </div>
             </div>
         </div> <!-- .col-md-8 -->
-    </div> <!-- .row -->
+
 </main>
+
+
 {{/post}}
 <!-- /page -->
