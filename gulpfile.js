@@ -32,13 +32,13 @@ var DEST = 'src/assets/';
 var scriptSrc = './dev/js/';
 var scriptsGlob = 'dev/**/*.js';
 var sassGlob = 'dev/sass/**/*.scss';
+var customSassGlob = DEST + 'custom/**/*.scss';
+var customCssGlob = DEST + 'custom/**/*.css';
 var cssGlob = 'dev/css/**/*.css';
 
-var buildTasks = ['styles', 'scripts'];
+var buildTasks = ['styles', 'customStyles', 'scripts'];
 
 gulp.task('styles', function () {
-  pkg = getPackageJson();
-
   return merge(
     gulp.src(cssGlob),
     gulp.src(sassGlob)
@@ -52,9 +52,24 @@ gulp.task('styles', function () {
     .pipe(gulp.dest(DEST));
 });
 
+
+gulp.task('customStyles', function () {
+  return merge(
+    gulp.src(customCssGlob),
+    gulp.src(customSassGlob)
+      .pipe(sass().on('error', sass.logError))
+  )
+    .pipe(cached('customStyles'))
+    .pipe(remember('customStyles'))
+    .pipe(concat('custom.css'))
+    .pipe(cleanCSS())
+    .pipe(rename({ extname: '.min.css' }))
+    .pipe(gulp.dest(DEST));
+});
+
 gulp.task('scripts', function () {
   // make sure the scripts get put into the correct order
-  
+
   return streamqueue({ objectMode: true },
     gulp.src(scriptSrc + 'jquery.fitvids.js'),
     gulp.src(scriptSrc + 'prism.js'),
@@ -85,6 +100,14 @@ gulp.task('watch', function () {
   });
 
   var styleWatcher = gulp.watch([sassGlob, cssGlob], ['styles']); // watch the same files in our scripts task
+  scriptWatcher.on('change', function (event) {
+    if (event.type === 'deleted') {                   // if a file is deleted, forget about it
+      delete cached.caches.styles[event.path];       // gulp-cached remove api
+      remember.forget('styles', event.path);         // gulp-remember remove api
+    }
+  });
+
+  var customStyleWatcher = gulp.watch([customSassGlob, customCssGlob], ['customStyles']); // watch the same files in our scripts task
   scriptWatcher.on('change', function (event) {
     if (event.type === 'deleted') {                   // if a file is deleted, forget about it
       delete cached.caches.styles[event.path];       // gulp-cached remove api
