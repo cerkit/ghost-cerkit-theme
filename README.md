@@ -150,6 +150,7 @@ This partial uses other partials to build a sidebar. The following components ar
 - A Sidebar Component Container - allows us to add components to the sidebar from other pages (in differing contexts)
 - [Bio Panel](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/bio-panel.hbs)
 - [Sidebar Theme Picker](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/sidebar-theme-picker.hbs)
+- SoundCloud widget - You can add a soundcloud widget by adding the following to your code injection header: `window.__themeCfg.soundcloudUserId = 'YOUR_SOUNDCLOUD_ID';`. It is also possible to change the color (the default coor is Orange): `window.__themeCfg.soundCloudWidgetColor = '006600';` (note the absence of the Hash tag).
 
 In order for the bio panel to work, an Author context has to be passed in for each page that uses it. Here is an example:
 
