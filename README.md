@@ -129,9 +129,17 @@ Disqus threads will now appear on all of your posts.
 
 ## Sidebar
 This theme makes use of a [sidebar partial](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/sidebar.hbs). 
+
+### Mobile sidebar position
+If you'd like the sidebar to appear below the site contents, add the following to your code injection (in the header):
+
+`window.__themeCfg.useMobileSidebar = true;`
+
+### Sidebar components
+
 This partial uses other partials to build a sidebar. The following components are included in the sidebar:
 
-- [Search Form](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/search-form.hbs) - Make sure you change the value of the ct input field to match your Google id
+- [Search Form](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/search-form.hbs) - To set your search id, add the following to your code injection: `window.__themeCfg.googleSearchId = 'YOUR_GOOGLE_SEARCH_ID';`
 - A Sidebar Component Container - allows us to add components to the sidebar from other pages (in differing contexts)
 - [Bio Panel](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/bio-panel.hbs)
 - [Sidebar Theme Picker](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/partials/sidebar-theme-picker.hbs)
