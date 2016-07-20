@@ -1,14 +1,27 @@
 # Cerkit Ghost Theme
 
-Based on the default theme for [Ghost](http://github.com/tryghost/ghost/).
+Based on the default theme for [Ghost](http://github.com/tryghost/ghost/). This theme is fully responsive and adapts to any screen size. It is also accessible with screen reader links to relevant site components.
 
 There is a full working site using this theme at [cerkit.com](https://cerkit.com).
+
+## Screenshots
 
 Here is a screenshot of a sample landing page for a site using the theme
 ![Screenshot of landing page of sample site](https://res.cloudinary.com/cerkit/image/upload/v1469020334/ghost-cerkit-theme-homepage-screenshot_tov9pa.png)
 
 Here is a screenshot of a post listing page for a site using the theme
 ![Screenshot of a site using the theme](https://res.cloudinary.com/cerkit/image/upload/v1469020101/cerkit-ghost-theme-screenshot_ae4uym.png)
+
+Here is a screenshot of the landing page as seen by an iPhone 6 (portrait):
+![iPhone 6 View image](https://res.cloudinary.com/cerkit/image/upload/v1469024850/ghost-cerkit-theme-landing-mobile.com_pkorsi.png)
+
+Here is a screenshot of the post list as seen by an iPhone 6 (portrait):
+
+![image of iPhone 6 screenshot of post list](https://res.cloudinary.com/cerkit/image/upload/v1469024850/ghost-cerkit-theme-post-list-mobile.com_wjevoc.png)
+
+Here is a screenshot of the menu expanded as seen from an iPhone 6 (portrait):
+
+![image of iPhone 6 menu expansion on mobile device](https://res.cloudinary.com/cerkit/image/upload/v1469024850/ghost-cerkit-theme-menu-expand-mobile.com_qb5tzn.png)
 
 ## Installation
 This theme takes advantage of [npm](https://npmjs.com). To setup everything in your environment (assuming you have npm installed), follow these steps:
