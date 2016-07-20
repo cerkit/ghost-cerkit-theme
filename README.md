@@ -2,6 +2,8 @@
 
 Based on the default theme for [Ghost](http://github.com/tryghost/ghost/).
 
+![Screenshot of a site using the theme](https://res.cloudinary.com/cerkit/image/upload/v1469020101/cerkit-ghost-theme-screenshot_ae4uym.png)
+
 ## Installation
 This theme takes advantage of [npm](https://npmjs.com). To setup everything in your environment (assuming you have npm installed), follow these steps:
 
