@@ -215,6 +215,9 @@ If that is not provided, then it will fall back to use the default Font Awesome 
 ## Notes about custom JavaScript for the theme
 Custom features and JavaScript features all use variables defined in the [assets/js/site-init.js](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/assets/js/site-init.js) file.
 
+## Custom styles
+Please do not edit or change `/dev/css/screen.scss` (unless you find a bug with the master styles). Instead, to override the theme's styles or add your own, please edit the `.scss` (Sass) or `.css` files in the `src/assets/custom` folder. These files will be compiled into `/src/assetscustom.min.css` and are linked in the main page after all other stylesheets.
+
 ## Minification and Concatenating(bundling)
 Each of the scripts and css files are minified automatically by gulp (assuming you are running it while developing). The theme links to the `app.min.js` file.
 
