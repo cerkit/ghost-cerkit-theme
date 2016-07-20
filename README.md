@@ -117,6 +117,13 @@ line to header code injection:
 <script>window.__themeCfg.googleAnalyticsId = 'UA-12345678-1';</script>
 ```
 
+### Google Search
+To add a Google search panel to your sidebar, create a custom search engine ([Google Custom Search](https://www.google.com/cse/)) and add the Google search id to your code injection (in the header):
+
+```html
+<script>window.__themeCfg.googleSearchId = 'YOUR_GOOGLE_SEARCH_ID';</script>
+```
+
 ### Disqus
 To integrate a __ghost-cerkit-bootstrap__ blog with Disqus, you just need a Disqus username. Drop it into your
 configuration with this one line in the header code injection interface:
