@@ -3,6 +3,7 @@
 Based on the default theme for [Ghost](http://github.com/tryghost/ghost/). This theme is fully responsive and adapts to any screen size. It is also accessible with screen reader links to relevant site components.
 
 There is a full working site using this theme at [cerkit.com](https://cerkit.com).
+Another example can be found at [Storm of Wolves](http://mayanmisfit.xyz) (possibly NSFW on some posts).
 
 ## Screenshots
 
