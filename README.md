@@ -90,7 +90,10 @@ By default, the Ghost Cerkit Theme uses the [Cosmo](http://bootswatch.com/cosmo/
 ## Theme Picker
 There is a theme selection control on the sidebar that allows the user to pick which theme they wish to display. To disable this theme picker on your site, simply add the following code within a script block in your Code Injection section in your site settings: 
 
+```_cerkit.themeSelector.defaultTheme = 'united'; // or whatever your favorite theme is```
 ```_cerkit.themeSelector.showThemeSelector = false;```
+
+By selecting your default theme before turning off the theme selector, you are ensuring that every visitor will see the theme that you choose for your site.
 
 The theme selector will store the selected theme in a cookie on the user's browser. It will then change the page to use their selected theme on each page load. It also provides a Theme Reset button that will return the site to its default theme.
 
