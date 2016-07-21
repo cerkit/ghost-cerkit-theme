@@ -1,6 +1,6 @@
 {
   "name": "cerkit-website",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "author": "Michael Earls",
   "description": "A Bootstrap theme for https://cerkit.com",
   "bin": {
