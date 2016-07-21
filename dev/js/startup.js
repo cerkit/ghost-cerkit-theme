@@ -23,7 +23,8 @@ $(function () {
         }
     }
     else {
-        $('#theme-selector').css('display', 'none');
+        $('#themeSelectorContainer').hide();
+        _cerkit.themeSelector.clearTheme();
     }
 
     $(document).on('change', '#theme-selector', function (e) {
