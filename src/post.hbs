@@ -28,7 +28,7 @@
                             <tr class="active">
                                 <td>
                                     {{#foreach tags}}
-                                    <a href="{{url}}" title="{{name}}" class="tag-button tag-{{id}} btn btn-sm btn-default"><i class="fa fa-fw fa-tag"></i>&nbsp;{{name}}</a>
+                                    <a href="{{url}}" title="{{name}}" class="tag-button tag-{{id}} btn btn-sm btn-default cerkit-button"><i class="fa fa-fw fa-tag"></i>&nbsp;{{name}}</a>
                                     {{/foreach}}
                                 </td>
                             </tr>
@@ -55,7 +55,7 @@
     </div> <!-- .row -->
     <aside class="read-next">
         {{#next_post}}
-        <a class="read-next-story {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
+        <a class="read-next-story {{#if image}} cerkit-button cerkit-button-read-next" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
             <section class="nextprev-post">
                 <h2>{{title}}</h2>
                 <p>{{excerpt words="19"}}&hellip;</p>
@@ -63,7 +63,7 @@
         </a>
         {{/next_post}}
         {{#prev_post}}
-        <a class="read-next-story prev {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
+        <a class="read-next-story prev {{#if image}} cerkit-button cerkit-button-read-previous" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
             <section class="nextprev-post">
                 <h2>{{title}}</h2>
                 <p>{{excerpt words="19"}}&hellip;</p>
@@ -78,13 +78,13 @@
                 <p class="panel-title">Share this post</p>
             </div> <!-- .panel-heading (share) -->
             <div class="panel-body">
-                <a class="text-primary share-link" href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}"
+                <a class="text-primary share-link cerkit-button cerkit-button-twitter" href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}"
                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"
                    title="Share on Twitter" aria-label="Share on Twitter"><i class="fa fa-3x fa-twitter-square"></i><span class="sr-only">Twitter</span></a>
-                <a class="text-primary share-link" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                <a class="text-primary share-link cerkit-button cerkit-button-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"
                    title="Share on Facebook" aria-label="Share on Facebook"><i class="fa fa-3x fa-facebook-square"></i><span class="sr-only">Facebook</span></a>
-                <a class="text-primary share-link" href="https://plus.google.com/share?url={{url absolute="true"}}"
+                <a class="text-primary share-link cerkit-button cerkit-button-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"
                    title="Share on Google+" aria-label="Share on Google+"><i class="fa fa-3x fa-google-plus-square"></i><span class="sr-only">Google+</span></a>
             </div> <!-- .panel-body (share) -->
