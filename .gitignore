@@ -20,5 +20,5 @@ projectFilesBackup
 
 .DS_Store
 
-/dev/custom/*
-/dist/*
+[Dd]ist/*
+[Dd]ev/[Cc]ustom/*
