@@ -32,11 +32,11 @@ var DEST = 'src/assets/';
 var scriptSrc = './dev/js/';
 var scriptsGlob = 'dev/**/*.js';
 var sassGlob = 'dev/sass/**/*.scss';
-var customSassGlob = DEST + 'custom/**/*.scss';
-var customCssGlob = DEST + 'custom/**/*.css';
 var cssGlob = 'dev/css/**/*.css';
+var customSassGlob = 'dev/custom/**/*.scss';
+var customCssGlob = 'dev/custom/**/*.css';
 
-var buildTasks = ['styles', 'customStyles', 'scripts'];
+var buildTasks = ['customStyles', 'scripts'];
 
 gulp.task('styles', function () {
   return merge(
@@ -53,7 +53,7 @@ gulp.task('styles', function () {
 });
 
 
-gulp.task('customStyles', function () {
+gulp.task('customStyles', ['styles'], function () {
   return merge(
     gulp.src(customCssGlob),
     gulp.src(customSassGlob)

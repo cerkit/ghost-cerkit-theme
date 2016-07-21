@@ -111,11 +111,11 @@ _cerkit = {
         *
         * Here is a sample use:
         *
-        *  window.linkIconMap.defaultIconSize = 'fa-lg';
-        *  window.addLinkIcon('nav-home', 'fa-home');
-        *  window.addLinkIcon('nav-about', 'fa-user');
-        *  window.addLinkIcon('nav-my-public-key', 'fa-key');
-        *  window.addLinkIcon('nav-test', 'fa-cogs');
+        *  _cerkit.navbar.linkIconMap.defaultIconSize = 'fa-lg';
+        *  _cerkit.navbar.linkIconMap.addLinkIcon('nav-home', 'fa-home');
+        *  _cerkit.navbar.linkIconMap.addLinkIcon('nav-about', 'fa-user');
+        *  _cerkit.navbar.linkIconMap.addLinkIcon('nav-my-public-key', 'fa-key');
+        *  _cerkit.navbar.linkIconMap.addLinkIcon('nav-test', 'fa-cogs');
         *
         *  Note: for size, the following values are valid:
         *
