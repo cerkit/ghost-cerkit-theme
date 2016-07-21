@@ -19,3 +19,6 @@ node_modules
 projectFilesBackup
 
 .DS_Store
+
+/dev/custom/*
+/dist/*
