@@ -38,6 +38,9 @@
                 "googleAnalyticsId": null,
                 "alternateSubscribeLink": null
             };
+
+            // add a link to the assets path
+            window.__themeCfg.assetPath = '{{ asset "/" }}'.split('?')[0];
         </script>
         {{! Ghost outputs important style and meta data with this tag }}
         {{ghost_head}}
