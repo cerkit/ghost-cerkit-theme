@@ -29,6 +29,8 @@ var semver = require('semver');
 var util = require('gulp-util');
 var git = require('gulp-git');
 var DEST = 'src/assets/';
+var CSS_DEST = DEST + 'css/';
+var JS_DEST = DEST + 'js/'
 var scriptSrc = './dev/js/';
 var scriptsGlob = 'dev/**/*.js';
 var sassGlob = 'dev/sass/**/*.scss';
@@ -49,7 +51,7 @@ gulp.task('styles', function () {
     .pipe(concat('app.css'))
     .pipe(cleanCSS())
     .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest(DEST));
+    .pipe(gulp.dest(CSS_DEST));
 });
 
 
@@ -64,7 +66,7 @@ gulp.task('customStyles', ['styles'], function () {
     .pipe(concat('custom.css'))
     .pipe(cleanCSS())
     .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest(DEST));
+    .pipe(gulp.dest(CSS_DEST));
 });
 
 gulp.task('scripts', function () {
@@ -86,7 +88,7 @@ gulp.task('scripts', function () {
     .pipe(concat('app.js'))         // do things that require all files
     .pipe(uglify({ mangle: false, compress: false }))
     .pipe(rename({ extname: '.min.js' }))
-    .pipe(gulp.dest(DEST));
+    .pipe(gulp.dest(JS_DEST));
 });
 
 //Watch tasks
