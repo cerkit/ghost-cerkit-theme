@@ -1,14 +1,12 @@
 {
-  "name": "cerkit-website",
+  "name": "ghost-cerkit-theme",
   "version": "2.0.16",
   "author": "Michael Earls",
-  "description": "A Bootstrap theme for https://cerkit.com",
-  "bin": {
-    "package-name": "./dist"
-  },
+  "description": "A Bootstrap theme for the Ghost blogging engine. See https://ghost.org",
   "dependencies": {
     "conventional-changelog": "^1.1.0",
     "gulp-load-plugins": "^1.2.4",
+    "lightbox2": "^2.8.2",
     "semver": "^5.1.0"
   },
   "readme": "../README.md",
