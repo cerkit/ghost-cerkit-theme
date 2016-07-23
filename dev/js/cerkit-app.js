@@ -3,6 +3,56 @@
 var _cerkit = _cerkit || {};
 
 _cerkit = {
+    config: {
+        setAlternateSubscriptionLink: function () {
+            // see if we need to change the link on the subscription button to an alternate...
+            if (window.__themeCfg.alternateSubscribeLink) {
+                $('#subscribe-button').attr('href', window.__themeCfg.alternateSubscribeLink);
+
+                // change the link for the site alternate, as well
+                $('link [type*="application/rss+xml"]').attr('href', window.__themeCfg.alternateSubscribeLink);
+            }
+            else {
+                console.log('ghost-cerkit-theme supports an alternate RSS link (i.e. - FeedBurner) - put "\<script\>window.__themeCfg.alternateSubscribeLink = \'alternate rss url\';\<\/script\>" in Ghost code injection to turn it on');
+            }
+        },
+        convertPrettyfierToPrism: function () {
+            if ($('pre.prettyprint').length) {
+
+                console.log('there are ' + $('pre.prettyprint').length + ' prettyprint pre tags on this page');
+                console.log('there are ' + $('pre.linenums').length + ' linenums pre tags on this page');
+
+                $('pre.prettyprint').each(function () {
+                    $(this).removeClass('prettyprint').children('code').each(function () {
+                        $(this).addClass('language-clike');
+                    });
+                });
+
+                $('pre.linenums').each(function () {
+                    $(this).removeClass('linenums').addClass('line-numbers');
+                });
+            }
+        },
+        setGoogleSearchOptions: function () {
+          if (window.__themeCfg.googleSearchId) {
+              $('#googleSearchField').attr('value', window.__themeCfg.googleSearchId);
+          }
+          else {
+            $('#googleSearchBox').hide();
+            console.log('ghost-cerkit-theme supports custom Google search engine - put "\<script\>window.__themeCfg.googleSearchId = \'YOUR_GOOGLE_SEARCH_ID\';\<\/script\>" in Ghost code injection to turn it on');
+          }
+        },
+        setSoundCloudOptions: function () {
+          if (window.__themeCfg.soundcloudUserId) {
+            $('#soundCloudContainer').show();
+            $('#soundCloudPanel').append('<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/' + window.__themeCfg.soundcloudUserId + '&amp;color=ff9900&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>');
+          }
+          else {
+            $('#soundCloudContainer').hide();
+            console.log('ghost-cerkit-theme supports the embedded SoundCloud widget - put "\<script\>window.__themeCfg.soundcloudUserId = \'YOUR_SOUNDCLOUD_USER_ID\';\<\/script\>" in Ghost code injection to turn it on');
+          }
+        }
+    },
     sidebar: {
       setMobileSidebar: function () {
         if (_cerkit.mobile.isMobile.any() && __themeCfg.useMobileSidebar) {
@@ -239,56 +289,6 @@ _cerkit = {
                     $(this).removeAttr('selected');
                 }
             });
-        }
-    },
-    config: {
-        setAlternateSubscriptionLink: function () {
-            // see if we need to change the link on the subscription button to an alternate...
-            if (window.__themeCfg.alternateSubscribeLink) {
-                $('#subscribe-button').attr('href', window.__themeCfg.alternateSubscribeLink);
-
-                // change the link for the site alternate, as well
-                $('link [type*="application/rss+xml"]').attr('href', window.__themeCfg.alternateSubscribeLink);
-            }
-            else {
-                console.log('ghost-cerkit-theme supports an alternate RSS link (i.e. - FeedBurner) - put "\<script\>window.__themeCfg.alternateSubscribeLink = \'alternate rss url\';\<\/script\>" in Ghost code injection to turn it on');
-            }
-        },
-        convertPrettyfierToPrism: function () {
-            if ($('pre.prettyprint').length) {
-
-                console.log('there are ' + $('pre.prettyprint').length + ' prettyprint pre tags on this page');
-                console.log('there are ' + $('pre.linenums').length + ' linenums pre tags on this page');
-
-                $('pre.prettyprint').each(function () {
-                    $(this).removeClass('prettyprint').children('code').each(function () {
-                        $(this).addClass('language-clike');
-                    });
-                });
-
-                $('pre.linenums').each(function () {
-                    $(this).removeClass('linenums').addClass('line-numbers');
-                });
-            }
-        },
-        setGoogleSearchOptions: function () {
-          if (window.__themeCfg.googleSearchId) {
-              $('#googleSearchField').attr('value', window.__themeCfg.googleSearchId);
-          }
-          else {
-            $('#googleSearchBox').hide();
-            console.log('ghost-cerkit-theme supports custom Google search engine - put "\<script\>window.__themeCfg.googleSearchId = \'YOUR_GOOGLE_SEARCH_ID\';\<\/script\>" in Ghost code injection to turn it on');
-          }
-        },
-        setSoundCloudOptions: function () {
-          if (window.__themeCfg.soundcloudUserId) {
-            $('#soundCloudContainer').show();
-            $('#soundCloudPanel').append('<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/' + window.__themeCfg.soundcloudUserId + '&amp;color=ff9900&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>');
-          }
-          else {
-            $('#soundCloudContainer').hide();
-            console.log('ghost-cerkit-theme supports the embedded SoundCloud widget - put "\<script\>window.__themeCfg.soundcloudUserId = \'YOUR_SOUNDCLOUD_USER_ID\';\<\/script\>" in Ghost code injection to turn it on');
-          }
         }
     }
 };
