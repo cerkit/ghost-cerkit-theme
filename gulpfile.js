@@ -113,7 +113,7 @@ gulp.task('watch', function () {
   scriptWatcher.on('change', function (event) {
     if (event.type === 'deleted') {                   // if a file is deleted, forget about it
       delete cached.caches.styles[event.path];       // gulp-cached remove api
-      remember.forget('styles', event.path);         // gulp-remember remove api
+      remember.forget('customStyles', event.path);         // gulp-remember remove api
     }
   });
 });
