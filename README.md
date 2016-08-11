@@ -217,9 +217,6 @@ The next argument is the icon. This is the [Font Awesome](http://fontawesome.io/
 The last argument is optional. It is the size you wish to use. If it is not provided, the system will use the default size defined in `window.linkIconMap.defaultIconSize`.
 If that is not provided, then it will fall back to use the default Font Awesome size.
 
-## Notes about custom JavaScript for the theme
-Custom features and JavaScript features all use variables defined in the [assets/js/site-init.js](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/assets/js/site-init.js) file.
-
 ## Custom styles
 
 Check out the [Bootstrap CSS](http://getbootstrap.com/css/) documentation on how to modify built-in components of the site. If you need to override anything, you can do it in the `src/assets/custom` folder.
