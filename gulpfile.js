@@ -218,7 +218,7 @@ gulp.task('deploy:commit', ['deploy:init', 'bump', 'bump-ghost-package'], functi
 });
 
 
-gulp.task('deploy:tag', ['deploy:commit'], function (done) {
+gulp.task('deploy:tag', ['deploy:check-status'], function (done) {
   git.tag('v' + version, 'release: version ' + version, done);
 });
 
@@ -241,6 +241,5 @@ gulp.task('deploy:push', ['deploy:tag', 'deploy:zip'], function (done) {
   //git.push('origin', 'master', { args: '--tags' }, done);
 });
 
-gulp.task('deploy', ['deploy:commit', 'deploy:check-status', 'deploy:zip',
-  'deploy:tag', 'deploy:push'
-]);
+gulp.task('deploy', ['deploy:init', 'bump', 'bump-ghost-package', 'deploy:commit', 'deploy:check-status', 'deploy:zip',
+  'deploy:tag', 'deploy:push']);
