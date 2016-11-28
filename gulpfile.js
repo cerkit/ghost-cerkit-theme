@@ -242,9 +242,5 @@ gulp.task('deploy:push', ['deploy:tag', 'deploy:zip'], function (done) {
   //git.push('origin', 'master', { args: '--tags' }, done);
 });
 
-/*
 gulp.task('deploy', ['deploy:init', 'bump', 'bump-ghost-package', 'deploy:commit', 'deploy:check-status', 'deploy:zip',
   'deploy:tag', 'deploy:push']);
-*/
-
-gulp.task('deploy', ['deploy:push']);
