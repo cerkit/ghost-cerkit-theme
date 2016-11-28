@@ -39,7 +39,7 @@ var customSassGlob = 'dev/custom/**/*.scss';
 var customCssGlob = 'dev/custom/**/*.css';
 
 var buildTasks = ['customStyles', 'scripts'];
-var finalBuildTasks = ['bump', 'bump-ghost-package', 'customStyles', 'scripts'];
+var finalBuildTasks = ['deploy:commit', 'customStyles', 'scripts'];
 
 
 gulp.task('styles', function () {
@@ -167,12 +167,6 @@ gulp.task('deploy:init', finalBuildTasks, function (done) {
   if (!$.util.env.tag) return done('--tag is required');
   if (!tagType) return done('--tag must be patch, feature or release');
   if ($.util.env.f) return git.exec({ args: 'stash' });
-
-  exec('git status -s', function (err, stdout, stderr) {
-    if (err) return done(err);
-    if (stdout.length) return done('Repository does not have a clean status');
-    done();
-  });
 });
 
 gulp.task('deploy:zip', ['deploy:init'], function () {
@@ -228,12 +222,19 @@ gulp.task('deploy:tag', ['deploy:commit'], function (done) {
   git.tag('v' + version, 'release: version ' + version, done);
 });
 
+gulp.task('deploy:check-status', ['deploy:init'], function(don) {
+  exec('git status -s', function (err, stdout, stderr) {
+    if (err) return done(err);
+    if (stdout.length) return done('Repository does not have a clean status');
+    done();
+  });
+});
 
 gulp.task('deploy:push', ['deploy:tag'], function (done) {
   git.push('origin', 'master', { args: '--tags' }, done);
 });
 
 gulp.task('deploy', [
-  'deploy:init', 'deploy:zip',
-  'deploy:commit', 'deploy:tag', 'deploy:push'
+  'deploy:commit', 'deploy:init', 'deploy:check-status', 'deploy:zip',
+  'deploy:tag', 'deploy:push'
 ]);
