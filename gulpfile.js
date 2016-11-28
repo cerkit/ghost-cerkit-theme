@@ -166,7 +166,8 @@ gulp.task('deploy:init', finalBuildTasks, function (done) {
 
   if (!$.util.env.tag) return done('--tag is required');
   if (!tagType) return done('--tag must be patch, feature or release');
-  if ($.util.env.f) return git.exec({ args: 'stash' });
+  //if ($.util.env.f) return git.exec({ args: 'stash' });
+  done();
 });
 
 gulp.task('deploy:zip', ['deploy:init'], function () {
