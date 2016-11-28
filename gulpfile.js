@@ -38,7 +38,7 @@ var cssGlob = 'dev/css/**/*.css';
 var customSassGlob = 'dev/custom/**/*.scss';
 var customCssGlob = 'dev/custom/**/*.css';
 
-var buildTasks = ['customStyles', 'scripts'];
+var buildTasks = ['customStyles', 'scripts', 'bump-ghost-package'];
 
 gulp.task('styles', function () {
   return merge(
@@ -194,7 +194,7 @@ gulp.task('changelog', ['deploy:zip'] , function (done) {
 });
 */
 
-gulp.task('bump', ['bump-ghost-package'], function (done) {
+gulp.task('bump', function (done) {
   return gulp.src(['./package.json'])
     .pipe($.bump({ version: version }))
     .pipe(gulp.dest('./'))
