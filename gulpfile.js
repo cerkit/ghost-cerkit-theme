@@ -241,6 +241,6 @@ gulp.task('deploy:push', ['deploy:tag', 'deploy:zip'], function (done) {
 });
 
 gulp.task('deploy', [
-  'deploy:init', 'deploy:commit', 'deploy:check-status', 'deploy:zip',
+  'deploy:commit', 'deploy:check-status', 'deploy:zip',
   'deploy:tag', 'deploy:push'
 ]);
