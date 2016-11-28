@@ -39,7 +39,7 @@ var customSassGlob = 'dev/custom/**/*.scss';
 var customCssGlob = 'dev/custom/**/*.css';
 
 var buildTasks = ['customStyles', 'scripts'];
-var finalBuildTasks = ['customStyles', 'scripts'];
+var finalBuildTasks = ['deploy:init', 'deploy:commit', 'customStyles', 'scripts'];
 
 
 gulp.task('styles', function () {
@@ -160,7 +160,7 @@ var tagTypes = {
 var version;
 
 
-gulp.task('deploy:init', buildTasks, function (done) {
+gulp.task('deploy:init', finalBuildTasks, function (done) {
   var tagType = tagTypes[$.util.env.tag];
   version = semver.inc(pkg.version, tagType);
 
@@ -233,6 +233,7 @@ gulp.task('deploy:check-status', ['deploy:commit'], function(don) {
 gulp.task('deploy:push', ['deploy:tag', 'deploy:zip'], function (done) {
   exec('git po --tags', function (err, stdout, stderr) {
     if (err) return done(err);
+    if(stdout) return done(stdout);
     //if (stdout.length) return done('Pushed to origin using current branch.');
     done();
   });
@@ -240,7 +241,6 @@ gulp.task('deploy:push', ['deploy:tag', 'deploy:zip'], function (done) {
   //git.push('origin', 'master', { args: '--tags' }, done);
 });
 
-gulp.task('deploy', [
-  'deploy:commit', 'deploy:check-status', 'deploy:zip',
+gulp.task('deploy', ['deploy:commit', 'deploy:check-status', 'deploy:zip',
   'deploy:tag', 'deploy:push'
 ]);
