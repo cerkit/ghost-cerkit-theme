@@ -38,7 +38,7 @@ var cssGlob = 'dev/css/**/*.css';
 var customSassGlob = 'dev/custom/**/*.scss';
 var customCssGlob = 'dev/custom/**/*.css';
 
-var buildTasks = ['customStyles', 'scripts', 'bump-ghost-package'];
+var buildTasks = ['bump-ghost-package', 'customStyles', 'scripts'];
 
 gulp.task('styles', function () {
   return merge(
