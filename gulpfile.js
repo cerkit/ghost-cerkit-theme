@@ -233,6 +233,6 @@ gulp.task('deploy:push', ['deploy:tag'], function (done) {
 });
 
 gulp.task('deploy', [
-  'deploy:init', 'bump', 'bump-ghost-package', 'deploy:zip',
+  'deploy:init', 'deploy:zip',
   'deploy:commit', 'deploy:tag', 'deploy:push'
 ]);
