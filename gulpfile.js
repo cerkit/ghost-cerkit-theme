@@ -233,7 +233,7 @@ gulp.task('deploy:check-status', ['deploy:init'], function(don) {
 gulp.task('deploy:push', ['deploy:tag'], function (done) {
   exec('git po --tags', function (err, stdout, stderr) {
     if (err) return done(err);
-    if (stdout.length) return done('Pushed to origin using current branch.');
+    //if (stdout.length) return done('Pushed to origin using current branch.');
     done();
   });
 
