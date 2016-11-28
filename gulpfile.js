@@ -216,7 +216,7 @@ gulp.task('bump-ghost-package', function (done) {
 
 
 gulp.task('deploy:commit', ['bump', 'bump-ghost-package'], function () {
-  return gulp.src(['./package.json', './CHANGELOG.md', DEST + '**/*.*'])
+  return gulp.src(['./package.json', './dev/package.json', './CHANGELOG.md', DEST + '**/*.*'])
     .pipe(git.add())
     .pipe(git.commit('release: version ' + version))
     .pipe(size({ title: '/', showFiles: true }));
