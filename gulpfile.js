@@ -38,7 +38,7 @@ var cssGlob = 'dev/css/**/*.css';
 var customSassGlob = 'dev/custom/**/*.scss';
 var customCssGlob = 'dev/custom/**/*.css';
 
-var buildTasks = ['bump-ghost-package', 'customStyles', 'scripts'];
+var buildTasks = ['customStyles', 'scripts'];
 
 gulp.task('styles', function () {
   return merge(
@@ -173,7 +173,7 @@ gulp.task('deploy:init', buildTasks, function (done) {
   });
 });
 
-gulp.task('deploy:zip', ['deploy:init', 'bump'], function () {
+gulp.task('deploy:zip', ['deploy:init', 'bump', 'bump-ghost-package'], function () {
   var zipFilename = 'ghost-cerkit-theme-distro.zip';
   return gulp.src('src/**/*.*')
     .pipe(zip(zipFilename))
@@ -213,7 +213,7 @@ gulp.task('bump-ghost-package', function (done) {
 });
 
 
-gulp.task('deploy:commit', ['bump'], function () {
+gulp.task('deploy:commit', ['bump', 'bump-ghost-package'], function () {
   return gulp.src(['./package.json', './CHANGELOG.md', DEST + '**/*.*'])
     .pipe(git.add())
     .pipe(git.commit('release: version ' + version))
@@ -231,6 +231,6 @@ gulp.task('deploy:push', ['deploy:tag'], function (done) {
 });
 
 gulp.task('deploy', [
-  'deploy:init', 'deploy:zip', 'bump',
+  'deploy:init', 'bump', 'bump-ghost-package', 'deploy:zip',
   'deploy:commit', 'deploy:tag', 'deploy:push'
 ]);
