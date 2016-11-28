@@ -223,7 +223,7 @@ gulp.task('deploy:tag', ['deploy:check-status'], function (done) {
   git.tag('v' + version, 'release: version ' + version, done);
 });
 
-gulp.task('deploy:check-status', ['deploy:commit'], function(don) {
+gulp.task('deploy:check-status', ['deploy:commit'], function(done) {
   exec('git status -s', function (err, stdout, stderr) {
     if (err) return done(err);
     if (stdout.length) return done('Repository does not have a clean status');
