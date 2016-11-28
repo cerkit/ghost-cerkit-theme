@@ -230,8 +230,12 @@ gulp.task('deploy:check-status', ['deploy:init'], function(don) {
   });
 });
 
-gulp.task('deploy:push', ['deploy:tag'], function (done) {
-  git.push('origin', { args: '--tags' }, done);
+gulp.task('deploy:pull-changes'], function (done) {
+  git.pull('origin', 'master', { args: '--tags' }, done);
+});
+
+gulp.task('deploy:push', ['deploy:tag',  'deploy:pull-changes'], function (done) {
+  git.push('origin', 'master', { args: '--tags' }, done);
 });
 
 gulp.task('deploy', [
