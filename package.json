@@ -1,6 +1,6 @@
 {
   "name": "ghost-cerkit-theme",
-  "version": "4.0.34",
+  "version": "4.0.35",
   "author": "Michael Earls",
   "description": "A Bootstrap theme for the Ghost blogging engine. See https://ghost.org",
   "dependencies": {
