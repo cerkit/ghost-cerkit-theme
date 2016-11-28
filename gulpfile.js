@@ -169,7 +169,7 @@ gulp.task('deploy:init', finalBuildTasks, function (done) {
   done();
 });
 
-gulp.task('deploy:zip', ['deploy:init'], function () {
+gulp.task('deploy:zip', ['deploy:init', 'bump', 'bump-ghost-package'], function () {
   var zipFilename = 'ghost-cerkit-theme-distro.zip';
   return gulp.src('src/**/*.*')
     .pipe(zip(zipFilename))
