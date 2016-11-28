@@ -231,13 +231,13 @@ gulp.task('deploy:check-status', ['deploy:init'], function(don) {
 });
 
 gulp.task('deploy:push', ['deploy:tag'], function (done) {
-  exec('git pull origin', function (err, stdout, stderr) {
+  exec('git po --tags', function (err, stdout, stderr) {
     if (err) return done(err);
-    if (stdout.length) return done('Error pulling from origin');
+    if (stdout.length) return done('Error pushing/pulling changes with "po" alias from origin');
     done();
   });
-  
-  git.push('origin', 'master', { args: '--tags' }, done);
+
+  //git.push('origin', 'master', { args: '--tags' }, done);
 });
 
 gulp.task('deploy', [
