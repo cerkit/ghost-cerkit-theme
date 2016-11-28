@@ -211,6 +211,7 @@ gulp.task('bump-ghost-package', function (done) {
   return gulp.src(['./dev/package.json'])
     .pipe($.bump({ version: version }))
     .pipe(gulp.dest('./dev'))
+    .pipe(gulp.dest('./src'))
     .pipe(size({ title: '/', showFiles: true }));
 });
 
