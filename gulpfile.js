@@ -39,7 +39,7 @@ var customSassGlob = 'dev/custom/**/*.scss';
 var customCssGlob = 'dev/custom/**/*.css';
 
 var buildTasks = ['customStyles', 'scripts'];
-var finalBuildTasks = ['deploy:commit', 'customStyles', 'scripts'];
+var finalBuildTasks = ['customStyles', 'scripts'];
 
 
 gulp.task('styles', function () {
@@ -160,7 +160,7 @@ var tagTypes = {
 var version;
 
 
-gulp.task('deploy:init', finalBuildTasks, function (done) {
+gulp.task('deploy:init', buildTasks, function (done) {
   var tagType = tagTypes[$.util.env.tag];
   version = semver.inc(pkg.version, tagType);
 
@@ -210,7 +210,7 @@ gulp.task('bump-ghost-package', function (done) {
 });
 
 
-gulp.task('deploy:commit', ['bump', 'bump-ghost-package'], function () {
+gulp.task('deploy:commit', ['deploy:init', 'bump', 'bump-ghost-package'], function () {
   return gulp.src(['./package.json', './dev/package.json', './src/package.json', './CHANGELOG.md', DEST + '**/*.*'])
     .pipe(git.add())
     .pipe(git.commit('release: version ' + version))
@@ -222,7 +222,7 @@ gulp.task('deploy:tag', ['deploy:commit'], function (done) {
   git.tag('v' + version, 'release: version ' + version, done);
 });
 
-gulp.task('deploy:check-status', ['deploy:init'], function(don) {
+gulp.task('deploy:check-status', ['deploy:commit'], function(don) {
   exec('git status -s', function (err, stdout, stderr) {
     if (err) return done(err);
     if (stdout.length) return done('Repository does not have a clean status');
@@ -230,7 +230,7 @@ gulp.task('deploy:check-status', ['deploy:init'], function(don) {
   });
 });
 
-gulp.task('deploy:push', ['deploy:tag'], function (done) {
+gulp.task('deploy:push', ['deploy:tag', 'deploy:zip'], function (done) {
   exec('git po --tags', function (err, stdout, stderr) {
     if (err) return done(err);
     //if (stdout.length) return done('Pushed to origin using current branch.');
@@ -241,6 +241,6 @@ gulp.task('deploy:push', ['deploy:tag'], function (done) {
 });
 
 gulp.task('deploy', [
-  'deploy:commit', 'deploy:init', 'deploy:check-status', 'deploy:zip',
+  'deploy:init', 'deploy:commit', 'deploy:check-status', 'deploy:zip',
   'deploy:tag', 'deploy:push'
 ]);
