@@ -206,7 +206,6 @@ gulp.task('bump-ghost-package', function (done) {
     .pipe($.bump({ version: version }))
     .pipe(gulp.dest('./dev'))
     .pipe(gulp.dest('./src'))
-    .pipe(size({ title: '/', showFiles: true }));
 });
 
 
