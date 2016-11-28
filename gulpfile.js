@@ -203,12 +203,12 @@ gulp.task('bump', function (done) {
 
 /*****************************************************************************************
  * Bump the Ghost theme package.json
- * 
+ *
  */
 gulp.task('bump-ghost-package', function (done) {
   return gulp.src(['./dev/package.json'])
     .pipe($.bump({ version: version }))
-    .pipe(gulp.dest('./src'))
+    .pipe(gulp.dest('./dev'))
     .pipe(size({ title: '/', showFiles: true }));
 });
 
