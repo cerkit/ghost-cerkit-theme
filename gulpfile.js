@@ -39,6 +39,8 @@ var customSassGlob = 'dev/custom/**/*.scss';
 var customCssGlob = 'dev/custom/**/*.css';
 
 var buildTasks = ['customStyles', 'scripts'];
+var finalBuildTasks = ['bump', 'bump-ghost-package', 'customStyles', 'scripts'];
+
 
 gulp.task('styles', function () {
   return merge(
@@ -158,7 +160,7 @@ var tagTypes = {
 var version;
 
 
-gulp.task('deploy:init', buildTasks, function (done) {
+gulp.task('deploy:init', finalBuildTasks, function (done) {
   var tagType = tagTypes[$.util.env.tag];
   version = semver.inc(pkg.version, tagType);
 
@@ -173,7 +175,7 @@ gulp.task('deploy:init', buildTasks, function (done) {
   });
 });
 
-gulp.task('deploy:zip', ['deploy:init', 'bump', 'bump-ghost-package'], function () {
+gulp.task('deploy:zip', ['deploy:init'], function () {
   var zipFilename = 'ghost-cerkit-theme-distro.zip';
   return gulp.src('src/**/*.*')
     .pipe(zip(zipFilename))
