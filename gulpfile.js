@@ -131,6 +131,7 @@ var getPackageJson = function () {
   return JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 };
 
+
 /*****************************************************************************************
  * Standalone zip
  */
@@ -172,7 +173,7 @@ gulp.task('deploy:init', buildTasks, function (done) {
   });
 });
 
-gulp.task('deploy:zip', ['deploy:init'], function () {
+gulp.task('deploy:zip', ['deploy:init', 'bump'], function () {
   var zipFilename = 'ghost-cerkit-theme-distro.zip';
   return gulp.src('src/**/*.*')
     .pipe(zip(zipFilename))
@@ -193,10 +194,21 @@ gulp.task('changelog', ['deploy:zip'] , function (done) {
 });
 */
 
-gulp.task('bump', ['deploy:zip'], function (done) {
+gulp.task('bump', ['bump-ghost-package'], function (done) {
   return gulp.src(['./package.json'])
     .pipe($.bump({ version: version }))
     .pipe(gulp.dest('./'))
+    .pipe(size({ title: '/', showFiles: true }));
+});
+
+/*****************************************************************************************
+ * Bump the Ghost theme package.json
+ * 
+ */
+gulp.task('bump-ghost-package', function (done) {
+  return gulp.src(['./dev/package.json'])
+    .pipe($.bump({ version: version }))
+    .pipe(gulp.dest('./src'))
     .pipe(size({ title: '/', showFiles: true }));
 });
 
