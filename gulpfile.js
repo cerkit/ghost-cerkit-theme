@@ -39,7 +39,7 @@ var customSassGlob = 'dev/custom/**/*.scss';
 var customCssGlob = 'dev/custom/**/*.css';
 
 var buildTasks = ['customStyles', 'scripts'];
-var finalBuildTasks = ['deploy:init', 'deploy:commit', 'customStyles', 'scripts'];
+var finalBuildTasks = ['customStyles', 'scripts'];
 
 
 gulp.task('styles', function () {
@@ -231,7 +231,7 @@ gulp.task('deploy:check-status', ['deploy:commit'], function(don) {
 });
 
 gulp.task('deploy:push', ['deploy:tag', 'deploy:zip'], function (done) {
-  exec('git po --tags', function (err, stdout, stderr) {
+  exec('git po', function (err, stdout, stderr) {
     if (err) return done(err);
     if(stdout) return done(stdout);
     //if (stdout.length) return done('Pushed to origin using current branch.');
@@ -241,5 +241,9 @@ gulp.task('deploy:push', ['deploy:tag', 'deploy:zip'], function (done) {
   //git.push('origin', 'master', { args: '--tags' }, done);
 });
 
+/*
 gulp.task('deploy', ['deploy:init', 'bump', 'bump-ghost-package', 'deploy:commit', 'deploy:check-status', 'deploy:zip',
   'deploy:tag', 'deploy:push']);
+*/
+
+gulp.task('deploy', ['deploy:push']);
