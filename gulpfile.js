@@ -73,6 +73,7 @@ gulp.task('scripts', function () {
   // make sure the scripts get put into the correct order
 
   return streamqueue({ objectMode: true },
+    gulp.src(scriptSrc + 'bootstrap.js'),
     gulp.src(scriptSrc + 'jquery.fitvids.js'),
     gulp.src(scriptSrc + 'prism.js'),
     gulp.src(scriptSrc + 'reading-time.js'),
