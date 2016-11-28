@@ -39,6 +39,8 @@ var customSassGlob = 'dev/custom/**/*.scss';
 var customCssGlob = 'dev/custom/**/*.css';
 
 var buildTasks = ['customStyles', 'scripts'];
+var finalBuildTasks = ['customStyles', 'scripts'];
+
 
 gulp.task('styles', function () {
   return merge(
@@ -130,6 +132,7 @@ var getPackageJson = function () {
   return JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 };
 
+
 /*****************************************************************************************
  * Standalone zip
  */
@@ -156,19 +159,14 @@ var tagTypes = {
 var version;
 
 
-gulp.task('deploy:init', buildTasks, function (done) {
+gulp.task('deploy:init', finalBuildTasks, function (done) {
   var tagType = tagTypes[$.util.env.tag];
   version = semver.inc(pkg.version, tagType);
 
   if (!$.util.env.tag) return done('--tag is required');
   if (!tagType) return done('--tag must be patch, feature or release');
-  if ($.util.env.f) return git.exec({ args: 'stash' });
-
-  exec('git status -s', function (err, stdout, stderr) {
-    if (err) return done(err);
-    if (stdout.length) return done('Repository does not have a clean status');
-    done();
-  });
+  //if ($.util.env.f) return git.exec({ args: 'stash' });
+  done();
 });
 
 gulp.task('deploy:zip', ['deploy:init'], function () {
@@ -192,32 +190,56 @@ gulp.task('changelog', ['deploy:zip'] , function (done) {
 });
 */
 
-gulp.task('bump', ['deploy:zip'], function (done) {
+gulp.task('bump', function (done) {
   return gulp.src(['./package.json'])
     .pipe($.bump({ version: version }))
     .pipe(gulp.dest('./'))
     .pipe(size({ title: '/', showFiles: true }));
 });
 
+/*****************************************************************************************
+ * Bump the Ghost theme package.json
+ *
+ */
+gulp.task('bump-ghost-package', function (done) {
+  return gulp.src(['./dev/package.json'])
+    .pipe($.bump({ version: version }))
+    .pipe(gulp.dest('./dev'))
+    .pipe(gulp.dest('./src'))
+    .pipe(size({ title: '/', showFiles: true }));
+});
 
-gulp.task('deploy:commit', ['bump'], function () {
-  return gulp.src(['./package.json', './CHANGELOG.md', DEST + '**/*.*'])
+
+gulp.task('deploy:commit', ['deploy:init', 'bump', 'bump-ghost-package'], function () {
+  return gulp.src(['./package.json', './dev/package.json', './CHANGELOG.md', './src/**/*.*'])
     .pipe(git.add())
     .pipe(git.commit('release: version ' + version))
     .pipe(size({ title: '/', showFiles: true }));
 });
 
 
-gulp.task('deploy:tag', ['deploy:commit'], function (done) {
+gulp.task('deploy:tag', ['deploy:check-status'], function (done) {
   git.tag('v' + version, 'release: version ' + version, done);
 });
 
-
-gulp.task('deploy:push', ['deploy:tag'], function (done) {
-  git.push('origin', 'master', { args: '--tags' }, done);
+gulp.task('deploy:check-status', ['deploy:commit'], function(done) {
+  exec('git status -s', function (err, stdout, stderr) {
+    if (err) return done(err);
+    //if (stdout.length) return done('Repository does not have a clean status');
+    done();
+  });
 });
 
-gulp.task('deploy', [
-  'deploy:init', 'deploy:zip', 'bump',
-  'deploy:commit', 'deploy:tag', 'deploy:push'
-]);
+gulp.task('deploy:push', ['deploy:tag', 'deploy:zip'], function (done) {
+  exec('git po', function (err, stdout, stderr) {
+    if (err) return done(err);
+    //if(stdout) return done(stdout);
+    //if (stdout.length) return done('Pushed to origin using current branch.');
+    done();
+  });
+
+  //git.push('origin', 'master', { args: '--tags' }, done);
+});
+
+gulp.task('deploy', ['deploy:init', 'bump', 'bump-ghost-package', 'deploy:commit', 'deploy:check-status', 'deploy:zip',
+  'deploy:tag', 'deploy:push']);
