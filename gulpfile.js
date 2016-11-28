@@ -231,7 +231,7 @@ gulp.task('deploy:check-status', ['deploy:init'], function(don) {
 });
 
 gulp.task('deploy:push', ['deploy:tag'], function (done) {
-  git.push('origin', 'master', { args: '--tags' }, done);
+  git.push('origin', { args: '--tags' }, done);
 });
 
 gulp.task('deploy', [
