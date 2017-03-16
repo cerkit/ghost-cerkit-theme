@@ -1,5 +1,3 @@
-*Note: this project will no longer be maintained on GitHub. I have had to make significant changes to it in order to make it work for my needs on my personal blog. As such, keeping it generic has become an overwhelming task and I will no longer be able to keep this project up-to-date. Thanks*
-
 # Cerkit Ghost Theme
 
 Based on the default theme for [Ghost](http://github.com/tryghost/ghost/). This theme is fully responsive and adapts to any screen size. It is also accessible with screen reader links to relevant site components.
