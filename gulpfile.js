@@ -115,7 +115,7 @@ gulp.task('watch', function () {
   scriptWatcher.on('change', function (event) {
     if (event.type === 'deleted') {                   // if a file is deleted, forget about it
       delete cached.caches.styles[event.path];       // gulp-cached remove api
-      remember.forget('styles', event.path);         // gulp-remember remove api
+      remember.forget('customStyles', event.path);         // gulp-remember remove api
     }
   });
 });
@@ -169,7 +169,7 @@ gulp.task('deploy:init', finalBuildTasks, function (done) {
   done();
 });
 
-gulp.task('deploy:zip', ['deploy:init'], function () {
+gulp.task('deploy:zip', ['deploy:init', 'bump', 'bump-ghost-package'], function () {
   var zipFilename = 'ghost-cerkit-theme-distro.zip';
   return gulp.src('src/**/*.*')
     .pipe(zip(zipFilename))

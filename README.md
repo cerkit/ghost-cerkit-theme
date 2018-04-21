@@ -217,9 +217,6 @@ The next argument is the icon. This is the [Font Awesome](http://fontawesome.io/
 The last argument is optional. It is the size you wish to use. If it is not provided, the system will use the default size defined in `window.linkIconMap.defaultIconSize`.
 If that is not provided, then it will fall back to use the default Font Awesome size.
 
-## Notes about custom JavaScript for the theme
-Custom features and JavaScript features all use variables defined in the [assets/js/site-init.js](https://github.com/cerkit/ghost-cerkit-theme/blob/master/ghost-cerkit-theme/assets/js/site-init.js) file.
-
 ## Custom styles
 
 Check out the [Bootstrap CSS](http://getbootstrap.com/css/) documentation on how to modify built-in components of the site. If you need to override anything, you can do it in the `src/assets/custom` folder.
@@ -231,7 +228,8 @@ Each of the scripts and css files are minified automatically by gulp (assuming y
 
 ## Copyright & License
 
-Copyright (c) 2013-2016 Ghost Foundation - Released under the MIT License
+Copyright (c) 2016 Michael Earls - Released under the MIT License
+Portions of this theme were adapted from the Casper theme - Copyright (c) 2013-2016 Ghost Foundation
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
