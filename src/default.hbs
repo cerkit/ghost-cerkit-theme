@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -9,22 +9,23 @@
     enable_page_level_ads: true
   });
   </script>
+        <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
 
-  {{! Document Settings }}
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  {{! Page Meta }}
-  <title>{{meta_title}}</title>
-  <meta name="description" content="{{meta_description}}" />
+        {{!-- jQuery needs to come before `{{ghost_foot}}` so that jQuery can be used in code injection --}}
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {{!-- Bootswatch Theme --}}
+        <link id="theme-selector" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet">
 
-  <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+        {{!-- minified JavaScript for Bootstrap --}}
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-  {{!-- jQuery needs to come before `{{ghost_foot}}` so that jQuery can be used in code injection --}}
-  <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+        {{!-- Fontawesome --}}
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+        {{!!-- theme specific css --}}
+        <link rel="stylesheet" type="text/css" href="{{asset "css/app.min.css"}}" />
 
   {{!-- Bootswatch Theme --}}
   <link id="theme-selector" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet">
@@ -78,21 +79,21 @@
         </footer>
       </div>
     </div>
-  </div>
-  {{!-- Lightbox 2 --}}
-  <link rel="stylesheet" type="text/css" href="{{asset "css/lightbox.min.css"}}" />
-  <script type="text/javascript" src="{{asset "js/lightbox.js"}}"></script>
-  {{!-- Google Code Prettyfier --}}
-  <script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js" type="text/javascript"></script>
-  {{! Ghost outputs important scripts and data with this tag }}
-  {{ghost_foot}}
-  <script type="text/javascript">
-    if ($.isFunction(window.disqus_init)) {
-      console.log('disqus_init exists');
-      $(disqus_init());
-    }
-  </script>
-  {{>google-analytics}}
-  <script id="dsq-count-scr" src="//cerkit.disqus.com/count.js" async></script>
+    {{!-- Lightbox 2 --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/lightbox.css"}}" />
+    <script type="text/javascript" src="{{asset "js/lightbox.js"}}"></script>
+    {{!-- Google Code Prettyfier --}}
+    <script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js" type="text/javascript"></script>
+    {{! Ghost outputs important scripts and data with this tag }}
+    {{ghost_foot}}
+    <script type="text/javascript">
+        if ($.isFunction(window.disqus_init)) {
+            console.log('disqus_init exists');
+            $(disqus_init());
+        }
+    </script>
+    {{>google-analytics}}
+    <script id="dsq-count-scr" src="//cerkit.disqus.com/count.js" async></script>
+
 </body>
 </html>

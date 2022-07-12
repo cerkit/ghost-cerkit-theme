@@ -190,7 +190,7 @@ gulp.task('changelog', ['deploy:zip'] , function (done) {
 });
 */
 
-gulp.task('bump', ['deploy:init'], function (done) {
+gulp.task('bump', function (done) {
   return gulp.src(['./package.json'])
     .pipe($.bump({ version: version }))
     .pipe(gulp.dest('./'))
@@ -201,7 +201,7 @@ gulp.task('bump', ['deploy:init'], function (done) {
  * Bump the Ghost theme package.json
  *
  */
-gulp.task('bump-ghost-package', ['deploy:init'], function (done) {
+gulp.task('bump-ghost-package', function (done) {
   return gulp.src(['./dev/package.json'])
     .pipe($.bump({ version: version }))
     .pipe(gulp.dest('./dev'))
